@@ -137,12 +137,12 @@ To fill that gap i was watching an informative talk by Les Hazlewood about beaut
     </item>
     
     <item>
-      <title></title>
+      <title>Imprint</title>
       <link>https://wicki.io/imprint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wicki.io/imprint/</guid>
-      <description>Imprint Angaben gemäß § 5 TMG  Simon Wicki
+      <description>Angaben gemäß § 5 TMG  Simon Wicki
 Freiberuflicher Softwareentwickler
 Alt-Moabit 77
 10555 Berlin
@@ -155,12 +155,12 @@ Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Rich
     </item>
     
     <item>
-      <title></title>
+      <title>Privacy Policy</title>
       <link>https://wicki.io/privacy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wicki.io/privacy/</guid>
-      <description>Privacy Policy TL;DR  wicki.io does not store any data.
+      <description>TL;DR  wicki.io does not store any data.
   Google Analytics  Not in use
   Google Web Fonts  For uniform representation of fonts, this page uses web fonts provided by Google. When you open a page, your browser loads the required web fonts into your browser cache to display texts and fonts correctly.
 For this purpose your browser has to establish a direct connection to Google servers.</description>

@@ -3,15 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://wicki.io/</loc>
+    <loc>https://wicki.io/posts/</loc>
     <lastmod>2020-06-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wicki.io/posts/</loc>
+    <loc>https://wicki.io/</loc>
     <lastmod>2020-06-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -70,17 +68,15 @@
   </url>
   
   <url>
+    <loc>https://wicki.io/categories/</loc>
+  </url>
+  
+  <url>
     <loc>https://wicki.io/imprint/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://wicki.io/privacy/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://wicki.io/categories/</loc>
   </url>
   
   <url>
