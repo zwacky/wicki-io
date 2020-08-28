@@ -1,4 +1,7 @@
-# Imprint
+---
+title: Imprint
+description: Imprint of wicki.io.
+---
 
 {{% row "Angaben gemäß § 5 TMG" %}}
 Simon Wicki<br />

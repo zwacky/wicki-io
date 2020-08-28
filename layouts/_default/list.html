@@ -3,10 +3,10 @@
 <div class="container" style="padding-top: 175px">
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <h1>Blog posts</h1>
+      <h1>{{ .Title }}</h1>
     </div>
   </div>
-  <div class="row" style="margin-bottomm: 100px;">
+  <div class="row">
     <!-- <div class="col-md-8 offset-md-2"> -->
     {{ range .Paginator.Pages.ByPublishDate.Reverse }} {{ $page := . }}
 

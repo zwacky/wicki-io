@@ -1,4 +1,7 @@
-# Privacy Policy
+---
+title: Privacy Policy
+description: All your data aren't belong to us.
+---
 
 {{% row "TL;DR" %}}
 [wicki.io](https://wicki.io) does not store any data.

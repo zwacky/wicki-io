@@ -1,52 +1,27 @@
 <head>
   <title>{{ .Title | default .Site.Params.title }}</title>
   <base href="/" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700" rel="stylesheet" />
   {{ $stylesMain := resources.Get "styles/main.scss" | resources.ToCSS | minify }}
-  <link
-    rel="stylesheet"
-    href="{{ $stylesMain.Permalink | relURL}}"
-    integrity="{{ $stylesMain.Data.Integrity }}"
-    media="screen"
-  />
+  <link rel="stylesheet" href="{{ $stylesMain.Permalink | relURL}}" integrity="{{ $stylesMain.Data.Integrity }}" media="screen" />
   <link rel="canonical" href="{{ .Permalink }}" />
-  <link rel='icon' type='image/x-icon' href="/images/favicon.png" />
+  <link rel="icon" type="image/x-icon" href='{{ "/images/favicon.png" | absURL }}' />
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5"
-  />
-  <meta
-    name="keywords"
-    content="{{ .Keywords | default .Site.Params.keywords }}"
-  />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="{{ .Keywords | default .Site.Params.keywords }}" />
 
-  <!-- facebook OG -->
-  <meta
-    property="og:title"
-    content="{{ .Title | default .Site.Params.title }}"
-    name="title"
-  />
   <meta property="og:site_name" content="Wicki.io" />
-  <meta
-    property="og:description"
-    content="{{ .Description | default .Site.Params.description }}"
-    name="description"
-  />
+  <meta property="og:title" content="{{ .Title | default .Site.Params.title }}" name="title" />
+  <meta property="og:description" content="{{ .Description | default .Site.Params.description }}" name="description" />
   <meta property="og:url" content="https://wicki.io" />
-  <meta
-    property="og:image"
-    content="/images/logo.png"
-  />
+  <meta property="og:image" content='{{ "/images/logo.png" | absURL }}' />
+  <meta property="og:type" content='{{ if findRE "/posts/.+" .RelPermalink }}article{{else}}website{{ end }}' />
 
   <meta name="author" content="Simon Wicki" />
   <meta name="twitter:site" content="@zwacky" />
   <meta name="twitter:creator" content="@zwacky" />
-
-  <!-- <meta property="og:type" content="article" /> -->
+  <meta name="twitter:title" content="{{ .Title | default .Site.Title }}"/>
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
 
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
