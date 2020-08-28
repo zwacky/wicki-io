@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "set-worktree": "git worktree add -B gh-pages public upstream/gh-pages",
+    "set-worktree": "git worktree prune && git worktree add -B gh-pages public origin/gh-pages",
     "deploy": "rm -rf public && npm run set-worktree && hugo && cd public && git add -A && git commit -m '🚀 publish to gh-pages' && git push && cd .."
   },
   "repository": {
