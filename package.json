@@ -2,7 +2,9 @@
   "name": "wicki-io",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "deploy": "hugo && cd public && git add -A && git commit -m '🚀 publish to gh-pages'"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zwacky/wicki-io.git"
