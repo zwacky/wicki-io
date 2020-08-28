@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Design a beautiful REST API</title>
+  <base href="/" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700"
+    rel="stylesheet"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/styles/main.min.css"
+    integrity=""
+    media="screen"
+  />
+  <link rel="canonical" href="https://wicki.io/posts/2013-12-design-a-beautiful-rest-api/" />
+  <link rel='icon' type='image/x-icon' href="/images/favicon.png" />
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5"
+  />
+  <meta
+    name="keywords"
+    content="[api]"
+  />
+
+  
+  <meta
+    property="og:title"
+    content="Design a beautiful REST API"
+    name="title"
+  />
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta
+    property="og:description"
+    content="Learn how to design a beautiful REST API."
+    name="description"
+  />
+  <meta property="og:url" content="https://wicki.io" />
+  <meta
+    property="og:image"
+    content="/images/logo.png"
+  />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+
+  
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      <a href="/" class="nav--brand" style="overflow: hidden;">
+        <img src="images/logo.png" alt="W" width="38" />
+      </a>
+      <div>
+        <a href="/#work" class="nav__list__item">Work</a>
+        <a href="/#projects" class="nav__list__item">Projects</a>
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Design a beautiful REST API</h1>
+      <div style="margin-bottom: 20px;">
+        
+          December 4, 2013
+        
+      </div>
+
+      <p>Every dev at some point has made decisions how his backend API should look like. If you’re coming from the web, then mostly for ajax calls. But what if that API should also address calls from other sources and clients.</p>
+<p>To fill that gap i was watching an informative talk by Les Hazlewood about beautiful RESTful. I’ll cut this in several sections. This is merely an overview, the full coverage you can get from the youtube talk or the slides.</p>
+<h2 id="endpoint-naming">Endpoint Naming</h2>
+<ul>
+<li>Nouns, not verbs (No: getUser, Yes: /users/a1b2c3)</li>
+<li>Parameters not in URL (hassle if changes arise api.com/do/param1/param2/param3)</li>
+</ul>
+<p>It should be divided into two fragments:</p>
+<ul>
+<li>Collection (api.com/users)</li>
+<li>Instance (api.com/users/a1b2c3)</li>
+</ul>
+<h2 id="behaviour">Behaviour</h2>
+<p>It’s a good thing to use different methods for calling the api. They don’t represent 1:1 the CRUD model. PUT and GET can be used for create and update.</p>
+<ul>
+<li>GET: read</li>
+<li>PUT: create, update</li>
+<li>POST: create, update (partial update, due to quota)</li>
+<li>DELETE: delete</li>
+<li>head: headers, no body</li>
+</ul>
+<h2 id="update--create">Update / Create</h2>
+<p>Keyword here is <strong>idempotent</strong>. This means that it produces the same result if it’s been sent once or multiple times. To avoid having different states, the update should contain the full object in its entirety.</p>
+<p>Partial updates can be done (using POST) if you’re concerned about your data quota.</p>
+<p>You should give responses back for the PUT/POST:</p>
+<ul>
+<li>201 OK (or 201 created for a create)</li>
+<li>location, where instance can be found (url: <a href="http://api.com/users/g4h5i6">http://api.com/users/g4h5i6</a>)</li>
+</ul>
+<h2 id="media-types">Media Types</h2>
+<p>They tell the the server what format the client understands and prefers and how the client has to parse and process it.</p>
+<ul>
+<li>Request: accept header</li>
+<li>Response: content-type header</li>
+</ul>
+<p>you can have your own media-type (application/json+foo), that has a defined specification or add additional parameters (application/json+foo;application) — see API Versioning for another possible use case.</p>
+<h2 id="api-versioning">API Versioning</h2>
+<p>In case you make drastic changes, you still want to support the old API, to prevent problems with old implementations. There are possibilities to do so:</p>
+<ul>
+<li>URL: api.com/v1</li>
+<li>media-type: application/json+foo;application,v=1</li>
+</ul>
+<h2 id="linking">Linking</h2>
+<p>You want to retreive a resource, which contains other resources. Best practice is to provide an atomic resources. So you shouldn’t provide an endpoint as such asapi.com/UserWithAddress, rather have seperate endpoints for each. In a JSON it would look as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://api.com/users/a1b2c3&#34;</span>,
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;John&#34;</span>,
+  <span style="color:#f92672">&#34;lastname&#34;</span>: <span style="color:#e6db74">&#34;Smith&#34;</span>,
+  <span style="color:#f92672">&#34;address&#34;</span>: {
+    <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://api.com/addresses/d4f5g6&#34;</span>
+  }
+}
+</code></pre></div><p>The result doesn’t contain the all address properties, but the href one, which tells the requester exactly where the resource is located.</p>
+<h2 id="reference-expansion">Reference Expansion</h2>
+<p>In case you’d like to make only one request for the user and its address properties, you can provide an additional parameter:</p>
+<ul>
+<li>api.com/users/a1b2c3?expand=address</li>
+</ul>
+<p>You can also request more than one reference expansion separated by a comma. In case the property doesn’t exist, a good practice is to return a 409 Conflict.</p>
+<h2 id="partial-representation">Partial Representation</h2>
+<p>Usually you get all properties of a resource upon a request. You could list the wanted properties in a request like this to save bandwith:</p>
+<ul>
+<li>api.com/users/a1b2c3?expand=address(street,zip)</li>
+</ul>
+<h3 id="pagination">Pagination</h3>
+<p>On Collection calls you may come across a lot of items that shouldn’t be requested all in one call. A possible pagination request could look like this:</p>
+<ul>
+<li>api.com/users?offset=0&amp;limit=25</li>
+</ul>
+<p>The returning JSON could look like the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;offset&#34;</span>: <span style="color:#ae81ff">0</span>,
+  <span style="color:#f92672">&#34;limit&#34;</span>: <span style="color:#ae81ff">25</span>,
+  <span style="color:#f92672">&#34;first&#34;</span>: {
+    <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://api.com/users?offset=0&#34;</span>
+  },
+  <span style="color:#f92672">&#34;previous&#34;</span>: <span style="color:#66d9ef">null</span>,
+  <span style="color:#f92672">&#34;next&#34;</span>: {
+    <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://api.com/users?offset=25&#34;</span>
+  },
+  <span style="color:#f92672">&#34;last&#34;</span>: {
+    <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://api.com/users?offset=425&#34;</span>
+  },
+  <span style="color:#f92672">&#34;items&#34;</span>: [{}, {}]
+}
+</code></pre></div><h2 id="errors">Errors</h2>
+<p>Sometimes errors should tell the API caller more than only a return code, then this is a good way to do so.</p>
+<ul>
+<li>as descriptive as possible</li>
+<li>as much information as possible</li>
+<li>if your API is targeted at other devs, provide additional dev info</li>
+</ul>
+<p>POST /users → 409 conflict:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#ae81ff">409</span>,
+  <span style="color:#f92672">&#34;code&#34;</span>: <span style="color:#ae81ff">40924</span>,
+  <span style="color:#f92672">&#34;property&#34;</span>: <span style="color:#e6db74">&#34;name&#34;</span>,
+  <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;user named xyz already exists&#34;</span>,
+  <span style="color:#f92672">&#34;developerMessage&#34;</span>: <span style="color:#e6db74">&#34;user named xyz already exists. if you have a stale local cache, please expire it now&#34;</span>,
+  <span style="color:#f92672">&#34;moreInfo&#34;</span>: <span style="color:#e6db74">&#34;http://…&#34;</span>
+}
+</code></pre></div><h2 id="ids">IDs</h2>
+<ul>
+<li>should be opaque</li>
+<li>should be globally unique</li>
+<li>avoid sequential numbers</li>
+<li>good candidates: uuids, url64</li>
+</ul>
+<h2 id="what-the-talk-covers-additionally">What the talk covers additionally</h2>
+<p>In the 1h 25min talk, Les Hazlewood covers other topics. Hop over, if you’d like to know more about these sections:</p>
+<ul>
+<li>Base URL</li>
+<li>Many to Many</li>
+<li>Return Values</li>
+<li>Method Overloading</li>
+<li>Caching &amp; Etags</li>
+<li>Security</li>
+<li>Multi Tenancy</li>
+<li>Maintenance</li>
+</ul>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div class="title" style="font-size: 1.5rem; margin-top: 0">
+      Simon Wicki
+    </div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      Previously Head of Frontend at
+      <a href="https://www.justwatch.com" rel="noopener" target="_blank"
+        >JustWatch</a
+      >. Co-organizer of
+      <a
+        href="https://www.meetup.com/Ionic-Berlin/"
+        rel="noopener"
+        target="_blank"
+        >@IonicBerlin</a
+      >. Creator of
+      <a href="https://notyfy.co" rel="noopener" target="_blank"
+        >https://notyfy.co</a
+      >. I love building things, coffee and books. Berlin.
+    </div>
+    <div style="font-weight: 400">
+      Ionic <span style="margin: 0 6px">·</span> VueJS
+      <span style="margin: 0 6px">·</span> Angular
+      <span style="margin: 0 6px">·</span>
+      Cordova / Capacitor
+    </div>
+    <div style="margin-top: 6px">
+      <a
+        href="https://medium.com/@zwacky"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/medium.svg"
+          alt="Medium"
+          title="Medium"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+      <a
+        href="https://twitter.com/zwacky"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/twitter.svg"
+          alt="Twitter"
+          title="Twitter"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+      <a
+        href="https://github.com/zwacky"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/github.svg"
+          alt="GitHub"
+          title="GitHub"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/simon-w-490b8617a"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/linkedin.svg"
+          alt="LinkedIn"
+          title="LinkedIn"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+      <a
+        href="mailto:simon@wicki.io"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/envelope.svg"
+          alt="LinkedIn"
+          title="LinkedIn"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer></body>
+</html>

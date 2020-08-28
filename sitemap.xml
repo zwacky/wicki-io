@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://wicki.io/</loc>
+    <lastmod>2020-06-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/</loc>
+    <lastmod>2020-06-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2020-06-stats-and-learnings-from-finishing-11-on-product-hunt/</loc>
+    <lastmod>2020-06-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2019-11-hybrid-apps-are-slow/</loc>
+    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2017-08-using-firebase-you-might-be-able-to-save-220kb/</loc>
+    <lastmod>2017-08-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2017-06-add-es7-async-await-support-into-your-non-bleeding-edge-build-process/</loc>
+    <lastmod>2017-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2017-06-pwa-create-a-new-update-available-notification-using-service-workers/</loc>
+    <lastmod>2017-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2017-03-ios-android-native-build-errors-with-cordova-plugins/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2015-09-15-angular-s-ng-repeat-finish-event/</loc>
+    <lastmod>2015-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2014-09-laravel-redirect-to-vs-redirect-away/</loc>
+    <lastmod>2014-09-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2014-07-very-useful-chrome-dev-tool-commands/</loc>
+    <lastmod>2014-07-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2014-04-laravels-url-to-vs-url-asset/</loc>
+    <lastmod>2014-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/posts/2013-12-design-a-beautiful-rest-api/</loc>
+    <lastmod>2013-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/imprint/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/privacy/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://wicki.io/tags/</loc>
+  </url>
+  
+</urlset>

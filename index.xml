@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simon Wicki — Frontend Engineer from Berlin</title>
+    <link>https://wicki.io/</link>
+    <description>Recent content on Simon Wicki — Frontend Engineer from Berlin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wicki.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Stats and Learnings from Finishing #11 on Product Hunt</title>
+      <link>https://wicki.io/posts/2020-06-stats-and-learnings-from-finishing-11-on-product-hunt/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2020-06-stats-and-learnings-from-finishing-11-on-product-hunt/</guid>
+      <description>I launched Notyfy on Product Hunt on 7th of May.
+  My first Product Hunt Launch 🎉—a lot of time went into the preparation together with my friend Peter 👋. Read on to see what stats and learnings finishing #11 on Product Hunt brings.
+Notyfy Let me quickly run you through what the product is that I launched on Product Hunt:
+Notyfy is a browser extension that aggregates web notifications from Twitter, Reddit, Facebook and many more in one place.</description>
+    </item>
+    
+    <item>
+      <title>&#34;Hybrid Apps are slow&#34;</title>
+      <link>https://wicki.io/posts/2019-11-hybrid-apps-are-slow/</link>
+      <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2019-11-hybrid-apps-are-slow/</guid>
+      <description>…and other things I’ve heard regarding Hybrid App development.
+Let’s talk about the elephant in the room: Performance. Let me just show you how fast and smooth Hybrid apps can be based on this footage of my last work: JustWatch, a streaming search engine with 12M monthly active users. It’s been recorded on a OnePlus 6 (May 2018).
+  &amp;ldquo;Hybrid Apps will never be faster than native&amp;rdquo; Yes, this is true.</description>
+    </item>
+    
+    <item>
+      <title>Using Firebase with webpack? You might be able to save 220kb</title>
+      <link>https://wicki.io/posts/2017-08-using-firebase-you-might-be-able-to-save-220kb/</link>
+      <pubDate>Tue, 22 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2017-08-using-firebase-you-might-be-able-to-save-220kb/</guid>
+      <description>In a lot of tutorials I came across the comfortable solution of just adding import * as firebase from &amp;lsquo;firebase&amp;rsquo; for your firebase import. As it turns out, there are 4 modular packages for Firebase. Here they are along with their sizes:
+ firebase/app: 22.1kb .initializeApp(firebaseConfig) firebase/auth: 147.6kb .auth() firebase/database: 139.8kb .database() firebase/storage: 51.2kb .storage()  Usually you might not need all of these Firebase services and can require() or import just what is needed — with the help of webpack’s Tree Shaking.</description>
+    </item>
+    
+    <item>
+      <title>Add ES7 Async/Await Support for your Webapp in 3 Easy Steps</title>
+      <link>https://wicki.io/posts/2017-06-add-es7-async-await-support-into-your-non-bleeding-edge-build-process/</link>
+      <pubDate>Sat, 24 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2017-06-add-es7-async-await-support-into-your-non-bleeding-edge-build-process/</guid>
+      <description>Nearly all evergreen browsers support Async/Await natively
+  Async/Await has been around the block already some time. Now that it is in stage-4 since July 2016 (stage finished in the ECMAScript proposals) and nearly all evergreen browsers support it natively, too (except IE is late to the party as usual 😪) — it’s definitely time to take a second look.
+TL;DR I WANT ASYNC/AWAIT SUPPORT NAO!!1  use babel-preset-env yarn add regenerator or npm install regenerator add node_modules/regenerator-runtime/runtime.</description>
+    </item>
+    
+    <item>
+      <title>PWA: Create a &#34;New Update Available&#34; Notification using Service Workers</title>
+      <link>https://wicki.io/posts/2017-06-pwa-create-a-new-update-available-notification-using-service-workers/</link>
+      <pubDate>Tue, 13 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2017-06-pwa-create-a-new-update-available-notification-using-service-workers/</guid>
+      <description>New Update available popup.
+  PWAs are getting more and more coverage and support. They improve the web experience and can load your app instantly with their great ability for HTTP caching (among other things, but this post only covers caching).
+The thing with Offline-First is, that you cache all the resources that are needed for launching up the webapp — even your index.html!
+ Note: No sweat!</description>
+    </item>
+    
+    <item>
+      <title>iOS &amp; Android Native Build Errors with Cordova Plugins</title>
+      <link>https://wicki.io/posts/2017-03-ios-android-native-build-errors-with-cordova-plugins/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2017-03-ios-android-native-build-errors-with-cordova-plugins/</guid>
+      <description>Lately I encountered some native build errors that slowed me down quite a bit. Here is an overview of some of them, their issue and solution which might save you some time if you come across one of the following native errors:
+ iOS: ‘GoogleCloudMessaging.h’ file not found iOS: Duplicate Symbols Android: safeparcel.AbstractSafeParcelable not found Android: Force Close due to phonegap-push-plugin    iOS: ‘GoogleCloudMessaging.h’ file not found error: ‘GoogleCloudMessaging.</description>
+    </item>
+    
+    <item>
+      <title>Angular’s ng-repeat Finish Event</title>
+      <link>https://wicki.io/posts/2015-09-15-angular-s-ng-repeat-finish-event/</link>
+      <pubDate>Tue, 15 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2015-09-15-angular-s-ng-repeat-finish-event/</guid>
+      <description>Demo https://jsbin.com/gutahovufe/1/edit?html,js,output
+Explanation Sometimes you need to execute code after your list has been rendered on the client side.
+// js angular.module(&amp;#39;ngRepeatDemo&amp;#39;, []) .controller(&amp;#39;AppCtrl&amp;#39;, function() { var vm = this; vm.alphabet = [ &amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;f&amp;#39;, &amp;#39;g&amp;#39;, &amp;#39;h&amp;#39;, &amp;#39;j&amp;#39;, &amp;#39;k&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;m&amp;#39;, &amp;#39;n&amp;#39;, &amp;#39;o&amp;#39;, &amp;#39;p&amp;#39;, &amp;#39;q&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;s&amp;#39;, &amp;#39;t&amp;#39;, &amp;#39;u&amp;#39;, &amp;#39;v&amp;#39;, &amp;#39;w&amp;#39;, &amp;#39;x&amp;#39;, &amp;#39;y&amp;#39;, &amp;#39;z&amp;#39; ]; vm.finished = function() { alert(&amp;#39;fired&amp;#39;); // now javascript execution has been stopped and you should see all DOM nodes been created  // note: interpolation may not have been done completely  }; }); &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>Laravel Redirect::to() vs Redirect::away()</title>
+      <link>https://wicki.io/posts/2014-09-laravel-redirect-to-vs-redirect-away/</link>
+      <pubDate>Tue, 16 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2014-09-laravel-redirect-to-vs-redirect-away/</guid>
+      <description>For external redirection
+The use case here is to redirect the user to another domain. I haven’t come across Redirect::away() before, even though it’s been added in Laravel 4.0.8.
+Redirect::to()   Redirect::away()   Difference Redirect::to() does additional URL checks and generations. Those additional steps are done in Illuminate\Routing\UrlGenerator and do the following, if the passed URL is not a fully valid URL (even with protocol):
+ Determines if URL is secure rawurlencode() the URL trim() URL  </description>
+    </item>
+    
+    <item>
+      <title>4 Very Useful Chrome Dev Tool Commands</title>
+      <link>https://wicki.io/posts/2014-07-very-useful-chrome-dev-tool-commands/</link>
+      <pubDate>Fri, 04 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2014-07-very-useful-chrome-dev-tool-commands/</guid>
+      <description>$_ — last output maybe you don&amp;rsquo;t want to store results in a variable for quick calculations and just want to chain those computations.
+  $0 — currently inspected element useful if you want to output or alter the selected element.
+  angular.element($0).scope() — get AngularJS&amp;rsquo;s scope combined with $(0) this makes a great use to inspect a specific element and then check what it&amp;rsquo;s scope looks like.</description>
+    </item>
+    
+    <item>
+      <title>Laravel&#39;s URL::to() vs URL::asset()</title>
+      <link>https://wicki.io/posts/2014-04-laravels-url-to-vs-url-asset/</link>
+      <pubDate>Mon, 28 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2014-04-laravels-url-to-vs-url-asset/</guid>
+      <description>Short answer: No, not really.
+You want to have the following code:
+&amp;lt;script src=&amp;#34;js/bootstrap.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; Now you can achieve this using blade syntax:
+// using URL::to() &amp;lt;script src=&amp;#34;{{ URL::to(&amp;#39;js/bootstrap.js&amp;#39;) }}&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; // using URL::asset() &amp;lt;script src=&amp;#34;{{ URL::asset(&amp;#39;js/bootstrap.js&amp;#39;) }}&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; URL::to() The method is implemented like this:
+  URL::asset() The method is implemented like this:
+  Difference Both methods get the job done.
+ URL::to() additionally encodes the segments of the passed url with rawurlencode URL::asset() removes index.</description>
+    </item>
+    
+    <item>
+      <title>Design a beautiful REST API</title>
+      <link>https://wicki.io/posts/2013-12-design-a-beautiful-rest-api/</link>
+      <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2013-12-design-a-beautiful-rest-api/</guid>
+      <description>Every dev at some point has made decisions how his backend API should look like. If you’re coming from the web, then mostly for ajax calls. But what if that API should also address calls from other sources and clients.
+To fill that gap i was watching an informative talk by Les Hazlewood about beautiful RESTful. I’ll cut this in several sections. This is merely an overview, the full coverage you can get from the youtube talk or the slides.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wicki.io/imprint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/imprint/</guid>
+      <description>Imprint Angaben gemäß § 5 TMG  Simon Wicki
+Freiberuflicher Softwareentwickler
+Alt-Moabit 77
+10555 Berlin
+Germany
+  USt-IdNr  DE326971393
+  Kontakt  simon@wicki.io
+  Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV  Simon Wicki
+  Haftungsausschluss  Haftung für Inhalte
+Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wicki.io/privacy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/privacy/</guid>
+      <description>Privacy Policy TL;DR  wicki.io does not store any data.
+  Google Analytics  Not in use
+  Google Web Fonts  For uniform representation of fonts, this page uses web fonts provided by Google. When you open a page, your browser loads the required web fonts into your browser cache to display texts and fonts correctly.
+For this purpose your browser has to establish a direct connection to Google servers.</description>
+    </item>
+    
+  </channel>
+</rss>

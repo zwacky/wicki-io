@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Angular’s ng-repeat Finish Event</title>
+  <base href="/" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700"
+    rel="stylesheet"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/styles/main.min.css"
+    integrity=""
+    media="screen"
+  />
+  <link rel="canonical" href="https://wicki.io/posts/2015-09-15-angular-s-ng-repeat-finish-event/" />
+  <link rel='icon' type='image/x-icon' href="/images/favicon.png" />
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5"
+  />
+  <meta
+    name="keywords"
+    content="[angularjs]"
+  />
+
+  
+  <meta
+    property="og:title"
+    content="Angular’s ng-repeat Finish Event"
+    name="title"
+  />
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta
+    property="og:description"
+    content="Useful trick to make sure ng-repeat has finished rendering."
+    name="description"
+  />
+  <meta property="og:url" content="https://wicki.io" />
+  <meta
+    property="og:image"
+    content="/images/logo.png"
+  />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+
+  
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      <a href="/" class="nav--brand" style="overflow: hidden;">
+        <img src="images/logo.png" alt="W" width="38" />
+      </a>
+      <div>
+        <a href="/#work" class="nav__list__item">Work</a>
+        <a href="/#projects" class="nav__list__item">Projects</a>
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Angular’s ng-repeat Finish Event</h1>
+      <div style="margin-bottom: 20px;">
+        
+          September 15, 2015
+        
+      </div>
+
+      <h2 id="demo">Demo</h2>
+<p><a href="https://jsbin.com/gutahovufe/1/edit?html,js,output">https://jsbin.com/gutahovufe/1/edit?html,js,output</a></p>
+<h2 id="explanation">Explanation</h2>
+<p>Sometimes you need to execute code after your list has been rendered on the client side.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;ngRepeatDemo&#39;</span>, [])
+  .<span style="color:#a6e22e">controller</span>(<span style="color:#e6db74">&#39;AppCtrl&#39;</span>, <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+    <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">alphabet</span> <span style="color:#f92672">=</span> [
+      <span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>, <span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;h&#39;</span>, <span style="color:#e6db74">&#39;j&#39;</span>, <span style="color:#e6db74">&#39;k&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;m&#39;</span>, <span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39;p&#39;</span>, <span style="color:#e6db74">&#39;q&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;s&#39;</span>, <span style="color:#e6db74">&#39;t&#39;</span>, <span style="color:#e6db74">&#39;u&#39;</span>, <span style="color:#e6db74">&#39;v&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#39;x&#39;</span>, <span style="color:#e6db74">&#39;y&#39;</span>, <span style="color:#e6db74">&#39;z&#39;</span>
+    ];
+    <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">finished</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+      <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;fired&#39;</span>);
+      <span style="color:#75715e">// now javascript execution has been stopped and you should see all DOM nodes been created
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// note: interpolation may not have been done completely
+</span><span style="color:#75715e"></span>    };
+  });
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- html --&gt;</span>
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-repeat</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;letter in app.alphabet&#34;</span> <span style="color:#a6e22e">ng-init</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$last &amp;&amp; app.finished()&#34;</span>&gt;
+  {{letter}}
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>The whole magic comes from the <code>ng-init</code> part. the <code>$last</code> makes sure, that it only gets fired, when the last element has been rendered to the DOM.</p>
+<p>This will also fire whenever the list changes and a change has been issued by the digest cycle.</p>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div class="title" style="font-size: 1.5rem; margin-top: 0">
+      Simon Wicki
+    </div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      Previously Head of Frontend at
+      <a href="https://www.justwatch.com" rel="noopener" target="_blank"
+        >JustWatch</a
+      >. Co-organizer of
+      <a
+        href="https://www.meetup.com/Ionic-Berlin/"
+        rel="noopener"
+        target="_blank"
+        >@IonicBerlin</a
+      >. Creator of
+      <a href="https://notyfy.co" rel="noopener" target="_blank"
+        >https://notyfy.co</a
+      >. I love building things, coffee and books. Berlin.
+    </div>
+    <div style="font-weight: 400">
+      Ionic <span style="margin: 0 6px">·</span> VueJS
+      <span style="margin: 0 6px">·</span> Angular
+      <span style="margin: 0 6px">·</span>
+      Cordova / Capacitor
+    </div>
+    <div style="margin-top: 6px">
+      <a
+        href="https://medium.com/@zwacky"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/medium.svg"
+          alt="Medium"
+          title="Medium"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+      <a
+        href="https://twitter.com/zwacky"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/twitter.svg"
+          alt="Twitter"
+          title="Twitter"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+      <a
+        href="https://github.com/zwacky"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/github.svg"
+          alt="GitHub"
+          title="GitHub"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/simon-w-490b8617a"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/linkedin.svg"
+          alt="LinkedIn"
+          title="LinkedIn"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+      <a
+        href="mailto:simon@wicki.io"
+        target="_blank"
+        rel="noopener"
+        class="no-border"
+        style="margin-right: 10px"
+      >
+        <img
+          src="images/svg/envelope.svg"
+          alt="LinkedIn"
+          title="LinkedIn"
+          style="height: 18px; opacity: 0.6"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer></body>
+</html>
