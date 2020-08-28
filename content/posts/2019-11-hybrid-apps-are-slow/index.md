@@ -1,7 +1,7 @@
 ---
 title: '"Hybrid Apps are slow"'
 publishDate: "2019-11-20"
-description: "Learn how to design a beautiful REST API."
+description: "…and other things I’ve heard regarding Hybrid App development."
 image: "hybrid-apps-are-slow.jpg"
 keywords: "hybrid apps, capacitor, ionic"
 featured: true
