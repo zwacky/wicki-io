@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "deploy": "hugo && cd public && git add -A && git commit -m '🚀 publish to gh-pages'"
+    "deploy": "hugo && cd public && git add -A && git commit -m '🚀 publish to gh-pages' && git push && cd .."
   },
   "repository": {
     "type": "git",
