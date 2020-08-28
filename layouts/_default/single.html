@@ -12,7 +12,7 @@
 
       {{ .Content }}
 
-      {{ if hasPrefix .URL "/posts/" }}
+      {{ if hasPrefix .RelPermalink "/posts/" }}
       <hr />
       {{- partial "profile.html" . -}}
       {{ end }}
