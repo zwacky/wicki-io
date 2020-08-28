@@ -1,0 +1,13 @@
+baseURL = "https://wicki.io"
+languageCode = "en-us"
+title = "Simon Wicki — Frontend Engineer from Berlin"
+enableEmoji = true
+googleAnalytics = "UA-176737760-1"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+title = "Simon Wicki — Frontend Engineer from Berlin"
+description = "Frontend Engineer from Berlin working with Ionic, VueJS, Angular, Capacitor, Cordova"
+keywords = "Frontend, Berlin, Ionic, VueJS, Angular, Capacitor, Cordova"

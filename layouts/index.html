@@ -1,0 +1,237 @@
+{{ define "main" }}
+
+{{ $script := resources.Get "scripts/main.js" | js.Build "main.js" }}
+<script type="text/javascript" src="{{ $script.RelPermalink }}" defer></script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__intro">
+    <div class="container">
+      Hello,<br />I'm <span class="hero--stressed">Simon</span>
+      <div class="hero__intro__description">Frontend Engineer from Berlin</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+	<div class="container">
+		<div class="">
+			<div class="offset-lg-2 col-lg-8">
+				<div class="row">
+
+					{{- partial "profile.html" . -}}
+
+				</div>
+			</div>
+		</div>
+
+		<hr id="work" />
+		<!-- <div style="margin: 96px 0; text-align: center; font-weight: 400; font-size: 2rem;" id="work">…</div> -->
+
+		<div class="row" style="margin-bottom: 64px;">
+			<div class="col-lg-2 section__title">
+				Work Experience
+			</div>
+			<div class="col-lg-10">
+				<div class="">
+					<div style="display: flex;">
+						<div class="about__time">
+							<div class="title">2015 - 2019</div>
+							<div style="font-weight: 400;">
+								<a href="https://www.justwatch.com" target="_blank" rel="noopener">JustWatch</a>
+							</div>
+						</div>
+						<div>
+							<div class="title">Head of Frontend</div>
+							<p style="font-weight: 400;">
+								At JustWatch I was responsible developing and maintaining one of the biggest Ionic hybrid apps in the
+								world with 12M monthly active users over iOS, Android and web.<br />
+								Fully migrated the code base from Ionic v1, AngularJS and Cordova to Ionic v4, VueJS, VueX, Capacitor and TypeScript.<br />
+								Conducting A/B tests while maintaining a high functioning SEO site. Lead a team
+								of frontend engineers.
+								<ul>
+									<li>12M monthly active users</li>
+									<li>Web, Android, iOS</li>
+									<li>One of the biggest Hybrid Apps in the world</li>
+									<li>AngularJS—later rewritten in VueJS and TypeScript</li>
+									<li>Ionic</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="offset-lg-2 col-lg-10">
+				<div class="">
+					<div style="display: flex;">
+						<div class="about__time">
+							<div class="title">2011 - 2015</div>
+							<div style="font-weight: 400;"></div>
+						</div>
+						<div>
+							<div class="title">Freelancer</div>
+							<p style="font-weight: 400;">
+								Working on landing pages, full stack solutions and web apps.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+	</div>
+</section>
+
+<section class="projects" id="projects">
+	<div class="container">
+		<div class="row" style="margin-bottom: 64px;">
+			<div class="col-md-2 section__title">
+				Projects
+			</div>
+			<div class="col-md-10">
+				<div class="projects__list">
+					<div class="row projects__list__selectors" style="margin-bottom: 32px;">
+						<a href="" class="active" data-group="featured">FEATURED</a> <a href="" class="" data-group="talks">TALKS</a> <a href="" class="" data-group="hobby">HOBBY PROJECTS</a>
+						<!-- <a href="" class="" data-group="landing">LANDING PAGES</a> -->
+					</div>
+
+					<div class="projects__grid">
+							
+						<div class="col-sm-6 projects__grid__item" data-groups='["featured"]' style="margin-top: 32px;">
+							<a id="youtube-play" href="https://www.justwatch.com" target="_blank" rel="noopener" class="no-border">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/justwatch.png')">
+									<div class="projects__grid__item--play-annotation">&#9658;</div>
+								</div>
+								<div class="title">
+									JustWatch
+								</div>
+							</a>
+							<div class="projects__grid__item--tech">
+								Ionic <span style="margin: 0 6px;">·</span> VueJS
+								<span style="margin: 0 6px;">·</span> Capacitor <span style="margin: 0 6px;">·</span> AngularJS <span style="margin: 0 6px;">·</span> TypeScript
+							</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["featured", "hobby"]' style="margin-top: 32px;">
+							<a href="https://notyfy.co" target="_blank" rel="noopener" class="no-border">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/notyfy.png')"></div>
+								<div class="title" style="display: block;">
+									Notyfy
+								</div>
+							</a>
+							<div class="projects__grid__item--tech">
+								React <span style="margin: 0 6px;">·</span> Redux <span style="margin: 0 6px;">·</span> TypeScript <span style="margin: 0 6px;">·</span> Chrome Extension
+								<span style="margin: 0 6px;">·</span> Ionic
+							</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["hobby"]' style="margin-top: 32px;">
+							<a href="https://www.facebook.com/pokemondexgo" target="_blank" rel="noopener" class="no-border">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/pokedexgo.png')"></div>
+								<div class="title" style="display: block;">Facebook Messenger Chat Bot</div>
+							</a>
+							<div class="projects__grid__item--tech">
+								NodeJS <span style="margin: 0 6px;">·</span> Facebook Messenger
+								<span style="margin: 0 6px;">·</span> Heroku
+							</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["hobby"]' style="margin-top: 32px;">
+							<a href="https://gamemusicplayer.io" target="_blank" rel="noopener">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/gamemusicplayer.png')"></div>
+								<div class="title" style="display: block;">
+									Game Music Player PWA
+								</div>
+							</a>
+							<div class="projects__grid__item--tech">
+								Angular <span style="margin: 0 6px;">·</span> Ionic
+								<span style="margin: 0 6px;">·</span> PWA
+							</div>
+						</div>
+						
+						<!--
+						<div class="col-sm-6 projects__grid__item" data-groups='["landing"]' style="margin-top: 32px;">
+							<a href="http://zellfeld.ch" target="_blank">
+								<div class="projects__grid__item--image" style="background-image: url('./images/projects/landing-page-zellfeld.png');"></div>
+								<div class="title" style="display: block;">Zellfeld</div>
+							</a>
+							<div class="projects__grid__item--tech">AngularJS <span style="margin: 0 6px;">·</span> Laravel</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["landing"]' style="margin-top: 32px;">
+							<div class="projects__grid__item--image"></div>
+							<div class="title" style="display: block;">Event Reisen</div>
+							<div class="projects__grid__item--tech">AngularJS <span style="margin: 0 6px;">·</span> Laravel</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["landing"]' style="margin-top: 32px;">
+							<div class="projects__grid__item--image"></div>
+							<div class="title" style="display: block;">Senn Immobilien</div>
+							<div class="projects__grid__item--tech">AngularJS <span style="margin: 0 6px;">·</span> Laravel</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["landing"]' style="margin-top: 32px;">
+							<div class="projects__grid__item--image"></div>
+							<div class="title" style="display: block;">Urchig Events</div>
+							<div class="projects__grid__item--tech">AngularJS <span style="margin: 0 6px;">·</span> Laravel</div>
+						</div>
+						-->
+
+						<div class="col-sm-6 projects__grid__item" data-groups='["talks"]' style="margin-top: 32px;">
+							<a href="https://docs.google.com/presentation/d/1IvOYAvMttqobkTVtoC8nX-EY8kNv7Hu2pqG0BTNM38o" target="_blank" rel="noopener">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/talk-ionic-migration.png');"></div>
+								<div class="title" style="display: block;">Ionic Migration AngularJS to VueJS</div>
+							</a>
+							<div class="projects__grid__item--tech">Talk <span style="margin: 0 6px;">·</span> 2019</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["talks"]' style="margin-top: 32px;">
+							<a href="https://docs.google.com/presentation/d/1VUN2C2nC2AApPDh_Jy_7MwYprWIFGI93gLvBre399l4" target="_blank" rel="noopener">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/talk-vuejs-ionic.png');"></div>
+								<div class="title" style="display: block;">VueJS + Ionic = &lt;3</div>
+							</a>
+							<div class="projects__grid__item--tech">Talk <span style="margin: 0 6px;">·</span> 2018</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["talks"]' style="margin-top: 32px;">
+							<a href="https://docs.google.com/presentation/d/1TDE36MfZrXkY6uj0ZFDfq0lOfVkL4oZAxlFU0suBgJ0" target="_blank" rel="noopener">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/talk-stencil.png');"></div>
+								<div class="title" style="display: block;">Stencil: First Look</div>
+							</a>
+							<div class="projects__grid__item--tech">Talk <span style="margin: 0 6px;">·</span> 2017</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["talks"]' style="margin-top: 32px;">
+							<a href="https://zwacky.github.io/workshop-ionic-pwa/#/" target="_blank" rel="noopener">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/talk-pwa-with-ionic.png')"></div>
+								<div class="title" style="display: block;">PWAs mit Ionic</div>
+							</a>
+							<div class="projects__grid__item--tech">Workshop Barcelona <span style="margin: 0 6px;">·</span> 2017</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["talks"]' style="margin-top: 32px;">
+							<a href="https://zwacky.github.io/a-b-testing-with-hybridapps/#/" target="_blank" rel="noopener">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/talk-a-b-testing-with-hybrid-apps.png')"></div>
+								<div class="title" style="display: block;">A/B Testing with Hybrid Apps</div>
+							</a>
+							<div class="projects__grid__item--tech">Talk <span style="margin: 0 6px;">·</span> 2016</div>
+						</div>
+						<div class="col-sm-6 projects__grid__item" data-groups='["talks"]' style="margin-top: 32px;">
+							<a href="http://zwacky.github.io/ota-with-hybridapps/#/" target="_blank" rel="noopener">
+								<div class="projects__grid__item--image" style="background-image: url('/images/projects/talk-ota.png')"></div>
+								<div class="title" style="display: block;">OTA with hybrid apps</div>
+							</a>
+							<div class="projects__grid__item--tech">Talk <span style="margin: 0 6px;">·</span> 2016</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="overlay">
+	<div class="overlay__content">
+		<div class="container" style="position: relative;">
+			<div class="overlay__content__close">close</div>
+			<div class="overlay__content__container"></div>
+		</div>
+	</div>
+</div>
+
+{{ end }}

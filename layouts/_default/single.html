@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>{{ .Page.Title }}</h1>
+      <div style="margin-bottom: 20px;">
+        {{ with .Page.PublishDate }}
+          {{ .Format "January 2, 2006" }}
+        {{ end }}
+      </div>
+
+      {{ .Content }}
+
+      {{ if hasPrefix .URL "/posts/" }}
+      <hr />
+      {{- partial "profile.html" . -}}
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+{{ end }}

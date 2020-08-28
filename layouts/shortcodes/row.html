@@ -1,0 +1,12 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+<div class="row">
+	<div class="col-sm-4 col-md-3">
+		<div class="title">{{ .Get 0 }}</div>
+	</div>
+	<div class="col-sm-8 col-md-9">
+		{{ .Inner }}
+	</div>
+</div>
+
+<br />

@@ -1,0 +1,112 @@
+{{ define "main" }}
+
+<div class="container" style="padding-top: 175px">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1>Blog posts</h1>
+    </div>
+  </div>
+  <div class="row" style="margin-bottomm: 100px;">
+    <!-- <div class="col-md-8 offset-md-2"> -->
+    {{ range .Paginator.Pages.ByPublishDate.Reverse }} {{ $page := . }}
+
+    <!-- <div style="margin-bottom: 50px;"> -->
+    <div class="col-12">
+      <div class="row">
+        <div
+          class="col-md-2 d-none d-md-block"
+          style="text-align: right; padding-top: 3rem"
+        >
+          <time datetime="{{.PublishDate}}"
+            >{{.PublishDate.Format "Jan 2, 2006"}}</time
+          >
+        </div>
+        <div class="col-md-10 col-xl-9">
+          <div style="display: flex">
+            <!-- LEFT PART -->
+            <div style="flex-grow: 1">
+              <h3>
+                <a href="{{.Permalink | relURL}}">{{.Title}}</a>
+              </h3>
+              <div>
+                <p class="d-sm-block d-md-none">
+                  <time datetime="{{.PublishDate}}"
+                    >{{.PublishDate.Format "Jan 2, 2006"}}</time
+                  >
+                </p>
+              </div>
+              <div>
+                <p
+                  style="
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  {{ .Summary }}
+                </p>
+              </div>
+            </div>
+            <!-- RIGHT PART -->
+            <div
+              class="d-none d-sm-block"
+              style="margin-left: 20px; margin-top: 3rem; position: relative"
+            >
+              <a href="{{.Permalink | relURL}}">
+                {{ $image := .Resources.GetMatch (printf "%s" (.Params.Image)) }} {{ with $image }}
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background-color: #e4e4f0;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    opacity: 0.1;
+                  "
+                ></div>
+                <div
+                  style="
+                  background-image: url({{ (.Resize "500x").RelPermalink }});
+                    background-size: cover;
+                    background-position: center;
+                    width: 250px;
+                    height: 160px;
+                    background-color: #e4e4f0;
+                  "
+                ></div>
+                {{ else }}
+                <div
+                style="
+                  width: 250px;
+                  height: 160px;
+                  background-color: #e4e4f0;
+                "
+              ></div>
+                {{ end }}
+              </a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {{end}}
+
+  </div>
+  <div class="row">
+
+    <div class="col-12">
+
+      {{- partial "pagination.html" . -}}
+
+    </div>
+    
+  </div>
+</div>
+
+{{ end }}

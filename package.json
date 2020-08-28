@@ -1,0 +1,18 @@
+{
+  "name": "wicki-io",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zwacky/wicki-io.git"
+  },
+  "author": "Simon Wicki <sim.wicki@gmail.com> (https://twitter.com/zwacky)",
+  "license": "MIT",
+  "homepage": "https://github.com/zwacky/wicki-io#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "normalize.css": "^8.0.1",
+    "shufflejs": "^5.2.3"
+  }
+}
