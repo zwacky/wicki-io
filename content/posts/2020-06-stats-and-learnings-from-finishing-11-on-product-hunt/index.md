@@ -1,6 +1,6 @@
 ---
 title: "Stats and Learnings from Finishing #11 on Product Hunt"
-publishDate: "2020-06-08"
+date: "2020-06-08"
 description: "Stats, stats, stats!"
 image: "notyfy-product-hunt-badge.png"
 keywords: "product, chrome extension"
