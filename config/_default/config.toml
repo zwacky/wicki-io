@@ -11,3 +11,7 @@ unsafe = true
 title = "Simon Wicki — Frontend Engineer from Berlin"
 description = "Frontend Engineer from Berlin working with Ionic, VueJS, Angular, Capacitor, Cordova"
 keywords = "Frontend, Berlin, Ionic, VueJS, Angular, Capacitor, Cordova"
+
+[outputs]
+home = [ "HTML" ]
+posts = [ "HTML", "RSS" ]
