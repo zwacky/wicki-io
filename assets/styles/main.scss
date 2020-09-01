@@ -231,7 +231,7 @@ body {
     padding-right: 64px;
     font-weight: 400;
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       text-align: left;
       padding-left: 15px;
       padding-bottom: 15px;
