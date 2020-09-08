@@ -90,6 +90,76 @@
           class="col-md-2 d-none d-md-block"
           style="text-align: right; padding-top: 3rem"
         >
+          <time datetime="2014-04-28 00:00:00 &#43;0000 UTC"
+            >Apr 28, 2014</time
+          >
+        </div>
+        <div class="col-md-10 col-xl-9">
+          <div style="display: flex">
+            
+            <div style="flex-grow: 1">
+              <h3>
+                <a href="/posts/2014-04-laravels-url-to-vs-url-asset/">Laravel&#39;s URL::to() vs URL::asset()</a>
+              </h3>
+              <div>
+                <p class="d-sm-block d-md-none">
+                  <time datetime="2014-04-28 00:00:00 &#43;0000 UTC"
+                    >Apr 28, 2014</time
+                  >
+                </p>
+              </div>
+              <div>
+                <p
+                  style="
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  Short answer: No, not really.
+You want to have the following code:
+&lt;script src=&#34;js/bootstrap.js&#34;&gt;&lt;/script&gt; Now you can achieve this using blade syntax:
+// using URL::to() &lt;script src=&#34;{{ URL::to(&#39;js/bootstrap.js&#39;) }}&#34;&gt;&lt;/script&gt; // using URL::asset() &lt;script src=&#34;{{ URL::asset(&#39;js/bootstrap.js&#39;) }}&#34;&gt;&lt;/script&gt; URL::to() The method is implemented like this:
+  URL::asset() The method is implemented like this:
+  Difference Both methods get the job done.
+ URL::to() additionally encodes the segments of the passed url with rawurlencode URL::asset() removes index.
+                </p>
+              </div>
+            </div>
+            
+            <div
+              class="d-none d-sm-block"
+              style="margin-left: 20px; margin-top: 3rem; position: relative"
+            >
+              <a href="/posts/2014-04-laravels-url-to-vs-url-asset/">
+                 
+                <div
+                style="
+                  width: 250px;
+                  height: 160px;
+                  background-color: #e4e4f0;
+                "
+              ></div>
+                
+              </a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+     
+
+    
+    <div class="col-12">
+      <div class="row">
+        <div
+          class="col-md-2 d-none d-md-block"
+          style="text-align: right; padding-top: 3rem"
+        >
           <time datetime="2013-12-04 00:00:00 &#43;0000 UTC"
             >Dec 4, 2013</time
           >
@@ -214,21 +284,5 @@ To fill that gap i was watching an informative talk by Les Hazlewood about beaut
 		</div>
 	</div>
 </footer>
-<script type="application/javascript">
-  window.ga =
-    window.ga ||
-    function () {
-      (ga.q = ga.q || []).push(arguments);
-    };
-  ga.l = +new Date();
-  ga("create", "UA-176737760-1", "auto");
-  ga("set", "anonymizeIp", true);
-  ga("set", "allowAdFeatures", false);
-  ga("set", "allowAdPersonalizationSignals", false);
-  ga("send", "pageview");
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-
-
     </body>
 </html>

@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html><head>
-  <title>Stats and Learnings from Finishing #11 on Product Hunt</title>
+  <title>Angular’s ng-repeat Finish Event</title>
   <base href="/" />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700" />
   
   <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
-  <link rel="canonical" href="https://wicki.io/posts/2020-06-stats-and-learnings-from-finishing-11-on-product-hunt/" />
+  <link rel="canonical" href="https://wicki.io/posts/2015-09-angular-s-ng-repeat-finish-event/" />
   <link rel="icon" type="image/x-icon" href='https://wicki.io/images/favicon.png' />
   
   <meta charset="utf-8" />
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
-  <meta name="keywords" content="[product, chrome extension]" />
+  <meta name="keywords" content="[angularjs]" />
 
   <meta property="og:site_name" content="Wicki.io" />
-  <meta property="og:title" content="Stats and Learnings from Finishing #11 on Product Hunt" name="title" />
-  <meta property="og:description" content="Stats, stats, stats!" name="description" />
-  <meta property="og:url" content="https://wicki.io/posts/2020-06-stats-and-learnings-from-finishing-11-on-product-hunt/" />
+  <meta property="og:title" content="Angular’s ng-repeat Finish Event" name="title" />
+  <meta property="og:description" content="Useful trick to make sure ng-repeat has finished rendering." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2015-09-angular-s-ng-repeat-finish-event/" />
   <meta property="og:image" content='https://wicki.io/images/logo.png' />
   <meta property="og:type" content='article' />
 
   <meta name="author" content="Simon Wicki" />
   <meta name="twitter:site" content="@zwacky" />
   <meta name="twitter:creator" content="@zwacky" />
-  <meta name="twitter:title" content="Stats and Learnings from Finishing #11 on Product Hunt"/>
-  <meta name="twitter:description" content="Stats, stats, stats!"/>
+  <meta name="twitter:title" content="Angular’s ng-repeat Finish Event"/>
+  <meta name="twitter:description" content="Useful trick to make sure ng-repeat has finished rendering."/>
 
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -73,52 +73,36 @@
 <div class="container" style="padding-top: 180px;">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-      <h1>Stats and Learnings from Finishing #11 on Product Hunt</h1>
+      <h1>Angular’s ng-repeat Finish Event</h1>
       <div style="margin-bottom: 20px;">
         
-          June 8, 2020
+          September 15, 2015
         
       </div>
 
-      <figure>
-    <img src="/posts/2020-06-stats-and-learnings-from-finishing-11-on-product-hunt/notyfy-product-hunt-badge.png"
-         alt="Notyfy badge on Product Hunt"/> <figcaption>
-            <p>I launched Notyfy on Product Hunt on 7th of May.</p>
-        </figcaption>
-</figure>
-
-<p><a href="https://www.producthunt.com/posts/notyfy-2">My first Product Hunt Launch</a> 🎉—a lot of time went into the preparation together with my friend <a href="http://peterthaleikis.com/">Peter</a> 👋. Read on to see what <strong>stats</strong> and <strong>learnings</strong> finishing #11 on Product Hunt brings.</p>
-<h2 id="notyfy">Notyfy</h2>
-<p>Let me quickly run you through what the product is that I launched on Product Hunt:</p>
-<p><a href="https://notyfy.co/">Notyfy</a> is a browser extension that aggregates web notifications from Twitter, Reddit, Facebook and many more in one place. It is able to see which of the supported platforms you are already logged in — without requiring sensitive credentials like passwords—and does the checking for new notifications for you. Super seamless. Give it a try!</p>
-<h2 id="stats">Stats</h2>
-<figure>
-    <img src="/posts/2020-06-stats-and-learnings-from-finishing-11-on-product-hunt/notyfy-install-stats.png"
-         alt="Notyfy install stats on Chrome Web Store platform"/> <figcaption>
-            <p>Notyfy’s install stats on Chrome Web Store platform</p>
-        </figcaption>
-</figure>
-
-<ul>
-<li>+218 Product Hunt upvotes</li>
-<li>+165 New Users (+151%)</li>
-<li>#11 Product of the Day</li>
-<li>19.9% Install Conversion</li>
-</ul>
-<p>Let’s quickly talk about the Install Conversion: It’s a calculation with the data I had available (I’m not using any tracking inside the extensions themselves). I was surprised that having something so frictionless and without sign ups could yield such a high conversion: 19,9%!</p>
-<p>I used the following formula:</p>
-<blockquote>
-<p><strong>Conversion</strong> = (Chrome Installs + Firefox Installs) / Landing Page Views</p>
-<p><strong>19,9%</strong> = (73 + 13) / 432</p>
-</blockquote>
-<h2 id="learnings">Learnings</h2>
-<ul>
-<li><strong>📢 Hunter’s followers aren’t notified:</strong> After some testing we saw that none of the hunter’s followers were notified upon the new product launch. On the other hand the Maker’s followers were notified. Therefore best add the Hunter as the Maker as well, to get that initial upvote traffic from the Hunter’s followers as well.</li>
-<li><strong>👀 Catch the user’s attention:</strong> It’s very crucial to have a catchy logo and an understandable tagline</li>
-<li><strong>📅 Set a launch date:</strong> The preparation took a lot of time and the longer it took the less results came out of it. It took even so long that once a random user hunted Notyfy by themselves! No prepared texts, assets and logos were present at that time and the random launch didn’t exceed 10 upvotes. A friendly mail to Product Hunt solved this issue within 1 hour 🎉</li>
-<li><strong>🗣 Interact with comments:</strong> Engage with every comment on the launch page by replying to comments upvoting other comments. It’s highly probable that this impacts the front page ranking algorithm, too.</li>
-<li><strong>🙅‍♀️ Don’t fear haters:</strong> Launching on Product Hunt exposes what you’ve worked on and that can be scary. But these comments usually are well structured and should be taken as feedback to make an even better product!</li>
-</ul>
+      <h2 id="demo">Demo</h2>
+<p><a href="https://jsbin.com/gutahovufe/1/edit?html,js,output">https://jsbin.com/gutahovufe/1/edit?html,js,output</a></p>
+<h2 id="explanation">Explanation</h2>
+<p>Sometimes you need to execute code after your list has been rendered on the client side.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;ngRepeatDemo&#39;</span>, [])
+  .<span style="color:#a6e22e">controller</span>(<span style="color:#e6db74">&#39;AppCtrl&#39;</span>, <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+    <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">alphabet</span> <span style="color:#f92672">=</span> [
+      <span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>, <span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;h&#39;</span>, <span style="color:#e6db74">&#39;j&#39;</span>, <span style="color:#e6db74">&#39;k&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;m&#39;</span>, <span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39;p&#39;</span>, <span style="color:#e6db74">&#39;q&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;s&#39;</span>, <span style="color:#e6db74">&#39;t&#39;</span>, <span style="color:#e6db74">&#39;u&#39;</span>, <span style="color:#e6db74">&#39;v&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#39;x&#39;</span>, <span style="color:#e6db74">&#39;y&#39;</span>, <span style="color:#e6db74">&#39;z&#39;</span>
+    ];
+    <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">finished</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+      <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;fired&#39;</span>);
+      <span style="color:#75715e">// now javascript execution has been stopped and you should see all DOM nodes been created
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// note: interpolation may not have been done completely
+</span><span style="color:#75715e"></span>    };
+  });
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- html --&gt;</span>
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-repeat</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;letter in app.alphabet&#34;</span> <span style="color:#a6e22e">ng-init</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$last &amp;&amp; app.finished()&#34;</span>&gt;
+  {{letter}}
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>The whole magic comes from the <code>ng-init</code> part. the <code>$last</code> makes sure, that it only gets fired, when the last element has been rendered to the DOM.</p>
+<p>This will also fire whenever the list changes and a change has been issued by the digest cycle.</p>
 
 
       

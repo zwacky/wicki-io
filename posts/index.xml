@@ -6,10 +6,20 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Book Recommendations 2019</title>
+      <link>https://wicki.io/posts/2020-09-my-top-5-books-in-2019/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2020-09-my-top-5-books-in-2019/</guid>
+      <description>I love reading books—I joyfully devour 1-4 books a month! That wasn&amp;rsquo;t always the case. If you saw my home just two years ago you wouldn&amp;rsquo;t have found any books. Back then I read a few blog posts online and that was it. I never felt the need to read pieces of paper bundled together.
+&amp;hellip;Until I tried it. I first tried it with a book called Factfulness by Hans Rosling.</description>
+    </item>
     
     <item>
       <title>Stats and Learnings from Finishing #11 on Product Hunt</title>
@@ -79,10 +89,10 @@ The thing with Offline-First is, that you cache all the resources that are neede
     
     <item>
       <title>Angular’s ng-repeat Finish Event</title>
-      <link>https://wicki.io/posts/2015-09-15-angular-s-ng-repeat-finish-event/</link>
+      <link>https://wicki.io/posts/2015-09-angular-s-ng-repeat-finish-event/</link>
       <pubDate>Tue, 15 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://wicki.io/posts/2015-09-15-angular-s-ng-repeat-finish-event/</guid>
+      <guid>https://wicki.io/posts/2015-09-angular-s-ng-repeat-finish-event/</guid>
       <description>Demo https://jsbin.com/gutahovufe/1/edit?html,js,output
 Explanation Sometimes you need to execute code after your list has been rendered on the client side.
 // js angular.module(&amp;#39;ngRepeatDemo&amp;#39;, []) .controller(&amp;#39;AppCtrl&amp;#39;, function() { var vm = this; vm.alphabet = [ &amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;f&amp;#39;, &amp;#39;g&amp;#39;, &amp;#39;h&amp;#39;, &amp;#39;j&amp;#39;, &amp;#39;k&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;m&amp;#39;, &amp;#39;n&amp;#39;, &amp;#39;o&amp;#39;, &amp;#39;p&amp;#39;, &amp;#39;q&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;s&amp;#39;, &amp;#39;t&amp;#39;, &amp;#39;u&amp;#39;, &amp;#39;v&amp;#39;, &amp;#39;w&amp;#39;, &amp;#39;x&amp;#39;, &amp;#39;y&amp;#39;, &amp;#39;z&amp;#39; ]; vm.finished = function() { alert(&amp;#39;fired&amp;#39;); // now javascript execution has been stopped and you should see all DOM nodes been created  // note: interpolation may not have been done completely  }; }); &amp;lt;!</description>
