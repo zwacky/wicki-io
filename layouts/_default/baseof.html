@@ -7,6 +7,8 @@
         {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}
-        {{ template "partials/google-analytics.html" . }}
+        {{ if eq (getenv "HUGO_ENV") "production" }}
+          {{- template "partials/google-analytics.html" . -}}
+        {{ end }}
     </body>
 </html>
