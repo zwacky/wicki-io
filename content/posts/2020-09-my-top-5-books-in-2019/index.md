@@ -19,7 +19,7 @@ Without further ado let me show you my top 5 book recommendations of 2019:
 
 {{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-mindset.png" alt="Mindset Book" >}}
 
-This book easily left the biggest impact on me. Let me ask you this question: Do you think a professional piano player is playing that well because they are just born with talent and sticked with it? Or do you think it's because they invest hours of effort in trying to become better and improve themselves?
+This book easily left the biggest impact on me. Let me ask you this question: Do you think a professional piano player is playing that well because they are just born with talent and stuck with it? Or do you think it's because they invest hours of effort in trying to become better and improve themselves?
 
 The first question above comes from a fixed mindset, whereas the second question refers to a growth mindset. Dr. Carol Dweck carefully explains these two mindsets in her book after 25 years of research in the field of psychology. You'll understand the advantages of having a growth mindset and what impact it could have on you—and even on your children.
 
@@ -61,4 +61,4 @@ Matthew Walker, the director of UC Berkley's Center for Human Sleep Science, wri
 
 ## Final words
 
-I hope you enjoyed my little list of recommendations of books that I read in 2019. Have you read a book in common? Do you plan on picking one up? Or do you think there is a great follow up book to the ones mentioned here? I'm super interested to know you think. Don't hesitate to tweet about your experience and mention me [@zwacky](https://twitter.com/zwacky)!
+I hope you enjoyed my little list of recommendations of books that I read in 2019. Have you read a book in common? Do you plan on picking one up? Or do you think there is a great follow up book to the ones mentioned here? I'm super interested to know what you think. Don't hesitate to tweet about your experience and mention me [@zwacky](https://twitter.com/zwacky)!
