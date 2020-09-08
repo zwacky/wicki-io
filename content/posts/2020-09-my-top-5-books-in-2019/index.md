@@ -4,7 +4,6 @@ publishDate: "2020-09-02"
 description: "Read on for my top 5 nonfiction books I read in 2019."
 keywords: "books"
 image: "cover-atomic-habits.png"
-draft: true
 ---
 
 I love reading books—I joyfully devour 1-4 books a month! That wasn't always the case. If you saw my home just two years ago you wouldn't have found any books. Back then I read a few blog posts online and that was it. I never felt the need to read pieces of paper bundled together.
