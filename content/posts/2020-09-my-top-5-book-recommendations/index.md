@@ -1,7 +1,7 @@
 ---
-title: "My Book Recommendations 2019"
+title: "My Top 5 Book Recommendations"
 publishDate: "2020-09-02"
-description: "Read on for my top 5 nonfiction books I read in 2019."
+description: "Read on for my top 5 nonfiction books I finished back in 2019."
 keywords: "books"
 image: "cover-mindset.png"
 ---
