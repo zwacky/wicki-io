@@ -42,7 +42,7 @@ I must admit that I'm not 100% on board with how he approaches _all and every_ c
 
 ## Atomic Habits
 
-{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-atomic-habits.png" alt="Why We Sleep Book" >}}
+{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-atomic-habits.png" alt="Atomic Habits Book" >}}
 
 There exists a plethora of self-help books about productivity and habits, and more are still being written. James Clear is one of the few productivity authors that made it big with this great framework of building good habits and breaking bad ones. It's even so well known that it's also the one book my friends and I have most often both read.
 
@@ -50,7 +50,7 @@ The two key takeaways are making small changes that will have a big impact over 
 
 ## Why We Sleep
 
-{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-why-we-sleep.png" alt="Why We Sleepü Book" >}}
+{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-why-we-sleep.png" alt="Why We Sleep Book" >}}
 
 This book figuratively gave me a wake-up call. I used to sleep only as much as I thought I could get through the day without my body showing signals of sleep deprivation.
 
