@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "start": "hugo server -D",
     "set-worktree": "git worktree prune && git worktree add -B gh-pages public origin/gh-pages",
     "deploy": "rm -rf public && npm run set-worktree && hugo && cd public && git add -A && git commit -m '🚀 publish to gh-pages' && git push && cd ..",
     "new": "hugo new --kind post posts/$(date \"+%Y-%m\")-new-post"
