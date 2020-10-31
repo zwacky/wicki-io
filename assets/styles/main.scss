@@ -260,6 +260,8 @@ body {
 
   &__intro {
     z-index: 10;
+    position: relative;
+    top: -5vh;
 
     &__description {
       font-family: "Source Sans Pro", sans-serif;

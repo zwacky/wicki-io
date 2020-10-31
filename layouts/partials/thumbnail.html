@@ -1,0 +1,23 @@
+<a href="{{.Permalink | relURL}}" style="padding-top: 56.25%;">
+	{{ $image := .Resources.GetMatch (printf "%s" (.Params.Image)) }} {{ with $image }}
+	<!-- make images more consistent by adding same color on top -->
+	<div
+		style="
+			background-image: url({{ (.Resize "500x").RelPermalink }});
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+			padding-top: 56.25%;
+			background-color: #e4e4f0;
+		"
+	></div>
+	{{ else }}
+	<div
+	style="
+		width: 100%;
+		padding-top: 56.25%;
+		background-color: #e4e4f0;
+	"
+></div>
+	{{ end }}
+</a>

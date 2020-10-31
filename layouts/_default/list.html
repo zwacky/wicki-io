@@ -54,40 +54,9 @@
               class="d-none d-sm-block"
               style="margin-left: 20px; margin-top: 3rem; position: relative"
             >
-              <a href="{{.Permalink | relURL}}">
-                {{ $image := .Resources.GetMatch (printf "%s" (.Params.Image)) }} {{ with $image }}
-                <div
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    background-color: #e4e4f0;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: 1;
-                    opacity: 0.1;
-                  "
-                ></div>
-                <div
-                  style="
-                  background-image: url({{ (.Resize "500x").RelPermalink }});
-                    background-size: cover;
-                    background-position: center;
-                    width: 250px;
-                    height: 160px;
-                    background-color: #e4e4f0;
-                  "
-                ></div>
-                {{ else }}
-                <div
-                style="
-                  width: 250px;
-                  height: 160px;
-                  background-color: #e4e4f0;
-                "
-              ></div>
-                {{ end }}
-              </a>
+              <div style="width: 250px;">
+                {{- partial "thumbnail.html" . -}}
+              </div>
             </div>
             
           </div>
