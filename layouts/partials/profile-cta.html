@@ -1,0 +1,57 @@
+<div class="about__bio">
+  <div class="about__bio__profile">
+    {{ $image := resources.Get "images/me.jpg" }}
+    {{ with $image }}
+    <img
+      src="{{ (.Resize "350x").RelPermalink }}"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    {{ end }}
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Frontend Developer in Berlin.
+        Passionate and fluent in Vue, Angular, React and Ionic. I love Hybrid
+        Apps and books.
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
