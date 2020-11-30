@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Time to Say Goodbye to Google Fonts</title>
+  <base href="/" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700" />
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2020-11-google-fonts/" />
+  <link rel="icon" type="image/x-icon" href='https://wicki.io/images/favicon.png' />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[Google Fonts, CDN, browser partitioned cache]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="Time to Say Goodbye to Google Fonts" name="title" />
+  <meta property="og:description" content="Partitioned browser cache renders CDN for cross-site resources unusuable." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2020-11-google-fonts/" />
+  <meta property="og:image" content='https://wicki.io/images/logo.png' />
+  <meta property="og:type" content='article' />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="Time to Say Goodbye to Google Fonts"/>
+  <meta name="twitter:description" content="Partitioned browser cache renders CDN for cross-site resources unusuable."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      <a href="/" class="nav--brand" style="overflow: hidden;">
+        <img src="images/logo.png" alt="W" width="38" />
+      </a>
+      <div>
+        <a href="/#work" class="nav__list__item">Work</a>
+        <a href="/#projects" class="nav__list__item">Projects</a>
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Time to Say Goodbye to Google Fonts</h1>
+      <div style="margin-bottom: 20px;">
+        
+          November 30, 2020
+        
+      </div>
+
+      <figure>
+    <img src="/posts/2020-11-google-fonts/goodbye.jpg"
+         alt="Google Fonts"/> 
+</figure>
+
+<p>I&rsquo;ve used Google Fonts in prototypes and in 10M+ MAU products. It&rsquo;s incredibly easy to get started with and provides an amazing font discovery. That&rsquo;s also why it&rsquo;s currently still used on over <a href="https://trends.builtwith.com/websitelist/Google-Font-API">42M websites</a>!</p>
+<p>This convenience has its price: Performance. Many have already pointed out <a href="https://wp-rocket.me/blog/self-hosting-google-fonts/">in great detail</a> the cost of multiple requests. If you want the remaining performance boost, then you&rsquo;re best off downloading your used Google Fonts and self-host them.</p>
+<p>This is nothing new. In fact it&rsquo;s been advocated already since years. Even Google themselves <a href="https://www.youtube.com/watch?v=Mv-l3-tJgGk&amp;feature=youtu.be&amp;t=24m58s">adviced others to self-host fonts</a> in their Google I/O &lsquo;18 talk about web performance.</p>
+<figure>
+    <img src="/posts/2020-11-google-fonts/connection-view.png"
+         alt="Connection View showcasing additional HTTP requests"/> <figcaption>
+            <p>Using Google Fonts adds at least two additional HTTP requests (wp-rocket.me)</p>
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="the-old-performance-argument">The old performance argument</h2>
+<p>Google Fonts was designed to be distributed on a global CDN and reap the caching benefits from it. Users request fonts via said CDN and chances are that they have downloaded the font resources at an earlier point already from a different site.</p>
+<p>This was reason enough for many developers to stop investigating more into performance sinkholes.</p>
+<blockquote>
+<p>&ldquo;[&hellip;] Our cross-site caching is designed so that you only need to load a font once, with any website, and we&rsquo;ll use that same cached font on any other website that uses Google Fonts.&rdquo;</p>
+<p>— <a href="https://fonts.google.com/about">https://fonts.google.com/about</a></p>
+</blockquote>
+<h2 id="invalidating-the-old-performance-argument">Invalidating the old performance argument</h2>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p>Since Chrome v86, released October 2020, cross-site resources like fonts can&rsquo;t be shared on the same CDN anymore. This is due to the partitioned browser cache (Safari has had this for years already).</p>
+</div>
+<p>In <a href="https://developers.google.com/web/updates/2020/10/http-cache-partitioning">this Google post</a> they explain what the partitioned browser cache is and that it got mainly introduced to prevent a possible cross-site tracking mechanism.</p>
+<h2 id="cache-partitioning-in-other-browsers">Cache partitioning in other browsers</h2>
+<p>Safari really cares about privacy. It circumvented this very cross-site tracking attack since years already. Then finally comes Chrome. Other browsers that are based off Chromium, still need to signal or implement the feature.</p>
+<ul>
+<li>✅ <strong>Chrome</strong>: since v86 (October 2020)</li>
+<li>✅ <strong>Safari</strong>: since 2013</li>
+<li>🚫 <strong>Firefox</strong>: planning to implement</li>
+<li>🚫 <strong>Edge</strong>: most likely soon</li>
+<li>🚫 <strong>Opera</strong>: most likely soon</li>
+<li>🚫 <strong>Brave</strong>: most likely soon</li>
+<li>🚫 <strong>Vivaldi</strong>: most likely soon</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Google Fonts resources will be redownloaded for every website, regardless it being cached on the CDN. Self-host your fonts for better performance. The old performance argument is not valid anymore.</p>
+<p>Thanks for checking this post out!</p>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Frontend Developer in Berlin.
+        Passionate and fluent in Vue, Angular, React and Ionic. I love Hybrid
+				Apps and books.
+      </p>
+      <p>
+        <a
+					href="https://twitter.com/zwacky"
+					onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2020-11-google-fonts\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>

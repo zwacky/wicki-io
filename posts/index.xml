@@ -6,10 +6,20 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Time to Say Goodbye to Google Fonts</title>
+      <link>https://wicki.io/posts/2020-11-google-fonts/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2020-11-google-fonts/</guid>
+      <description>I&amp;rsquo;ve used Google Fonts in prototypes and in 10M+ MAU products. It&amp;rsquo;s incredibly easy to get started with and provides an amazing font discovery. That&amp;rsquo;s also why it&amp;rsquo;s currently still used on over 42M websites!
+This convenience has its price: Performance. Many have already pointed out in great detail the cost of multiple requests. If you want the remaining performance boost, then you&amp;rsquo;re best off downloading your used Google Fonts and self-host them.</description>
+    </item>
     
     <item>
       <title>My Top 5 Book Recommendations</title>
