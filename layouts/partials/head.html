@@ -6,7 +6,7 @@
   {{ $stylesMain := resources.Get "styles/main.scss" | resources.ToCSS | minify }}
   <link rel="stylesheet" href="{{ $stylesMain.Permalink | relURL}}" integrity="{{ $stylesMain.Data.Integrity }}" media="screen" />
   <link rel="canonical" href="{{ .Permalink }}" />
-  <link rel="icon" type="image/x-icon" href='{{ "/images/favicon.png" | absURL }}' />
+  <link rel="icon" type="image/x-icon" href="{{ `/images/favicon.png` | absURL }}" />
   {{ with .OutputFormats.Get "RSS" }}
   <link rel="alternate" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ site.Title }}">
   <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ site.Title }}">
@@ -19,8 +19,12 @@
   <meta property="og:title" content="{{ .Title | default .Site.Params.title }}" name="title" />
   <meta property="og:description" content="{{ .Description | default .Site.Params.description }}" name="description" />
   <meta property="og:url" content="{{ .Permalink }}" />
-  <meta property="og:image" content='{{ "/images/logo.png" | absURL }}' />
-  <meta property="og:type" content='{{ if findRE "/posts/.+" .RelPermalink }}article{{else}}website{{ end }}' />
+  {{- if .Params.Image }}
+  <meta property="og:image" content="{{ printf `%s%s` .Permalink .Params.Image }}" />
+  {{- else }}
+  <meta property="og:image" content="{{ `/images/logo.png` | absURL }}" />
+  {{- end }}
+  <meta property="og:type" content="{{ if findRE `/posts/.+` .RelPermalink }}article{{else}}website{{ end }}" />
 
   <meta name="author" content="Simon Wicki" />
   <meta name="twitter:site" content="@zwacky" />
