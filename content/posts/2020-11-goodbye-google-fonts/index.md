@@ -1,7 +1,7 @@
 ---
 title: "Time to Say Goodbye to Google Fonts"
 publishDate: "2020-11-30"
-description: "Partitioned browser cache renders CDN for cross-site resources unusuable."
+description: "This browser caching change kills the utility of cross-site resource CDNs like Google Fonts."
 keywords: "Google Fonts, CDN, browser partitioned cache"
 image: "goodbye-google-fonts.jpg"
 ---
