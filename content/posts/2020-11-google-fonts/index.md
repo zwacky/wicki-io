@@ -6,7 +6,7 @@ keywords: "Google Fonts, CDN, browser partitioned cache"
 image: "goodbye-google-fonts.jpg"
 ---
 
-{{< figure src="/posts/2020-11-google-fonts/goodbye.jpg" alt="Google Fonts" >}}
+{{< figure src="/posts/2020-11-google-fonts/goodbye-google-fonts.jpg" alt="Google Fonts" >}}
 
 I've used Google Fonts in prototypes and in 10M+ MAU products. It's incredibly easy to get started with and provides an amazing font discovery. That's also why it's currently still used on over [42M websites](https://trends.builtwith.com/websitelist/Google-Font-API)!
 
