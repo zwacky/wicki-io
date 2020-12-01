@@ -87,7 +87,7 @@
 
 <p>I&rsquo;ve used Google Fonts in prototypes and in 10M+ MAU products. It&rsquo;s incredibly easy to get started with and provides an amazing font discovery. That&rsquo;s also why it&rsquo;s currently still used on over <a href="https://trends.builtwith.com/websitelist/Google-Font-API">42M websites</a>!</p>
 <p>This convenience has its price: Performance. Many have already pointed out <a href="https://wp-rocket.me/blog/self-hosting-google-fonts/">in great detail</a> the cost of multiple requests. If you want the remaining speed boost, then you&rsquo;re best off downloading your used Google Fonts and self-host them.</p>
-<p>This is nothing new. In fact it&rsquo;s been advocated already since years. Even Google themselves <a href="https://www.youtube.com/watch?v=Mv-l3-tJgGk&amp;feature=youtu.be&amp;t=24m58s">adviced others to self-host fonts</a> in their Google I/O &lsquo;18 talk about web performance.</p>
+<p>This is nothing new. In fact it&rsquo;s been advocated already since years. Even Google themselves <a href="https://www.youtube.com/watch?v=Mv-l3-tJgGk&amp;feature=youtu.be&amp;t=24m58s">advised others to self-host fonts</a> in their Google I/O &lsquo;18 talk about web performance.</p>
 <figure>
     <img src="/posts/2020-11-goodbye-google-fonts/connection-view.png"
          alt="Connection View showcasing additional HTTP requests"/> <figcaption>
@@ -97,8 +97,8 @@
 
 <hr>
 <h2 id="the-old-performance-argument">The old performance argument</h2>
-<p>Google Fonts was designed to be distributed on a global CDN and reap the caching benefits from it. Users request fonts via said CDN and chances are that they have downloaded the font resources at an earlier point already from a different site.</p>
-<p>This was reason enough for many developers to stop investigating more into performance sinkholes.</p>
+<p>Google Fonts was designed to be distributed on a global CDN and reap the caching benefits from it. Users request fonts via said CDN. Chances are that they have downloaded the font resources at an earlier point already from a different site.</p>
+<p>This was convincing enough to get many developers on board.</p>
 <blockquote>
 <p>&ldquo;[&hellip;] Our cross-site caching is designed so that you only need to load a font once, with any website, and we&rsquo;ll use that same cached font on any other website that uses Google Fonts.&rdquo;</p>
 <p>— <a href="https://fonts.google.com/about">https://fonts.google.com/about</a></p>
@@ -107,7 +107,7 @@
 <div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
 <p>Since Chrome v86, released October 2020, cross-site resources like fonts can&rsquo;t be shared on the same CDN anymore. This is due to the partitioned browser cache (Safari has had this for years already).</p>
 </div>
-<p>In <a href="https://developers.google.com/web/updates/2020/10/http-cache-partitioning">this Google post</a> they explain what the partitioned browser cache is and that it got mainly introduced to prevent a possible cross-site tracking mechanism.</p>
+<p>In <a href="https://developers.google.com/web/updates/2020/10/http-cache-partitioning">this Google post</a> they explain what the partitioned browser cache is. It got only introduced to prevent a possible cross-site tracking mechanism.</p>
 <h2 id="cache-partitioning-in-other-browsers">Cache partitioning in other browsers</h2>
 <p>Safari really cares about privacy. It circumvented this very cross-site tracking attack since years already. Then finally comes Chrome. Other browsers that are based off Chromium, still need to signal or implement the feature.</p>
 <ul>
@@ -148,14 +148,14 @@
       "
     >
       <p>
-        <strong>Simon Wicki</strong> is a Frontend Developer in Berlin.
-        Passionate and fluent in Vue, Angular, React and Ionic. I love Hybrid
-				Apps and books.
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend & non-fiction books
       </p>
       <p>
         <a
-					href="https://twitter.com/zwacky"
-					onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2020-11-goodbye-google-fonts\/')"
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2020-11-goodbye-google-fonts\/')"
           target="_blank"
           style="
             border-radius: 4px;
