@@ -12,7 +12,7 @@ I've used Google Fonts in prototypes and in 10M+ MAU products. It's incredibly e
 
 This convenience has its price: Performance. Many have already pointed out [in great detail](https://wp-rocket.me/blog/self-hosting-google-fonts/) the cost of multiple requests. If you want the remaining speed boost, then you're best off downloading your used Google Fonts and self-host them.
 
-This is nothing new. In fact it's been advocated already since years. Even Google themselves [adviced others to self-host fonts](https://www.youtube.com/watch?v=Mv-l3-tJgGk&feature=youtu.be&t=24m58s) in their Google I/O '18 talk about web performance.
+This is nothing new. In fact it's been advocated already since years. Even Google themselves [advised others to self-host fonts](https://www.youtube.com/watch?v=Mv-l3-tJgGk&feature=youtu.be&t=24m58s) in their Google I/O '18 talk about web performance.
 
 {{< figure src="/posts/2020-11-goodbye-google-fonts/connection-view.png" alt="Connection View showcasing additional HTTP requests" caption="Using Google Fonts adds at least two additional HTTP requests (wp-rocket.me)" >}}
 
@@ -20,9 +20,9 @@ This is nothing new. In fact it's been advocated already since years. Even Googl
 
 ## The old performance argument
 
-Google Fonts was designed to be distributed on a global CDN and reap the caching benefits from it. Users request fonts via said CDN and chances are that they have downloaded the font resources at an earlier point already from a different site.
+Google Fonts was designed to be distributed on a global CDN and reap the caching benefits from it. Users request fonts via said CDN. Chances are that they have downloaded the font resources at an earlier point already from a different site.
 
-This was reason enough for many developers to stop investigating more into performance sinkholes.
+This was convincing enough to get many developers on board.
 
 > "[...] Our cross-site caching is designed so that you only need to load a font once, with any website, and we'll use that same cached font on any other website that uses Google Fonts."
 >
@@ -34,7 +34,7 @@ This was reason enough for many developers to stop investigating more into perfo
 Since Chrome v86, released October 2020, cross-site resources like fonts can't be shared on the same CDN anymore. This is due to the partitioned browser cache (Safari has had this for years already).
 {{% /stress %}}
 
-In [this Google post](https://developers.google.com/web/updates/2020/10/http-cache-partitioning) they explain what the partitioned browser cache is and that it got mainly introduced to prevent a possible cross-site tracking mechanism.
+In [this Google post](https://developers.google.com/web/updates/2020/10/http-cache-partitioning) they explain what the partitioned browser cache is. It got only introduced to prevent a possible cross-site tracking mechanism.
 
 ## Cache partitioning in other browsers
 
