@@ -86,12 +86,21 @@
 </figure>
 
 <p>I&rsquo;ve used Google Fonts in prototypes and in 10M+ MAU products. It&rsquo;s incredibly easy to get started with and provides an amazing font discovery. That&rsquo;s also why it&rsquo;s currently still used on over <a href="https://trends.builtwith.com/websitelist/Google-Font-API">42M websites</a>!</p>
-<p>This convenience has its price: Performance. Many have already pointed out <a href="https://wp-rocket.me/blog/self-hosting-google-fonts/">in great detail</a> the cost of multiple requests. If you want the remaining speed boost, then you&rsquo;re best off downloading your used Google Fonts and self-host them.</p>
+<p>This convenience has its price: Performance. Many have already pointed out <a href="https://www.wpmediamastery.com/host-google-fonts-locally/">in great detail</a> the cost of multiple requests. If you want the remaining speed boost, then you&rsquo;re best off downloading your used Google Fonts and self-host them.</p>
 <p>This is nothing new. In fact it&rsquo;s been advocated already since years. Even Google themselves <a href="https://www.youtube.com/watch?v=Mv-l3-tJgGk&amp;feature=youtu.be&amp;t=24m58s">advised others to self-host fonts</a> in their Google I/O &lsquo;18 talk about web performance.</p>
+<h2 id="self-hosting-fonts-vs-google-fonts">Self-hosting fonts vs Google Fonts</h2>
+<p>Sia wrote <a href="https://medium.com/clio-calliope/making-google-fonts-faster-aadf3c02a36d">a great post</a> about Google Fonts optimisation with this benchmark comparison:</p>
 <figure>
-    <img src="/posts/2020-11-goodbye-google-fonts/connection-view.png"
-         alt="Connection View showcasing additional HTTP requests"/> <figcaption>
-            <p>Using Google Fonts adds at least two additional HTTP requests (wp-rocket.me)</p>
+    <img src="/posts/2020-11-goodbye-google-fonts/with-google-fonts.png"
+         alt="Network flow with Google Fonts"/> <figcaption>
+            <p>Optimised Google Fonts loading with preconnect</p>
+        </figcaption>
+</figure>
+
+<figure>
+    <img src="/posts/2020-11-goodbye-google-fonts/without-google-fonts.png"
+         alt="Network flow with self-hosting fonts"/> <figcaption>
+            <p>Optimised self-hosting fonts with preload</p>
         </figcaption>
 </figure>
 
