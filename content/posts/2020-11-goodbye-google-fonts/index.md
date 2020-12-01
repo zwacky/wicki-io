@@ -10,11 +10,17 @@ image: "goodbye-google-fonts.jpg"
 
 I've used Google Fonts in prototypes and in 10M+ MAU products. It's incredibly easy to get started with and provides an amazing font discovery. That's also why it's currently still used on over [42M websites](https://trends.builtwith.com/websitelist/Google-Font-API)!
 
-This convenience has its price: Performance. Many have already pointed out [in great detail](https://wp-rocket.me/blog/self-hosting-google-fonts/) the cost of multiple requests. If you want the remaining speed boost, then you're best off downloading your used Google Fonts and self-host them.
+This convenience has its price: Performance. Many have already pointed out [in great detail](https://www.wpmediamastery.com/host-google-fonts-locally/) the cost of multiple requests. If you want the remaining speed boost, then you're best off downloading your used Google Fonts and self-host them.
 
 This is nothing new. In fact it's been advocated already since years. Even Google themselves [advised others to self-host fonts](https://www.youtube.com/watch?v=Mv-l3-tJgGk&feature=youtu.be&t=24m58s) in their Google I/O '18 talk about web performance.
 
-{{< figure src="/posts/2020-11-goodbye-google-fonts/connection-view.png" alt="Connection View showcasing additional HTTP requests" caption="Using Google Fonts adds at least two additional HTTP requests (wp-rocket.me)" >}}
+## Self-hosting fonts vs Google Fonts
+
+Sia wrote [a great post](https://medium.com/clio-calliope/making-google-fonts-faster-aadf3c02a36d) about Google Fonts optimisation with this benchmark comparison:
+
+{{< figure src="/posts/2020-11-goodbye-google-fonts/with-google-fonts.png" alt="Network flow with Google Fonts" caption="Optimised Google Fonts loading with preconnect" >}}
+
+{{< figure src="/posts/2020-11-goodbye-google-fonts/without-google-fonts.png" alt="Network flow with self-hosting fonts" caption="Optimised self-hosting fonts with preload" >}}
 
 ---
 
