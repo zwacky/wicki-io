@@ -28,11 +28,9 @@ Sia wrote [a great post](https://medium.com/clio-calliope/making-google-fonts-fa
 
 ## The old performance argument
 
-So if the bottom-line performance is in self-hosting fonts' favor: What was the argument that convinced us developers that Google Fonts is at least as performing as the self-host approach?
+So if the bottom-line performance is in self-hosting fonts' favour: What was the argument that convinced us developers that Google Fonts is at least as performing as the self-host approach?
 
 Google Fonts was designed to be distributed on a global CDN and reap the caching benefits from it. Users request fonts via said CDN. Chances are that they have downloaded the font resources at an earlier point already from a different site.
-
-This was convincing enough to get many developers on board.
 
 > "[...] Our cross-site caching is designed so that you only need to load a font once, with any website, and we'll use that same cached font on any other website that uses Google Fonts."
 >
