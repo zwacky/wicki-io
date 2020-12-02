@@ -10,13 +10,15 @@ image: "goodbye-google-fonts.jpg"
 
 I've used Google Fonts in prototypes and in 10M+ MAU products. It's incredibly easy to get started with and provides an amazing font discovery. That's also why it's currently still used on over [42M websites](https://trends.builtwith.com/websitelist/Google-Font-API)!
 
-This convenience has its price: Performance. Many have already pointed out [in great detail](https://www.wpmediamastery.com/host-google-fonts-locally/) the cost of multiple requests. If you want the remaining speed boost, then you're best off downloading your used Google Fonts and self-host them.
+This convenience has its price: Performance. Many [have](https://blog.cloudflare.com/fast-google-fonts-with-cloudflare-workers/) [already](https://medium.com/clio-calliope/making-google-fonts-faster-aadf3c02a36d) [pointed](https://www.keycdn.com/blog/web-font-performance#disadvantages-of-web-fonts) [out](https://blog.logrocket.com/self-hosted-fonts-vs-google-fonts-api/) the cost of multiple requests. If you want the remaining speed boost, then you're best off downloading your used Google Fonts and self-host them.
 
 This is nothing new. In fact it's been advocated already since years. Even Google themselves [advised others to self-host fonts](https://www.youtube.com/watch?v=Mv-l3-tJgGk&feature=youtu.be&t=24m58s) in their Google I/O '18 talk about web performance.
 
 ## Self-hosting fonts vs Google Fonts
 
-Sia wrote [a great post](https://medium.com/clio-calliope/making-google-fonts-faster-aadf3c02a36d) about Google Fonts optimisation with this benchmark comparison:
+By nature Google Fonts, even with all its font and CSS optimisations, can't be faster than self-hosted fonts. 
+
+Sia wrote [a great post](https://medium.com/clio-calliope/making-google-fonts-faster-aadf3c02a36d) where she compared the performance between Google Fonts and self-hosted fonts without the impact of a CDN.
 
 {{< figure src="/posts/2020-11-goodbye-google-fonts/with-google-fonts.png" alt="Network flow with Google Fonts" caption="Optimised Google Fonts loading with preconnect" >}}
 
@@ -25,6 +27,8 @@ Sia wrote [a great post](https://medium.com/clio-calliope/making-google-fonts-fa
 ---
 
 ## The old performance argument
+
+So if the bottom-line performance is in self-hosting fonts' favor: What was the argument that convinced us developers that Google Fonts is at least as performing as the self-host approach?
 
 Google Fonts was designed to be distributed on a global CDN and reap the caching benefits from it. Users request fonts via said CDN. Chances are that they have downloaded the font resources at an earlier point already from a different site.
 
