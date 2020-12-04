@@ -1,8 +1,7 @@
 <head>
   <title>{{ .Title | default .Site.Params.title }}</title>
   <base href="/" />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Playfair+Display:300,400,700" />
+  <link rel="preload" as="font" type="font/woff2" href="{{ `/images/favicon.png` | absURL }}" crossorigin />  
   {{ $stylesMain := resources.Get "styles/main.scss" | resources.ToCSS | minify }}
   <link rel="stylesheet" href="{{ $stylesMain.Permalink | relURL}}" integrity="{{ $stylesMain.Data.Integrity }}" media="screen" />
   <link rel="canonical" href="{{ .Permalink }}" />
