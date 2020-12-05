@@ -12,7 +12,7 @@ I've used Google Fonts in prototypes and in 10M+ MAU products. It's incredibly e
 
 This convenience has its price: Performance. Many [have](https://blog.cloudflare.com/fast-google-fonts-with-cloudflare-workers/) [already](https://medium.com/clio-calliope/making-google-fonts-faster-aadf3c02a36d) [pointed](https://www.keycdn.com/blog/web-font-performance#disadvantages-of-web-fonts) [out](https://blog.logrocket.com/self-hosted-fonts-vs-google-fonts-api/) the cost of multiple requests. If you want the remaining speed boost, then you're best off downloading your used Google Fonts and self-host them.
 
-This is nothing new. In fact it's been advocated already since years. Even Google themselves [advised others to self-host fonts](https://www.youtube.com/watch?v=Mv-l3-tJgGk&feature=youtu.be&t=24m58s) in their Google I/O '18 talk about web performance.
+This is nothing new. In fact it's been advocated already for years. Even Google themselves [advised others to self-host fonts](https://www.youtube.com/watch?v=Mv-l3-tJgGk&feature=youtu.be&t=24m58s) in their Google I/O '18 talk about web performance.
 
 ## Self-hosting fonts vs Google Fonts
 
