@@ -46,7 +46,7 @@ In [this Google post](https://developers.google.com/web/updates/2020/10/http-cac
 
 ## Cache partitioning in other browsers
 
-Safari really cares about privacy. It circumvented this very cross-site tracking attack since years already. Then finally comes Chrome. Other browsers that are based off Chromium, still need to signal or implement the feature.
+Safari really cares about privacy. It circumvented this very cross-site tracking attack for years already. Then finally comes Chrome. Other browsers that are based off Chromium, still need to signal or implement the feature.
 
 - ✅ **Chrome**: since v86 (October 2020)
 - ✅ **Safari**: since 2013
