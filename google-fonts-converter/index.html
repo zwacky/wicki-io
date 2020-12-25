@@ -37,8 +37,14 @@
         <img src="images/logo.png" alt="W" width="38" />
       </a>
       <div>
-        <a href="/#work" class="nav__list__item">Work</a>
-        
+        <a href="/#work" class="nav__list__item d-none d-md-inline">Work</a>
+        <a
+          href="/google-fonts-converter"
+          class="nav__list__item active"
+          >
+          <span class="d-none d-md-inline">Google Fonts Converter</span>
+          <span class="d-md-none">Converter</span>
+        </a>
         
         <a
           href="/posts"
@@ -99,7 +105,10 @@
 		<div class="row" style="margin-bottom: 180px">
 			<div class="col-md-8 offset-md-2">
 				<div style="display: flex; align-items: center">
-					<form id="search">
+					<form
+						id="search"
+						onsubmit="ga('send', 'event', 'converter', 'submit', document.querySelector('#website_search').value)"
+					>
 						<input
 							style="width: 300px; padding: 5px 10px; border: 1px solid #c8c8c8"
 							id="website_search"
@@ -115,7 +124,7 @@
 		</div>
 
 		<section class="row" id="font-usage" style="margin-top: 100px">
-			<div class="col-md-2">
+			<div class="col-md-2 d-none d-md-block">
 				<div class="section__title" style="padding: 0; text-align: right">#1</div>
 			</div>
 			<div class="col-md-8">
@@ -128,7 +137,7 @@
 		</section>
 
 		<section class="row" id="css" style="margin-top: 100px">
-			<div class="col-md-2">
+			<div class="col-md-2 d-none d-md-block">
 				<div class="section__title" style="padding: 0; text-align: right">#2</div>
 			</div>
 			<div class="col-md-8">
