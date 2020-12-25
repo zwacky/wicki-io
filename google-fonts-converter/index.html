@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-  <title>Search results</title>
+  <title>Convert Google Fonts to Self-Hosted fonts</title>
   <base href="/" />
   <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/images/favicon.png" crossorigin />  
   
@@ -13,8 +13,8 @@
   <meta name="keywords" content="Frontend, Berlin, Ionic, VueJS, Angular, Capacitor, Cordova" />
 
   <meta property="og:site_name" content="Wicki.io" />
-  <meta property="og:title" content="Search results" name="title" />
-  <meta property="og:description" content="Search of wicki.io." name="description" />
+  <meta property="og:title" content="Convert Google Fonts to Self-Hosted fonts" name="title" />
+  <meta property="og:description" content="Check for Google Fonts on a website and download to easily self-host them." name="description" />
   <meta property="og:url" content="https://wicki.io/google-fonts-converter/" />
   <meta property="og:image" content="https://wicki.io/images/logo.png" />
   <meta property="og:type" content="website" />
@@ -22,8 +22,8 @@
   <meta name="author" content="Simon Wicki" />
   <meta name="twitter:site" content="@zwacky" />
   <meta name="twitter:creator" content="@zwacky" />
-  <meta name="twitter:title" content="Search results"/>
-  <meta name="twitter:description" content="Search of wicki.io."/>
+  <meta name="twitter:title" content="Convert Google Fonts to Self-Hosted fonts"/>
+  <meta name="twitter:description" content="Check for Google Fonts on a website and download to easily self-host them."/>
 
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -38,7 +38,7 @@
       </a>
       <div>
         <a href="/#work" class="nav__list__item">Work</a>
-        <a href="/#projects" class="nav__list__item">Projects</a>
+        
         
         <a
           href="/posts"
@@ -71,24 +71,89 @@
 
 
 
-<script type="text/javascript" src="/fonts-converter.682a39b4188c5ba16c66ac1a9243592fc50bf45aedb278d6b1bc0ef0ac11fe2f.js" integrity="sha256-aCo5tBiMW6FsZqwakkNZL8UL9FrtsnjWsbwO8KwR/i8=" defer></script>
+ 
+<script
+	type="text/javascript"
+	src="/fonts-converter.69a065265d255fa4b5148869c81eaf65b18fa85f29cd3413fb0b6373cd5a73b4.js"
+	integrity="sha256-aaBlJl0lX6S1FIhpyB6vZbGPqF8pzTQT&#43;wtjc81ac7Q="
+	defer
+></script>
+
+
+
+
+<link rel="stylesheet" href="/styles/google-fonts-converter.ba0d60a5d8a69939e192ff2fa3b52488a3d8e35b0b14aca1183e42af8c398045.css" />
 
 <div class="container" style="padding-top: 175px">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h1>Google Fonts to self-hosted fonts</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-			
-			<div>
-				<input style="width: 300px;" value="https://" placeholder="enter URL for conversion" />
-				<button id="check" type="button">check</button>
+	<div class="row">
+		<div class="col-md-8 offset-md-2">
+			<h1>Convert Google Fonts to Self-Hosted fonts</h1>
+			<p>
+				Check for Google Fonts on a website and download to easily self-host them.<br />Based on the great
+				google-webfonts-helper project.
+			</p>
+		</div>
+	</div>
+
+	<div id="results">
+		<div class="row" style="margin-bottom: 180px">
+			<div class="col-md-8 offset-md-2">
+				<div style="display: flex; align-items: center">
+					<form id="search">
+						<input
+							style="width: 300px; padding: 5px 10px; border: 1px solid #c8c8c8"
+							id="website_search"
+							placeholder="https://"
+						/>
+						<button style="margin-left: 10px" id="check" type="submit">check</button>
+					</form>
+					
+					<img class="spinner" src="/images/svg/spinner.svg" alt="Love" style="margin-left: 15px; height: 22px;" />
+				</div>
+				<small> examples: https://crashlytics.com, https://travis-ci.org </small>
 			</div>
-			
-    </div>
-  </div>
+		</div>
+
+		<section class="row" id="font-usage" style="margin-top: 100px">
+			<div class="col-md-2">
+				<div class="section__title" style="padding: 0; text-align: right">#1</div>
+			</div>
+			<div class="col-md-8">
+				<div class="title">Select detected Google Fonts to convert and download</div>
+				<div><br /></div>
+				<ul id="font-usage__list" style="list-style: none; padding-left: 0">
+					<div style="margin-top: -20px">Search for a website first</div>
+				</ul>
+			</div>
+		</section>
+
+		<section class="row" id="css" style="margin-top: 100px">
+			<div class="col-md-2">
+				<div class="section__title" style="padding: 0; text-align: right">#2</div>
+			</div>
+			<div class="col-md-8">
+				<div class="title">Copy CSS</div>
+				<br />
+				<div id="css__list">
+					<div style="margin-top: -20px">Search for a website first</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<section class="row" id="info" style="margin-top: 180px">
+		<div class="col-md-8 offset-md-2">
+			<div class="title">Additional Resources</div>
+			<ul>
+				<li><a href="https://google-webfonts-helper.herokuapp.com/fonts">Google Webfonts Helper</a></li>
+				<li>
+					<a href="https://wicki.io/posts/2020-11-goodbye-google-fonts/"
+						>Time to Say Goodbye to Google Fonts</a
+					>
+				</li>
+			</ul>
+		</div>
+	</section>
 </div>
 
 
