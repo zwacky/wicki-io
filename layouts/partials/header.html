@@ -7,7 +7,11 @@
       </a>
       <div>
         <a href="/#work" class="nav__list__item">Work</a>
-        <a href="/#projects" class="nav__list__item">Projects</a>
+        <!-- <a
+          href="/google-fonts-converter"
+          class="nav__list__item {{ if hasPrefix .RelPermalink "/google-fonts-converter/" }}active{{ end }}"
+          >Google Fonts Converter</a
+        > -->
         {{ $currentPage := . }}
         <a
           href="/posts"
