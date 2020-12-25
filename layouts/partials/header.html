@@ -6,12 +6,14 @@
         <img src="images/logo.png" alt="W" width="38" />
       </a>
       <div>
-        <a href="/#work" class="nav__list__item">Work</a>
-        <!-- <a
+        <a href="/#work" class="nav__list__item d-none d-md-inline">Work</a>
+        <a
           href="/google-fonts-converter"
           class="nav__list__item {{ if hasPrefix .RelPermalink "/google-fonts-converter/" }}active{{ end }}"
-          >Google Fonts Converter</a
-        > -->
+          >
+          <span class="d-none d-md-inline">Google Fonts Converter</span>
+          <span class="d-md-none">Converter</span>
+        </a>
         {{ $currentPage := . }}
         <a
           href="/posts"

@@ -30,7 +30,10 @@
 		<div class="row" style="margin-bottom: 180px">
 			<div class="col-md-8 offset-md-2">
 				<div style="display: flex; align-items: center">
-					<form id="search">
+					<form
+						id="search"
+						onsubmit="ga('send', 'event', 'converter', 'submit', document.querySelector('#website_search').value)"
+					>
 						<input
 							style="width: 300px; padding: 5px 10px; border: 1px solid #c8c8c8"
 							id="website_search"
@@ -46,7 +49,7 @@
 		</div>
 
 		<section class="row" id="font-usage" style="margin-top: 100px">
-			<div class="col-md-2">
+			<div class="col-md-2 d-none d-md-block">
 				<div class="section__title" style="padding: 0; text-align: right">#1</div>
 			</div>
 			<div class="col-md-8">
@@ -59,7 +62,7 @@
 		</section>
 
 		<section class="row" id="css" style="margin-top: 100px">
-			<div class="col-md-2">
+			<div class="col-md-2 d-none d-md-block">
 				<div class="section__title" style="padding: 0; text-align: right">#2</div>
 			</div>
 			<div class="col-md-8">
