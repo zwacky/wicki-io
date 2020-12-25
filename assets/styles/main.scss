@@ -173,7 +173,6 @@ body {
   background-color: rgba(255, 255, 255, 0.95);
   font-size: 1.2rem;
   font-weight: 400;
-  // text-transform: uppercase;
   font-family: "Source Sans Pro", "Open Sans", sans-serif;
 
   &__list {
@@ -191,7 +190,6 @@ body {
       }
 
       &--icon {
-        // height: 22px;
         position: relative;
         bottom: 1px;
       }
@@ -201,23 +199,15 @@ body {
         border-radius: 3px;
         padding: 6px 12px;
       }
-
-      // &--medium {
-      // 	fill: red !important;
-      // }
     }
   }
 
   &--brand {
-    font-family: "Playfair Display", serif;
     height: 40px;
     width: 40px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     border: 1px solid #f17b7b;
     background-color: #f17b7b;
-    color: white;
     padding-bottom: 4px;
 
     &:hover {
@@ -241,7 +231,6 @@ body {
 }
 
 .hero {
-  // background-image: url(https://onebar.io/_nuxt/img/7b61fb5.svg);
   position: relative;
   font-family: "Playfair Display", serif;
   font-weight: 300;
@@ -272,17 +261,6 @@ body {
       @media (max-width: 480px) {
         font-size: 1.8rem;
       }
-
-      // font-family: 'Playfair Display', serif;
-      // height: 42px;
-      // width: 42px;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      // background-color: #f17b7b;
-      // color: white;
-      // font-weight: 700;
-      // font-size: 1.5rem;
     }
   }
 
@@ -583,7 +561,6 @@ body {
   margin-top: 80px;
 
   &__item {
-
     a {
       padding: 5px;
       margin: 5px;
@@ -599,6 +576,5 @@ body {
         border: none;
       }
     }
-
   }
 }
