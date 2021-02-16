@@ -1,5 +1,5 @@
 ---
-title: "Useful npx Packages in the Everyday Developer Life"
+title: "Useful Npx Packages in the Everyday Life of a Developer"
 publishDate: "2021-02-16"
 description: "Check out these useful npx packages for killing ports, deleting node_modules folders and comparing time zones."
 keywords: "npx, npm, useful npm packages, developer"
