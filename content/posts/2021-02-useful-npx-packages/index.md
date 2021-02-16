@@ -14,7 +14,7 @@ I focus on packages that have helped me through my daily life as a developer.
 
 ## npx kill-port
 
-{{< figure src="/posts/2021-02-new-post/kill-port.gif" alt="npx kill-port" >}}
+{{< figure src="/posts/2021-02-useful-npx-packages/kill-port.gif" alt="npx kill-port" >}}
 
 **usage:** `npx kill-port 8080`
 
@@ -22,15 +22,15 @@ Did some webpack dev server not shut down nicely and now 8080, or any port for t
 
 ## npx npkill
 
-{{< figure src="/posts/2021-02-new-post/npkill.gif" alt="npx npkill" >}}
+{{< figure src="/posts/2021-02-useful-npx-packages/npkill.gif" alt="npx npkill" >}}
 
 **usage:** `npx npkill`
 
-It's no secret that node_modules folders [are the black holes of software development](/posts/2021-02-new-post/node_modules-black-hole.png). This package will help you get back your disk space by selecting and deleting the node_modules of your (unused) projects.
+It's no secret that node_modules folders [are the black holes of software development](/posts/2021-02-useful-npx-packages/node_modules-black-hole.png). This package will help you get back your disk space by selecting and deleting the node_modules of your (unused) projects.
 
 ## npx http-server
 
-{{< figure src="/posts/2021-02-new-post/http-server.gif" alt="npx http-server" >}}
+{{< figure src="/posts/2021-02-useful-npx-packages/http-server.gif" alt="npx http-server" >}}
 
 **usage:** `npx http-server .`
 
@@ -40,7 +40,7 @@ Easily serve a directory as a simple webserver. Especially useful for compiled w
 
 ## npx timezone-compare
 
-{{< figure src="/posts/2021-02-new-post/timezone-compare.gif" alt="npx timezone-compare" >}}
+{{< figure src="/posts/2021-02-useful-npx-packages/timezone-compare.gif" alt="npx timezone-compare" >}}
 
 **usage:** `npx timezone-compare`
 
@@ -50,7 +50,7 @@ This package helped me to plan quickly setting up meetings with others of differ
 
 ## Honorable Mention: npx emoj
 
-{{< figure src="/posts/2021-02-new-post/emoj.gif" alt="npx emoj" >}}
+{{< figure src="/posts/2021-02-useful-npx-packages/emoj.gif" alt="npx emoj" >}}
 
 **usage:** `npx emoj happy`
 
