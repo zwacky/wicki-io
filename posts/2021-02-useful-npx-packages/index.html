@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Useful npx Packages in the Everyday Developer Life</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/images/favicon.png" crossorigin />  
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2021-02-useful-npx-packages/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[npx, npm, useful npm packages, developer]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="Useful npx Packages in the Everyday Developer Life" name="title" />
+  <meta property="og:description" content="Check out these useful npx packages for killing ports, deleting node_modules folders and comparing time zones." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2021-02-useful-npx-packages/" />
+  <meta property="og:image" content="https://wicki.io/posts/2021-02-useful-npx-packages/npm.png" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="Useful npx Packages in the Everyday Developer Life"/>
+  <meta name="twitter:description" content="Check out these useful npx packages for killing ports, deleting node_modules folders and comparing time zones."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      <a href="/" class="nav--brand" style="overflow: hidden;">
+        <img src="images/logo.png" alt="W" width="38" />
+      </a>
+      <div>
+        <a href="/#work" class="nav__list__item d-none d-md-inline">Work</a>
+        <a
+          href="/google-fonts-converter"
+          class="nav__list__item "
+          >
+          <span class="d-none d-md-inline">Google Fonts Converter</span>
+          <span class="d-md-none">Converter</span>
+        </a>
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Useful npx Packages in the Everyday Developer Life</h1>
+      <div style="margin-bottom: 20px;">
+        
+          February 16, 2021
+        
+      </div>
+
+      <p>Npm comes with a neat tool called <code>npx</code> that lets you directly execute packages from the npm registry. It temporarily downloads it behind the scene and won&rsquo;t <em>pollute</em> your local or global npm environment.</p>
+<p>In this post I&rsquo;ll skip useful packages that are bound to libraries and frameworks like Angular&rsquo;s <code>ng</code>, react&rsquo;s <code>create-react-app</code> or capacitor&rsquo;s <code>cap</code>.</p>
+<p>I focus on packages that have helped me through my daily life as a developer.</p>
+<h2 id="npx-kill-port">npx kill-port</h2>
+<figure>
+    <img src="/posts/2021-02-new-post/kill-port.gif"
+         alt="npx kill-port"/> 
+</figure>
+
+<p><strong>usage:</strong> <code>npx kill-port 8080</code></p>
+<p>Did some webpack dev server not shut down nicely and now 8080, or any port for that matter, is in use? Just kill it with kill-port.</p>
+<h2 id="npx-npkill">npx npkill</h2>
+<figure>
+    <img src="/posts/2021-02-new-post/npkill.gif"
+         alt="npx npkill"/> 
+</figure>
+
+<p><strong>usage:</strong> <code>npx npkill</code></p>
+<p>It&rsquo;s no secret that node_modules folders <a href="/posts/2021-02-new-post/node_modules-black-hole.png">are the black holes of software development</a>. This package will help you get back your disk space by selecting and deleting the node_modules of your (unused) projects.</p>
+<h2 id="npx-http-server">npx http-server</h2>
+<figure>
+    <img src="/posts/2021-02-new-post/http-server.gif"
+         alt="npx http-server"/> 
+</figure>
+
+<p><strong>usage:</strong> <code>npx http-server .</code></p>
+<p><strong>repo:</strong> <a href="http://something.com">http-server</a></p>
+<p>Easily serve a directory as a simple webserver. Especially useful for compiled webapps in /build folders.</p>
+<h2 id="npx-timezone-compare">npx timezone-compare</h2>
+<figure>
+    <img src="/posts/2021-02-new-post/timezone-compare.gif"
+         alt="npx timezone-compare"/> 
+</figure>
+
+<p><strong>usage:</strong> <code>npx timezone-compare</code></p>
+<p>This package helped me to plan quickly setting up meetings with others of different timezones.</p>
+<hr>
+<h2 id="honorable-mention-npx-emoj">Honorable Mention: npx emoj</h2>
+<figure>
+    <img src="/posts/2021-02-new-post/emoj.gif"
+         alt="npx emoj"/> 
+</figure>
+
+<p><strong>usage:</strong> <code>npx emoj happy</code></p>
+<p>I used this package to death! Sadly its API, that came from getdango&rsquo;s <a href="https://getdango.com/emoji-and-deep-learning/">Emoji &amp; Deep Learning</a>, is not maintained anymore. Thus the emoji results are not ground breaking anymore.</p>
+<p>As a replacement I suggest using <code>ctrl + cmd + space</code> (macOS), that will help you a bit on the way of finding the right emoji.</p>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend & non-fiction books
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2021-02-useful-npx-packages\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>

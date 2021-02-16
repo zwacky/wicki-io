@@ -6,10 +6,17 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Useful npx Packages in the Everyday Developer Life</title>
+      <link>https://wicki.io/posts/2021-02-useful-npx-packages/</link>
+      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2021-02-useful-npx-packages/</guid>
+      <description>Npm comes with a neat tool called npx that lets you directly execute packages from the npm registry. It temporarily downloads it behind the scene and won&amp;rsquo;t pollute your local or global npm environment.
+In this post I&amp;rsquo;ll skip useful packages that are bound to libraries and frameworks like Angular&amp;rsquo;s ng, react&amp;rsquo;s create-react-app or capacitor&amp;rsquo;s cap.
+I focus on packages that have helped me through my daily life as a developer.</description>
+    </item>
     
     <item>
       <title>Time to Say Goodbye to Google Fonts</title>
