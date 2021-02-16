@@ -18,6 +18,8 @@ I focus on packages that have helped me through my daily life as a developer.
 
 **usage:** `npx kill-port 8080`
 
+**repo:** [npkill](https://github.com/tiaanduplessis/kill-port)
+
 Did some webpack dev server not shut down nicely and now 8080, or any port for that matter, is in use? Just kill it with kill-port.
 
 ## npx npkill
@@ -25,6 +27,8 @@ Did some webpack dev server not shut down nicely and now 8080, or any port for t
 {{< figure src="/posts/2021-02-useful-npx-packages/npkill.gif" alt="npx npkill" >}}
 
 **usage:** `npx npkill`
+
+**repo:** [npkill](https://npkill.js.org/)
 
 It's no secret that node_modules folders [are the black holes of software development](/posts/2021-02-useful-npx-packages/node_modules-black-hole.png). This package will help you get back your disk space by selecting and deleting the node_modules of your (unused) projects.
 
@@ -34,7 +38,7 @@ It's no secret that node_modules folders [are the black holes of software develo
 
 **usage:** `npx http-server .`
 
-**repo:** [http-server](http://something.com)
+**repo:** [http-server](https://github.com/http-party/http-server)
 
 Easily serve a directory as a simple webserver. Especially useful for compiled webapps in /build folders.
 
@@ -43,6 +47,8 @@ Easily serve a directory as a simple webserver. Especially useful for compiled w
 {{< figure src="/posts/2021-02-useful-npx-packages/timezone-compare.gif" alt="npx timezone-compare" >}}
 
 **usage:** `npx timezone-compare`
+
+**repo:** [timezone-compare](https://github.com/imbhargav5/timezone-compare)
 
 This package helped me to plan quickly setting up meetings with others of different timezones.
 
@@ -53,6 +59,8 @@ This package helped me to plan quickly setting up meetings with others of differ
 {{< figure src="/posts/2021-02-useful-npx-packages/emoj.gif" alt="npx emoj" >}}
 
 **usage:** `npx emoj happy`
+
+**repo:** [emoj](https://github.com/sindresorhus/emoj)
 
 I used this package to death! Sadly its API, that came from getdango's [Emoji & Deep Learning](https://getdango.com/emoji-and-deep-learning/), is not maintained anymore. Thus the emoji results are not ground breaking anymore.
 
