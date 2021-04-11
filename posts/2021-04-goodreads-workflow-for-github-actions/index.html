@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Pimp Your GitHub Profile with Books You Read</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/images/favicon.png" crossorigin />  
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2021-04-goodreads-workflow-for-github-actions/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[github actions, github workflow, github profile, cron, goodreads]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="Pimp Your GitHub Profile with Books You Read" name="title" />
+  <meta property="og:description" content="Automatically sync your Goodreads books you read on your GitHub profile with the help of GitHub Actions." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2021-04-goodreads-workflow-for-github-actions/" />
+  <meta property="og:image" content="https://wicki.io/posts/2021-04-goodreads-workflow-for-github-actions/github-actions-goodreads-cover.png" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="Pimp Your GitHub Profile with Books You Read"/>
+  <meta name="twitter:description" content="Automatically sync your Goodreads books you read on your GitHub profile with the help of GitHub Actions."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      <a href="/" class="nav--brand" style="overflow: hidden;">
+        <img src="images/logo.png" alt="W" width="38" />
+      </a>
+      <div>
+        <a href="/#work" class="nav__list__item d-none d-md-inline">Work</a>
+        <a
+          href="/google-fonts-converter"
+          class="nav__list__item "
+          >
+          <span class="d-none d-md-inline">Google Fonts Converter</span>
+          <span class="d-md-none">Converter</span>
+        </a>
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Pimp Your GitHub Profile with Books You Read</h1>
+      <div style="margin-bottom: 20px;">
+        
+          April 11, 2021
+        
+      </div>
+
+      <figure>
+    <img src="/posts/2021-04-goodreads-workflow-for-github-actions/goodreads-github-profile-update-v2.png"
+         alt="Keep the books you read in sync with your GitHub profile README"/> <figcaption>
+            <p>Keep the books you read in sync with your GitHub profile README</p>
+        </figcaption>
+</figure>
+
+<p>In this post I&rsquo;d like to show you how to use GitHub Actions to automatically sync your Goodreads books you read in your GitHub profile README.</p>
+<p>I created goodreads-profile-workflow for devs that love to read and like to share what they read. You can customise the input parameters to your liking: list the books you&rsquo;re currently reading, last 5 books you read and even add your personal ratings, too.</p>
+<p>Leave a star on the repo if you think it&rsquo;s cool!</p>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p><strong>GitHub Repo:</strong> <a href="https://github.com/zwacky/goodreads-profile-workflow">https://github.com/zwacky/goodreads-profile-workflow</a></p>
+<p><strong>GitHub Action Name:</strong> Goodreads Profile Workflow</p>
+</div>
+<h2 id="github-actions-and-profile-readmes">GitHub Actions and Profile READMEs</h2>
+<figure>
+    <img src="/posts/2021-04-goodreads-workflow-for-github-actions/github-actions-goodreads-cover.png"
+         alt="Automatically sync your Goodreads books you read on your GitHub profile with the help of GitHub Actions"/> 
+</figure>
+
+<p>When you head over to your GitHub profile page, <a href="https://github.com/zwacky">https://github.com/zwacky</a> in my case, you&rsquo;ll see that you can do more than just pin repositories. If you&rsquo;re missing yours, check out the <a href="https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme">official docs on GitHub</a> to get one, too.</p>
+<p>Keeping your profile README fresh with up-to-date data is a great way to show your visitors what you&rsquo;re up to or what you&rsquo;ve been working on. Either you do it manually or you automate it with the help of GitHub Actions. They can run workflows periodically and update your README for you.</p>
+<p>There are tons of great ones out there. Have a look at the great list <a href="https://github.com/abhisheknaiidu/awesome-github-profile-readme">awesome-github-profile-readme</a> repo for inspiration. They include GitHub Actions that can:</p>
+<ul>
+<li>update your latest blog entries</li>
+<li>update your GitHub activity</li>
+<li>or even update your sleep data from your sleep tracker</li>
+</ul>
+<hr>
+<h2 id="how-to-use">How To Use</h2>
+<p>I&rsquo;ll quickly explain here how to use <code>goodreads-profile-workflow</code> and what the GitHub Actions do. For a full step-by-step guide read the <a href="https://github.com/zwacky/goodreads-profile-workflow#how-to-use">how to use section</a> of the project.</p>
+<h3 id="1-add-placeholders-to-your-readme">#1 Add placeholders to your README</h3>
+<p>Your README.md will be updated and eventually updated every hour by the GitHub Action. So it needs to know where the list begins, and where it ends. The content inbetween will then be replaced with the latest content. As an example it could look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md"># Hey there 👋
+I&#39;m Simon and live in Berlin as a Freelance Frontend developer.
+
+# Last 5 Books I&#39;ve Read 🤓
+<span style="color:#75715e">&lt;!-- GOODREADS-LIST:START --&gt;</span>
+<span style="color:#75715e">&lt;!-- GOODREADS-LIST:END --&gt;</span>
+</code></pre></div><p>You can customize the <code>GOODREADS-LIST</code> tags, so you can have multiple workflows updating different sections in your README. This is also what I&rsquo;m using to get to the screenshot at the top of this post.</p>
+<h3 id="2-create-a-workflow-file">#2 Create a workflow file</h3>
+<p>Create a file in your own GitHub profile repo so it&rsquo;s located at: <code>{REPO}/.github/workflows/goodreads-books-workflow.yml</code>.</p>
+<p>GitHub Actions look for <code>*.yml</code> files in the <code>/.github/workflows</code> directory. These files are called workflows.</p>
+<p>In this workflow file you can paste the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Latest book list from goodreads</span>
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">schedule</span>: <span style="color:#75715e"># Run workflow automatically</span>
+    <span style="color:#75715e"># This will make it run every hour</span>
+    - <span style="color:#f92672">cron</span>: <span style="color:#e6db74">&#34;0 * * * *&#34;</span>
+    <span style="color:#75715e"># Run workflow manually (without waiting for the cron to be called), through the Github Actions Workflow page directly</span>
+  <span style="color:#f92672">workflow_dispatch</span>:
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">update-readme-with-goodreads-books</span>:
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Update this repo&#39;s README with what you&#39;re currently reading</span>
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">zwacky/goodreads-profile-workflow@main</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#75715e"># Replace this with your goodreads user id (go to &#34;My Books&#34; on goodreads to see it in the URL)</span>
+          <span style="color:#f92672">goodreads_user_id</span>: <span style="color:#e6db74">&#34;92930971&#34;</span>
+          <span style="color:#f92672">shelf</span>: <span style="color:#e6db74">&#34;currently-reading&#34;</span>
+</code></pre></div><p>The last lines are input parameters. Make sure you change them with your Goodreads ID.</p>
+<p>Have a look at all the <a href="https://github.com/zwacky/goodreads-profile-workflow#inputs">input parameters and template variables</a> that goodreads-profile-workflow support.</p>
+<h3 id="3-commit-and-trigger-the-workflow">#3 Commit and trigger the workflow</h3>
+<p>If you head over to the Actions tab in the repo. You should see your &ldquo;Latest book list from goodreads&rdquo; workflow. This is also where you can see if the job ran successfully or if there is an issue or typo.</p>
+<figure>
+    <img src="/posts/2021-04-goodreads-workflow-for-github-actions/run-github-actions-manually.png"
+         alt="manually trigger workflow for GitHub Actions"/> 
+</figure>
+
+<p>Alternatively you could also wait until the scheduler picks up on the <code>&quot;0 * * * *&quot;</code> setting (every hour) in the yml workflow.</p>
+<h3 id="4-done-">#4 Done 🎉</h3>
+<p>Hope you find this workflow useful! Please reach out via <a href="https://github.com/zwacky/goodreads-profile-workflow/issues">GitHub issues</a> or <a href="https://twitter.com/zwacky">Twitter</a>. Excited to hear from all the different reading lists and how your profile looks. Please consider leaving a GitHub star.</p>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend & non-fiction books
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2021-04-goodreads-workflow-for-github-actions\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+            opacity: 1;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>

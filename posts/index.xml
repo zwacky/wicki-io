@@ -6,7 +6,18 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pimp Your GitHub Profile with Books You Read</title>
+      <link>https://wicki.io/posts/2021-04-goodreads-workflow-for-github-actions/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2021-04-goodreads-workflow-for-github-actions/</guid>
+      <description>Keep the books you read in sync with your GitHub profile README
+  In this post I&amp;rsquo;d like to show you how to use GitHub Actions to automatically sync your Goodreads books you read in your GitHub profile README.
+I created goodreads-profile-workflow for devs that love to read and like to share what they read. You can customise the input parameters to your liking: list the books you&amp;rsquo;re currently reading, last 5 books you read and even add your personal ratings, too.</description>
+    </item>
+    
     <item>
       <title>Useful Npx Packages for the Developer&#39;s Everyday Life</title>
       <link>https://wicki.io/posts/2021-02-useful-npx-packages/</link>
