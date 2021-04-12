@@ -12,7 +12,7 @@ Async/Await has been around the block already some time. Now that it is in stage
 
 ## TL;DR I WANT ASYNC/AWAIT SUPPORT NAO!!1
 
-- use [babel-preset-env](https://github.com/babel/babel-preset-env)
+- use [babel-preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env)
 - **yarn add regenerator or npm install regenerator**
 - add **node_modules/regenerator-runtime/runtime.js** (10.7kb minified) into your bundle
 
