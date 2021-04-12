@@ -8,6 +8,14 @@ keywords: "firebase, webpack"
 
 {{< figure src="/posts/2017-08-using-firebase-you-might-be-able-to-save-220kb/firebase-webpack.png" alt="Firebase webpack" >}}
 
+<br>
+
+{{% stress %}}
+**MARCH 2020 UPDATE**: The new [Firebase JS SDK Alpha](https://modularfirebase.web.app/) makes your bundle up to 80% smaller! It now fully adopts tree-shaking and lets you import only what you truly need.
+{{% /stress %}}
+
+<br>
+
 In a lot of tutorials I came across the comfortable solution of just adding import * as firebase from 'firebase' for your firebase import. As it turns out, there are 4 modular packages for Firebase. Here they are along with their sizes:
 
 * **firebase/app:** 22.1kb `.initializeApp(firebaseConfig)`
