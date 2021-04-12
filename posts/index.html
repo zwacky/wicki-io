@@ -542,8 +542,8 @@ Let’s talk about the elephant in the room: Performance. Let me just show you h
                     -webkit-box-orient: vertical;
                   "
                 >
-                  In a lot of tutorials I came across the comfortable solution of just adding import * as firebase from &lsquo;firebase&rsquo; for your firebase import. As it turns out, there are 4 modular packages for Firebase. Here they are along with their sizes:
- firebase/app: 22.1kb .initializeApp(firebaseConfig) firebase/auth: 147.6kb .auth() firebase/database: 139.8kb .database() firebase/storage: 51.2kb .storage()  Usually you might not need all of these Firebase services and can require() or import just what is needed — with the help of webpack’s Tree Shaking.
+                  MARCH 2020 UPDATE: The new Firebase JS SDK Alpha makes your bundle up to 80% smaller! It now fully adopts tree-shaking and lets you import only what you truly need.
+ In a lot of tutorials I came across the comfortable solution of just adding import * as firebase from &lsquo;firebase&rsquo; for your firebase import. As it turns out, there are 4 modular packages for Firebase. Here they are along with their sizes:
                 </p>
               </div>
             </div>
