@@ -159,7 +159,7 @@ It measures the quality of a site by these three metrics: <strong>LCP</strong>, 
         </figcaption>
 </figure>
 
-<p>Layout shifts only happen when existing elements change their start position. If a new element is added to the DOM or an existing element changes size, it doesn&rsquo;t count as a layout shift—as long as the change doesn&rsquo;t cause other visible elements to change their start position.</p>
+<p>Layout shifts only happen when an element higher up is making other elements move. If the element is changing and there is nothing after it, it doesn&rsquo;t count as a layout shift—as well as DOM changes that were caused by a user interaction with a grace period (500ms).</p>
 <p>Note: Mobile viewports and 3G devices will cause much more CLS. Make sure to throttle your connection while optimising your page for these metrics.</p>
 <p>Causes of CLS:</p>
 <ul>
