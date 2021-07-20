@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html><head>
+  <title>What are Core Web Vitals</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-300.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/playfair-display-v21-latin-regular.woff2" crossorigin />
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2021-07-core-web-vitals/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[core web vitals, LCP, FID, CLS, google udpate, seo]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="What are Core Web Vitals" name="title" />
+  <meta property="og:description" content="What are Core Web Vitals, how to measure and improve them." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2021-07-core-web-vitals/" />
+  <meta property="og:image" content="https://wicki.io/posts/2021-07-core-web-vitals/core-web-vitals.png" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="What are Core Web Vitals"/>
+  <meta name="twitter:description" content="What are Core Web Vitals, how to measure and improve them."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      <a href="/" class="nav--brand" style="overflow: hidden;">
+        <img src="images/logo.png" alt="W" width="38" />
+      </a>
+      <div>
+        
+        
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>What are Core Web Vitals</h1>
+      <div style="margin-bottom: 20px;">
+        
+          July 20, 2021
+        
+      </div>
+
+      <figure>
+    <img src="/posts/2021-07-core-web-vitals/core-web-vitals-green-urls.png"
+         alt="Passing your Core Web Vitals and google will reward you with visibility."/> <figcaption>
+            <p>Passing your Core Web Vitals and google will reward you with visibility.</p>
+        </figcaption>
+</figure>
+
+<p>With Google&rsquo;s June 2021 update Core Web Vitals (CWV) will become a factor in SEO ranking.
+It measures the quality of a site by these three metrics: <strong>LCP</strong>, <strong>FID</strong> and <strong>CLS</strong>.</p>
+<p>If you pass all of them them, Google will reward you with more visibility.</p>
+<p>You can check how well you do on these metrics via several ways:</p>
+<ul>
+<li><a href="https://developers.google.com/speed/pagespeed/insights/">Pagespeed Insights</a></li>
+<li><a href="https://search.google.com/">Search Console</a></li>
+<li><a href="https://web.dev/measure/">WebDev Measure</a></li>
+<li>Chrome DevTools &amp; Lighthouse</li>
+<li><a href="https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en">Web Vitals Chrome Extension</a></li>
+<li><a href="https://github.com/GoogleChrome/web-vitals#send-the-results-to-google-analytics">Custom event tracking with Google Analytics</a></li>
+</ul>
+<hr>
+<h1 id="largest-contentful-paint-lcp">Largest Contentful Paint (LCP)</h1>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p>LCP marks the point in the page load timeline when the page&rsquo;s main content has likely loaded.</p>
+<p>—<a href="https://web.dev/lcp/">web.dev</a></p>
+</div>
+<figure>
+    <img src="/posts/2021-07-core-web-vitals/LCP-techcrunch.gif"
+         alt="LCP will keep changing until the Largest Contentful Paint is done, which here is at 1.766s"/> <figcaption>
+            <p>LCP will keep changing until the Largest Contentful Paint is done, which here is at 1.766s</p>
+        </figcaption>
+</figure>
+
+<p>The faster you make the biggest content on the above-the-fold appear, the better your metric will be.</p>
+<p>If you can preload the biggest image already, e.g. with <code>&lt;link rel=&quot;preload&quot; href=&quot;...&quot;&gt;</code> or make the content appear without rendering it with your Javascript Framework, you&rsquo;ll win big.</p>
+<p>Causes of LCP:</p>
+<ul>
+<li>Slow server response times</li>
+<li>Render-blocking Javascript and CSS</li>
+<li>Slow resource load times</li>
+<li>Client-side rendering</li>
+</ul>
+<hr>
+<h1 id="first-input-delay-fid">First Input Delay (FID)</h1>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p>FID measures the time from when a user first interacts with a page to the time when the browser is actually able to begin processing event handlers in response to that interaction.</p>
+<p>—<a href="https://web.dev/fid/">web.dev</a></p>
+</div>
+<figure>
+    <img src="/posts/2021-07-core-web-vitals/FID-imdb.gif"
+         alt="0.666s pass until you see the website working with your interaction."/> <figcaption>
+            <p>0.666s pass until you see the website working with your interaction.</p>
+        </figcaption>
+</figure>
+
+<p>Javascript can block the thread to act to a user interaction when it is busy. If you have too many libraries that load at runtime, worse even if you don&rsquo;t need them right away, this can increase the FID.</p>
+<p>It&rsquo;s similar to <a href="https://web.dev/tti/">TTI (Time to Interactive)</a> that you might have heard of already. However FID will only start to be measured from the user interaction. Whereas TTI will be measured from the very start of loading the site.</p>
+<p>Causes of FID:</p>
+<ul>
+<li>too much javascript code to execute right away, especially 3rd party</li>
+<li>ad networks can push lots of unneeded Javascript</li>
+<li>not using code-splitting (e.g. with <a href="https://webpack.js.org/guides/code-splitting/">webpack</a>, <a href="https://rollupjs.org/guide/en/#code-splitting">Rollup</a>, <a href="https://parceljs.org/code_splitting.html">Parcel</a>)</li>
+</ul>
+<hr>
+<h1 id="cumulative-layout-shift-cls">Cumulative Layout Shift (CLS)</h1>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p>CLS is a measure of the largest burst of layout shift scores for every unexpected layout shift that occurs during the entire lifespan of a page.</p>
+<p>—<a href="https://web.dev/cls/">web.dev</a></p>
+</div>
+<figure>
+    <img src="/posts/2021-07-core-web-vitals/CLS-giphy.gif"
+         alt="CLS is happening here that makes the content jump around."/> <figcaption>
+            <p>CLS is happening here that makes the content jump around.</p>
+        </figcaption>
+</figure>
+
+<p>Layout shifts only happen when existing elements change their start position. If a new element is added to the DOM or an existing element changes size, it doesn&rsquo;t count as a layout shift—as long as the change doesn&rsquo;t cause other visible elements to change their start position.</p>
+<p>Note: Mobile viewports and 3G devices will cause much more CLS. Make sure to throttle your connection while optimising your page for these metrics.</p>
+<p>Causes of CLS:</p>
+<ul>
+<li>images without size attributes</li>
+<li>requests finish later that will inject content above existing content</li>
+<li>lazy loaded components</li>
+</ul>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend, web perf & non-fiction books
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2021-07-core-web-vitals\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+            opacity: 1;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>

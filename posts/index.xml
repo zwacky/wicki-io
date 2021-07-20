@@ -6,7 +6,19 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What are Core Web Vitals</title>
+      <link>https://wicki.io/posts/2021-07-core-web-vitals/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2021-07-core-web-vitals/</guid>
+      <description>Passing your Core Web Vitals and google will reward you with visibility.
+  With Google&amp;rsquo;s June 2021 update Core Web Vitals (CWV) will become a factor in SEO ranking. It measures the quality of a site by these three metrics: LCP, FID and CLS.
+If you pass all of them them, Google will reward you with more visibility.
+You can check how well you do on these metrics via several ways:</description>
+    </item>
+    
     <item>
       <title>Pimp Your GitHub Profile with Books You Read</title>
       <link>https://wicki.io/posts/2021-04-goodreads-workflow-for-github-actions/</link>
