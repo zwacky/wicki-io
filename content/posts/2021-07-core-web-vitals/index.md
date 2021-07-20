@@ -1,7 +1,7 @@
 ---
 title: "What are Core Web Vitals"
 publishDate: "2021-07-20"
-description: "What are Core Web Vitals, how to measure and improve them."
+description: "The 3 new performance metrics that Google will rank against in its June 2021 update."
 keywords: "core web vitals, LCP, FID, CLS, google udpate, seo"
 image: "core-web-vitals.png"
 ---
