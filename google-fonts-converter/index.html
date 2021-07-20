@@ -35,9 +35,11 @@
   <div class="container">
     <div class="nav__list">
       
-      <a href="/" class="nav--brand" style="overflow: hidden;">
-        <img src="images/logo.png" alt="W" width="38" />
-      </a>
+      
+        <a href="/" class="nav--brand" style="overflow: hidden;">
+          <img src="images/logo.png" alt="W" width="38" />
+        </a>
+        
       <div>
         
         
@@ -47,6 +49,7 @@
           class="nav__list__item "
           >Blog</a
         >
+        
         <a
           class="d-none d-sm-inline nav__list__item nav__list__item--mail"
           href="mailto:simon@wicki.io"
@@ -76,75 +79,28 @@
  
 <script
 	type="text/javascript"
-	src="/fonts-converter.2c621a8272a2336535f96bbaef06226b15f5dfe042e67b32241df9e551eee81c.js"
-	integrity="sha256-LGIagnKiM2U1&#43;Wu67wYiaxX13&#43;BC5nsyJB355VHu6Bw="
+	src="/build/bundle.c101f5bb37b995650079db06e7cb1382c0b3a9814a3aca5ad6afe62e544853a9.js"
+	integrity="sha256-wQH1uze5lWUAedsG58sTgsCzqYFKOspa1q/mLlRIU6k="
 	defer
 ></script>
 
 
 
 
-<link rel="stylesheet" href="/styles/google-fonts-converter.ba0d60a5d8a69939e192ff2fa3b52488a3d8e35b0b14aca1183e42af8c398045.css" />
+<link rel="stylesheet" href="/build/bundle.ba9eeaa710526bd7c05b50a67fde2cd42279ea9e850840b4e381801db720e4da.css" />
 
 <div class="container" style="padding-top: 175px">
 	<div class="row">
 		<div class="col-md-8 offset-md-2">
 			<h1>Self-host Google Fonts</h1>
 			<p>
-				Check for used Google Fonts on any website and download to easily self-host them.<br />Based on the great
-				google-webfonts-helper project.
+				Check for used Google Fonts on any website and download to easily self-host them.<br />Based on the
+				great google-webfonts-helper project.
 			</p>
 		</div>
 	</div>
 
-	<div id="results">
-		<div class="row" style="margin-bottom: 180px">
-			<div class="col-md-8 offset-md-2">
-				<div style="display: flex; align-items: center">
-					<form
-						id="search"
-						onsubmit="ga('send', 'event', 'converter', 'submit', document.querySelector('#website_search').value)"
-					>
-						<input
-							style="width: 300px; padding: 5px 10px; border: 1px solid #c8c8c8"
-							id="website_search"
-							placeholder="https://"
-						/>
-						<button style="margin-left: 10px" id="check" type="submit">check</button>
-					</form>
-					
-					<img class="spinner" src="/images/svg/spinner.svg" alt="Love" style="margin-left: 15px; height: 22px;" />
-				</div>
-				<small> examples: https://crashlytics.com, https://travis-ci.org </small>
-			</div>
-		</div>
-
-		<section class="row" id="font-usage" style="margin-top: 100px">
-			<div class="col-md-2 d-none d-md-block">
-				<div class="section__title" style="padding: 0; text-align: right">#1</div>
-			</div>
-			<div class="col-md-8">
-				<div class="title">Select detected Google Fonts to convert and download</div>
-				<div><br /></div>
-				<ul id="font-usage__list" style="list-style: none; padding-left: 0">
-					<div style="margin-top: -20px">Search for a website first</div>
-				</ul>
-			</div>
-		</section>
-
-		<section class="row" id="css" style="margin-top: 100px">
-			<div class="col-md-2 d-none d-md-block">
-				<div class="section__title" style="padding: 0; text-align: right">#2</div>
-			</div>
-			<div class="col-md-8">
-				<div class="title">Copy CSS</div>
-				<br />
-				<div id="css__list">
-					<div style="margin-top: -20px">Search for a website first</div>
-				</div>
-			</div>
-		</section>
-	</div>
+	<div id="fonts-converter-app"></div>
 
 	<section class="row" id="info" style="margin-top: 180px">
 		<div class="col-md-8 offset-md-2">
