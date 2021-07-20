@@ -77,7 +77,7 @@ CLS is a measure of the largest burst of layout shift scores for every unexpecte
 
 {{< figure src="/posts/2021-07-core-web-vitals/CLS-giphy.gif" caption="CLS is happening here that makes the content jump around." >}}
 
-Layout shifts only happen when existing elements change their start position. If a new element is added to the DOM or an existing element changes size, it doesn't count as a layout shift—as long as the change doesn't cause other visible elements to change their start position.
+Layout shifts only happen when an element higher up is making other elements move. If the element is changing and there is nothing after it, it doesn't count as a layout shift—as well as DOM changes that were caused by a user interaction with a grace period (500ms).
 
 Note: Mobile viewports and 3G devices will cause much more CLS. Make sure to throttle your connection while optimising your page for these metrics.
 
