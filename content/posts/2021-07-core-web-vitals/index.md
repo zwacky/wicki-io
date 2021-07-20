@@ -4,7 +4,6 @@ publishDate: "2021-07-20"
 description: "What are Core Web Vitals, how to measure and improve them."
 keywords: "core web vitals, LCP, FID, CLS, google udpate, seo"
 image: "core-web-vitals.png"
-draft: true
 ---
 
 {{< figure src="/posts/2021-07-core-web-vitals/core-web-vitals-green-urls.png" caption="Passing your Core Web Vitals and google will reward you with visibility." >}}
