@@ -138,7 +138,7 @@ It measures the quality of a site by these three metrics: <strong>LCP</strong>, 
         </figcaption>
 </figure>
 
-<p>Javascript is synchronous and single-threaded. If a user interaction happens while the thread is busy, you&rsquo;ll have to wait. If you have too many libraries that load at runtime, worse even if you don&rsquo;t need them right away, this can increase the FID.</p>
+<p>Javascript is synchronous and single-threaded. If a user interaction happens while the thread is busy, the user has to wait. If you have too many libraries that load at runtime, worse even if you don&rsquo;t need them right away, this can increase the FID.</p>
 <p>It&rsquo;s similar to <a href="https://web.dev/tti/">TTI (Time to Interactive)</a> that you might have heard of already. However FID will only start to be measured from the user interaction. Whereas TTI will be measured from the very start of loading the site.</p>
 <p>Causes of FID:</p>
 <ul>
