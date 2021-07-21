@@ -56,7 +56,7 @@ FID measures the time from when a user first interacts with a page to the time w
 {{< figure src="/posts/2021-07-core-web-vitals/FID-imdb.gif" caption="0.666s pass until you see the website working with your interaction." >}}
 
 
-Javascript is synchronous and single-threaded. If a user interaction happens while the thread is busy, you'll have to wait. If you have too many libraries that load at runtime, worse even if you don't need them right away, this can increase the FID.
+Javascript is synchronous and single-threaded. If a user interaction happens while the thread is busy, the user has to wait. If you have too many libraries that load at runtime, worse even if you don't need them right away, this can increase the FID.
 
 It's similar to [TTI (Time to Interactive)](https://web.dev/tti/) that you might have heard of already. However FID will only start to be measured from the user interaction. Whereas TTI will be measured from the very start of loading the site.
 
