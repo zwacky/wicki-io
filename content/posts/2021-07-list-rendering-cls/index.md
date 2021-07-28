@@ -29,7 +29,7 @@ CLS takes user interaction into account. When content is changing after a click,
 
 Fast connection devices will usually finish updating the list before the grace period ends.
 
-Keep an eye out in your Google Search Console for URLs that are frequented by countries that are further away from your servers/CDNs and have a lower average mobile bandwith.
+Keep an eye out in your Google Search Console for URLs that are frequented by countries that are further away from your servers/CDNs and have a lower average mobile bandwidth.
 
 {{< figure src="/posts/2021-07-list-rendering-cls/gsc-urls-affected-by-lower-bandwith.png" caption="A whopping 433k Indian URLs are affected here by list rendering on slow connection devices." >}}
 
