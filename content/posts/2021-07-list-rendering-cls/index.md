@@ -9,13 +9,17 @@ image: "cls-slow-connection-devices.png"
 
 Do you...
 - care about Core Web Vitals, especially Cumulative Layout Shift (CLS)
-- use list rendering with a JS Framework (`v-for`, `[ngFor]`, ...)
+- use list rendering with a JS Framework (`v-for`, `*ngFor`, ...)
 
 If you answered both with yes, then please read on.
 
 {{< figure src="/posts/2021-07-list-rendering-cls/update-list-cls.gif" caption="Slow connection device causes 0.51 CLS upon updating a list." >}}
 
-JS frameworks like Vue can give elements a unique key (`:key`). In a list rendering (`v-for`) they might be able to reuse these keyed list items, when the list is changing. The already created DOM nodes don't need to be recreated. This is a great performance gain. But when a list changes and the nodes merely switch their position, **the keyed items can be considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices**.
+JS frameworks—such as Vue, Angular or React—can cache DOM nodes of list items*. Filtering a list will therefore be faster, because DOM nodes of list items can potentially be reused. This reuse is done by moving the DOM nodes around, instead of re-creating them.
+
+But when a list changes and the nodes of list items merely switch their positions, **the reused items are considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices**.
+
+*) Vue uses `:key`, React uses `key`, Angular uses `*ngFor` with `trackBy`
 
 ---
 
