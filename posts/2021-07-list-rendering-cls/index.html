@@ -16,7 +16,7 @@
 
   <meta property="og:site_name" content="Wicki.io" />
   <meta property="og:title" content="How List Rendering Can Cause Huge Cumulative Layout Shift" name="title" />
-  <meta property="og:description" content="This post explains a hidden caveat of list rendering in JavaScript Frameworks in term of CLS." name="description" />
+  <meta property="og:description" content="This post explains a hidden caveat of list rendering in JavaScript frameworks in term of CLS." name="description" />
   <meta property="og:url" content="https://wicki.io/posts/2021-07-list-rendering-cls/" />
   <meta property="og:image" content="https://wicki.io/posts/2021-07-list-rendering-cls/cls-slow-connection-devices.png" />
   <meta property="og:type" content="article" />
@@ -25,7 +25,7 @@
   <meta name="twitter:site" content="@zwacky" />
   <meta name="twitter:creator" content="@zwacky" />
   <meta name="twitter:title" content="How List Rendering Can Cause Huge Cumulative Layout Shift"/>
-  <meta name="twitter:description" content="This post explains a hidden caveat of list rendering in JavaScript Frameworks in term of CLS."/>
+  <meta name="twitter:description" content="This post explains a hidden caveat of list rendering in JavaScript frameworks in term of CLS."/>
 
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -87,7 +87,7 @@
       <p>Do you&hellip;</p>
 <ul>
 <li>care about Core Web Vitals, especially Cumulative Layout Shift (CLS)</li>
-<li>use list rendering with a JS Framework (<code>v-for</code>, <code>[ngFor]</code>, &hellip;)</li>
+<li>use list rendering with a JS Framework (<code>v-for</code>, <code>*ngFor</code>, &hellip;)</li>
 </ul>
 <p>If you answered both with yes, then please read on.</p>
 <figure>
@@ -97,7 +97,9 @@
         </figcaption>
 </figure>
 
-<p>JS Frameworks like Vue can give elements a unique key (<code>:key</code>). In a list rendering (<code>v-for</code>) they might be able to reuse these keyed list items, when the list is changing. The already created DOM nodes don&rsquo;t need to be recreated. This is a great performance gain. But when a list changes and the nodes merely switch their position, <strong>the keyed items can be considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices</strong>.</p>
+<p>JS frameworks—such as Vue, Angular or React—can cache DOM nodes of list items*. Filtering a list will therefore be faster, because DOM nodes of list items can potentially be reused. This reuse is done by moving the DOM nodes around, instead of re-creating them.</p>
+<p>But when a list changes and the nodes of list items merely switch their positions, <strong>the reused items are considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices</strong>.</p>
+<p>*) Vue uses <code>:key</code>, React uses <code>key</code>, Angular uses <code>*ngFor</code> with <code>trackBy</code></p>
 <hr>
 <h1 id="why-only-on-slow-connection-devices">Why only on slow connection devices?</h1>
 <p>CLS takes user interaction into account. When content is changing after a click, it&rsquo;s not counted towards the CLS until a grace period of 500ms. If the delay of content changing takes longer than 500ms, you&rsquo;ll be penalised with the full CLS score.</p>
