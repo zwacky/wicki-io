@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html><head>
+  <title>How List Rendering Can Cause Huge Cumulative Layout Shift</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-300.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/playfair-display-v21-latin-regular.woff2" crossorigin />
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2021-07-list-rendering-cls/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[Core Web Vitals, SEO, webperf, Javascript]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="How List Rendering Can Cause Huge Cumulative Layout Shift" name="title" />
+  <meta property="og:description" content="This post explains a hidden caveat of list rendering in JavaScript Frameworks in term of CLS." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2021-07-list-rendering-cls/" />
+  <meta property="og:image" content="https://wicki.io/posts/2021-07-list-rendering-cls/cls-slow-connection-devices.png" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="How List Rendering Can Cause Huge Cumulative Layout Shift"/>
+  <meta name="twitter:description" content="This post explains a hidden caveat of list rendering in JavaScript Frameworks in term of CLS."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      
+        <a href="/" class="nav--brand" style="overflow: hidden;">
+          <img src="images/logo.png" alt="W" width="38" />
+        </a>
+        
+      <div>
+        
+        
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>How List Rendering Can Cause Huge Cumulative Layout Shift</h1>
+      <div style="margin-bottom: 20px;">
+        
+          July 28, 2021
+        
+      </div>
+
+      <p>Do you&hellip;</p>
+<ul>
+<li>care about Core Web Vitals, especially Cumulative Layout Shift (CLS)</li>
+<li>use list rendering with a JS Framework (<code>v-for</code>, <code>[ngFor]</code>, &hellip;)</li>
+</ul>
+<p>If you answered both with yes, then please read on.</p>
+<figure>
+    <img src="/posts/2021-07-list-rendering-cls/update-list-cls.gif"
+         alt="Slow connection device causes 0.51 CLS upon updating a list."/> <figcaption>
+            <p>Slow connection device causes 0.51 CLS upon updating a list.</p>
+        </figcaption>
+</figure>
+
+<p>JS Frameworks like Vue can give elements a unique key (<code>:key</code>). In a list rendering (<code>v-for</code>) they might be able to reuse these keyed list items, when the list is changing. The already created DOM nodes don&rsquo;t need to be recreated. This is a great performance gain. But when a list changes and the nodes merely switch their position, <strong>the keyed items can be considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices</strong>.</p>
+<hr>
+<h1 id="why-only-on-slow-connection-devices">Why only on slow connection devices?</h1>
+<p>CLS takes user interaction into account. When content is changing after a click, it&rsquo;s not counted towards the CLS until a grace period of 500ms. If the delay of content changing takes longer than 500ms, you&rsquo;ll be penalised with the full CLS score.</p>
+<p>Fast connection devices will usually finish updating the list before the grace period ends.</p>
+<p>Keep an eye out in your Google Search Console for URLs that are frequented by countries that are further away from your servers/CDNs and have a lower average mobile bandwith.</p>
+<figure>
+    <img src="/posts/2021-07-list-rendering-cls/gsc-urls-affected-by-lower-bandwith.png"
+         alt="A whopping 433k Indian URLs are affected here by list rendering on slow connection devices."/> <figcaption>
+            <p>A whopping 433k Indian URLs are affected here by list rendering on slow connection devices.</p>
+        </figcaption>
+</figure>
+
+<hr>
+<h1 id="solution">Solution</h1>
+<p>Google&rsquo;s calculation of CLS <a href="https://web.dev/evolving-cls/">has been changed before</a>, so I would love to see this here too. Until then it&rsquo;s on us to not get penalised.</p>
+<p>We&rsquo;d have to make sure, that the DOM elements get re-created everytime a list gets updated or filtered. I wouldn&rsquo;t advise to completely drop the unique key (<code>:key</code>). Rather think of a key for each list item that is tied to the request itself, e.g. <code>:key=&quot;item.id + &quot;-&quot; + requestQuery&quot;</code>. The filtering itself will have a brief flash due to recreating the DOM node, but considering the Green URLs that Google will give you it&rsquo;s worth it.</p>
+<p>With this you can continue with infinite scroll and page navigation without perf loss.</p>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend, web perf & non-fiction books
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2021-07-list-rendering-cls\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+            opacity: 1;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>
