@@ -1,8 +1,8 @@
 ---
 title: "How List Rendering Can Cause Huge Cumulative Layout Shift"
 publishDate: "2021-07-28"
-description: "This post explains a hidden caveat of list rendering in JavaScript Frameworks in term of CLS."
-summary: "JS Frameworks like Vue can give elements a unique key. In a list rendering they might be able to reuse these keyed list items, when the list is changing. The already created DOM nodes don't need to be recreated. This is a great performance gain. But when a list changes and the nodes merely switch their position, the keyed items can be considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices."
+description: "This post explains a hidden caveat of list rendering in JavaScript frameworks in term of CLS."
+summary: "JS frameworks like Vue can give elements a unique key. In a list rendering they might be able to reuse these keyed list items, when the list is changing. The already created DOM nodes don't need to be recreated. This is a great performance gain. But when a list changes and the nodes merely switch their position, the keyed items can be considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices."
 keywords: "Core Web Vitals, SEO, webperf, Javascript"
 image: "cls-slow-connection-devices.png"
 ---
@@ -15,7 +15,7 @@ If you answered both with yes, then please read on.
 
 {{< figure src="/posts/2021-07-list-rendering-cls/update-list-cls.gif" caption="Slow connection device causes 0.51 CLS upon updating a list." >}}
 
-JS Frameworks like Vue can give elements a unique key (`:key`). In a list rendering (`v-for`) they might be able to reuse these keyed list items, when the list is changing. The already created DOM nodes don't need to be recreated. This is a great performance gain. But when a list changes and the nodes merely switch their position, **the keyed items can be considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices**.
+JS frameworks like Vue can give elements a unique key (`:key`). In a list rendering (`v-for`) they might be able to reuse these keyed list items, when the list is changing. The already created DOM nodes don't need to be recreated. This is a great performance gain. But when a list changes and the nodes merely switch their position, **the keyed items can be considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices**.
 
 ---
 
