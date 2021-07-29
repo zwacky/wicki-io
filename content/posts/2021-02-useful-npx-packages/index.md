@@ -12,16 +12,6 @@ In this post I'll skip useful packages that are bound to libraries and framework
 
 I focus on packages that have helped me through my daily life as a developer.
 
-## npx kill-port
-
-{{< figure src="/posts/2021-02-useful-npx-packages/kill-port.gif" alt="npx kill-port" >}}
-
-**usage:** `npx kill-port 8080`
-
-**repo:** [npkill](https://github.com/tiaanduplessis/kill-port)
-
-Did some webpack dev server not shut down nicely and now 8080, or any port for that matter, is in use? Just kill it with kill-port.
-
 ## npx npkill
 
 {{< figure src="/posts/2021-02-useful-npx-packages/npkill.gif" alt="npx npkill" >}}
@@ -31,6 +21,16 @@ Did some webpack dev server not shut down nicely and now 8080, or any port for t
 **repo:** [npkill](https://npkill.js.org/)
 
 It's no secret that node_modules folders [are the black holes of software development](/posts/2021-02-useful-npx-packages/node_modules-black-hole.png). This package will help you get back your disk space by selecting and deleting the node_modules of your (unused) projects.
+
+## npx kill-port
+
+{{< figure src="/posts/2021-02-useful-npx-packages/kill-port.gif" alt="npx kill-port" >}}
+
+**usage:** `npx kill-port 8080`
+
+**repo:** [npkill](https://github.com/tiaanduplessis/kill-port)
+
+Did some webpack dev server not shut down nicely and now 8080, or any port for that matter, is in use? Just kill it with kill-port.
 
 ## npx http-server
 
