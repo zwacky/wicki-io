@@ -40,7 +40,7 @@ The problem with these tools are that they can't be used continuously: We can't 
 
 _I dedicate a paragraph to this in particular because the _rolling 28-day window_ appears many times in CWV measurement—especially in how the field data is measured._
 
-Imagine you had **27 days** of awful Cumulative Layout Shift (CLS) of 0.0 and on **day 28** you magically fix it to 0.
+Imagine you had **27 days** of awful Cumulative Layout Shift (CLS) of 1.0 and on **day 28** you magically fix it to 0.
 
 At **day 28** your average CLS would be 0.96—which would be rounded up to 1.0 again:
 
