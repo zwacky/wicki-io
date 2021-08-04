@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Accurate Daily Measurements of Core Web Vitals with Google Analytics</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-300.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/playfair-display-v21-latin-regular.woff2" crossorigin />
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2021-08-accurate-core-web-vitals-measurements/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[webperf, Core Web Vitals, SEO, Google Analytics]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="Accurate Daily Measurements of Core Web Vitals with Google Analytics" name="title" />
+  <meta property="og:description" content="Create accurate Core Web Vitals reports of current daily measurements, not only averaged over a rolling 28-day window." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2021-08-accurate-core-web-vitals-measurements/" />
+  <meta property="og:image" content="https://wicki.io/posts/2021-08-accurate-core-web-vitals-measurements/angular-ruler.png" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="Accurate Daily Measurements of Core Web Vitals with Google Analytics"/>
+  <meta name="twitter:description" content="Create accurate Core Web Vitals reports of current daily measurements, not only averaged over a rolling 28-day window."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      
+        <a href="/" class="nav--brand" style="overflow: hidden;">
+          <img src="images/logo.png" alt="W" width="38" />
+        </a>
+        
+      <div>
+        
+        
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Accurate Daily Measurements of Core Web Vitals with Google Analytics</h1>
+      <div style="margin-bottom: 20px;">
+        
+          August 4, 2021
+        
+      </div>
+
+      <figure>
+    <img src="/posts/2021-08-accurate-core-web-vitals-measurements/report-all.png"
+         alt="Create accurate Core Web Vitals reports with metric graphs and break downs by current daily measurements."/> <figcaption>
+            <p>Create accurate Core Web Vitals reports with metric graphs and break downs by current daily measurements.</p>
+        </figcaption>
+</figure>
+
+<p>Have you ever optimised your website for the Core Web Vitals (CWV)? Did you want to check your changes the next day—but Google&rsquo;s various tools don&rsquo;t give you current daily CWV metrics due to the rolling 28-day window?</p>
+<p>In this post I&rsquo;ll review Google&rsquo;s toolset for measuring CWV and explain an with Google Analytics (GA) to see if your changes had any effect on CWV by the day.</p>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p><strong>TLDR</strong>: use <a href="https://github.com/GoogleChrome/web-vitals/#using-analyticsjs">GA tracking snippet for CWV</a> and <a href="https://web-vitals-report.web.app/">create CWV reports</a>.</p>
+</div>
+<hr>
+<h1 id="googles-tools-for-measuring-cwv">Google&rsquo;s tools for measuring CWV</h1>
+<p>There are various tools by Google that let you measure over single pages, similar pages or all pages as whole.</p>
+<p><strong>Field data</strong> aka real-user experiences:</p>
+<ul>
+<li><a href="https://search.google.com/search-console">Google Search Console</a>: measures similar pages</li>
+<li><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>: measures a single page &amp; all pages as a whole</li>
+<li>CrUX (Chrome UX Report): measures single pages &amp; all pages as a whole</li>
+</ul>
+<p><strong>Lab data</strong> aka single user experience:</p>
+<ul>
+<li><a href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a>: measures a single page</li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools">Chrome DevTools</a>: measures a single page</li>
+<li><a href="https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en">Web Vitals Chrome Extension</a>: measures</li>
+</ul>
+<p>The problem with these tools are that they can&rsquo;t be used continuously: We can&rsquo;t rely on lab data because it&rsquo;s basically local test data. And we can&rsquo;t use field data because <strong>it only aggregates the value over a rolling 28-day window</strong>. The latter means that we only get the average over the last 28 days (—so it takes a lot of days to see any change at all.</p>
+<hr>
+<h1 id="rolling-28-day-window-explained">Rolling 28-day window explained</h1>
+<p><em>I dedicate a paragraph to this in particular because the <em>rolling 28-day window</em> appears many times in CWV measurement—especially in how the field data is measured.</em></p>
+<p>Imagine you had <strong>27 days</strong> of awful Cumulative Layout Shift (CLS) of 0.0 and on <strong>day 28</strong> you magically fix it to 0.</p>
+<p>At <strong>day 28</strong> your average CLS would be 0.96—which would be rounded up to 1.0 again:</p>
+<pre><code>Days      | 1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Daily CLS | 1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  0.0 
+Average   | 1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  0.96
+</code></pre><p>In this example above your 1.0 to 0 CLS optimisation would <strong>take +23 days</strong> until you reach the allowed mobile CLS of 0.1.</p>
+<p>See in the following table how slowly the average is decreasing:</p>
+<pre><code>Days      | +1   +2   +3   +4   +5   +6   +7   +8   +9   +10  +11  +12  +13  +14  +15  +16  +17  +18  +19  +20  +21  +22  +23  +24  +25  +26  +27  +28
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Daily CLS | 0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0 
+Average   | 0.9  0.8  0.8  0.8  0.8  0.8  0.7  0.7  0.6  0.6  0.6  0.5  0.5  0.5  0.4  0.4  0.4  0.3  0.3  0.3  0.2  0.2  0.1  0.1  0.1  0.0  0.0  0.0
+</code></pre><hr>
+<h1 id="create-your-report">Create your report</h1>
+<p>For this we need three things:</p>
+<ul>
+<li><a href="https://github.com/GoogleChrome/web-vitals">web-vitals</a>: to measure CWV metrics in the frontend</li>
+<li><a href="https://github.com/GoogleChrome/web-vitals#using-analyticsjs">CWV GA tracking snippet</a>: to send these captured metrics over to GA</li>
+<li><a href="https://web-vitals-report.web.app/">Web Vitals Report</a>: to create your CWV report by connecting your GA with this external reporting tool</li>
+</ul>
+<p>Unfortunately <strong>Google Analytics can&rsquo;t display the correct CWV data</strong>, even though the data lies inside of it. You see averaged and delta values that show you the wrong results. The tracked CWV metrics still needs aggregation per user and per URL, which is not availabe in any view or reporting tool inside of GA.</p>
+<p>That&rsquo;s why Google created the Web Vitals Report. You can connect with your GA account to it and it will extract the data. If you followed the default naming inside of the CWV GA tracking snippet, everything will work out of the box. You&rsquo;ll be rewarded with shiny graphs and an accurate* report.</p>
+<p>*) GA <a href="https://github.com/GoogleChromeLabs/web-vitals-report#1-million-row-limit">imposes a limit</a> in each report which can lead to sampling and an inaccurate report.</p>
+<hr>
+<h1 id="more-resources">More resources</h1>
+<ul>
+<li><a href="https://www.smashingmagazine.com/2021/04/complete-guide-measure-core-web-vitals/">An In-Depth Guide To Measuring Core Web Vitals</a></li>
+<li><a href="https://groups.google.com/a/chromium.org/g/chrome-ux-report/c/PRGtZJvmGkw/m/rzQV99-kCAAJ">Google Forum: Explanation different data points in different tools</a></li>
+<li><a href="https://tamethebots.com/blog-n-bits/monitoring-search-console-core-web-vitals">Tracking Changes in Search Console&rsquo;s Ore Web Vitals Report</a></li>
+</ul>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend, web perf & non-fiction books
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2021-08-accurate-core-web-vitals-measurements\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+            opacity: 1;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>
