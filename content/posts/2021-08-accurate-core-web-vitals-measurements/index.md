@@ -45,7 +45,7 @@ Still, Google provides a great—and very easy—overview of your CWV metrics to
 **Lab data** aka synthetic user experience:
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse): measures a single page
 - [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools): measures a single page
-- [Web Vitals Chrome Extension](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en): measures
+- [Web Vitals Chrome Extension](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en): measures a single page
 
 ---
 
