@@ -84,36 +84,45 @@
         
       </div>
 
-      <figure>
+      <p>Have you ever optimised your website for the Core Web Vitals (CWV)? Did you want to check your changes the next day—but Google&rsquo;s various tools don&rsquo;t give you current daily CWV metrics due to the rolling 28-day window?</p>
+<p>In this post I&rsquo;ll review Google&rsquo;s toolset for measuring CWV and explain an with Google Analytics (GA) to see if your changes had any effect on CWV by the day.</p>
+<hr>
+<h2 id="accurate-daily-cwv-measurements-create-your-report">Accurate daily CWV measurements: Create your report</h2>
+<figure>
     <img src="/posts/2021-08-accurate-core-web-vitals-measurements/report-all.png"
-         alt="Create accurate Core Web Vitals reports with metric graphs and break downs by current daily measurements."/> <figcaption>
-            <p>Create accurate Core Web Vitals reports with metric graphs and break downs by current daily measurements.</p>
+         alt="Core Web Vitals reports are a great way to group metric by day and overall break downs."/> <figcaption>
+            <p>Core Web Vitals reports are a great way to group metric by day and overall break downs.</p>
         </figcaption>
 </figure>
 
-<p>Have you ever optimised your website for the Core Web Vitals (CWV)? Did you want to check your changes the next day—but Google&rsquo;s various tools don&rsquo;t give you current daily CWV metrics due to the rolling 28-day window?</p>
-<p>In this post I&rsquo;ll review Google&rsquo;s toolset for measuring CWV and explain an with Google Analytics (GA) to see if your changes had any effect on CWV by the day.</p>
-<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
-<p><strong>TLDR</strong>: use <a href="https://github.com/GoogleChrome/web-vitals/#using-analyticsjs">GA tracking snippet for CWV</a> and <a href="https://web-vitals-report.web.app/">create CWV reports</a>.</p>
-</div>
+<p>We need to create a report because there isn&rsquo;t an accurate prebuilt view for it in any analytics service.</p>
+<p>For this we need three things:</p>
+<ul>
+<li><a href="https://github.com/GoogleChrome/web-vitals">web-vitals</a>: to measure CWV metrics in the frontend</li>
+<li><a href="https://github.com/GoogleChrome/web-vitals#using-analyticsjs">CWV GA tracking snippet</a>: to send these captured metrics over to GA</li>
+<li><a href="https://web-vitals-report.web.app/">Web Vitals Report</a>: to create your CWV report by connecting your GA with this external reporting tool</li>
+</ul>
+<p>Yes, GA stores the tracking data. But unfortunately <strong>GA can&rsquo;t display the correct CWV data</strong>: You see averaged and delta values that show you the wrong results. The tracked CWV metrics still need aggregation per user and per URL.</p>
+<p>That&rsquo;s why Google created the external tool &lsquo;Web Vitals Report&rsquo;. You can connect your GA account with it and it will extract the data. If you followed the default naming inside of the CWV GA tracking snippet, everything will work out of the box. You&rsquo;ll be rewarded with shiny graphs and an accurate* report overall.</p>
+<p>*) GA <a href="https://github.com/GoogleChromeLabs/web-vitals-report#1-million-row-limit">imposes a limit</a> in each report which can lead to sampling and an inaccurate report.</p>
 <hr>
-<h1 id="googles-tools-for-measuring-cwv">Google&rsquo;s tools for measuring CWV</h1>
-<p>There are various tools by Google that let you measure over single pages, similar pages or all pages as whole.</p>
+<h2 id="inaccurate-daily-cwv-measurements-googles-tools">Inaccurate daily CWV measurements: Google&rsquo;s tools</h2>
+<p>For daily CWV measurements we can&rsquo;t rely on Google&rsquo;s tools because they either aggregate over a long 28-day period or only measure single pages with synthetic, non Real-User Metrics (RUM). So it takes a lot of days to see any change within that period.</p>
+<p>Still, Google provides a great—and very easy—overview of your CWV metrics to plan where to optimise next. But you can&rsquo;t check the impact on CWV of your optimisation with these tools, e.g. the next day.</p>
 <p><strong>Field data</strong> aka real-user experiences:</p>
 <ul>
 <li><a href="https://search.google.com/search-console">Google Search Console</a>: measures similar pages</li>
 <li><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>: measures a single page &amp; all pages as a whole</li>
 <li>CrUX (Chrome UX Report): measures single pages &amp; all pages as a whole</li>
 </ul>
-<p><strong>Lab data</strong> aka single user experience:</p>
+<p><strong>Lab data</strong> aka synthetic user experience:</p>
 <ul>
 <li><a href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a>: measures a single page</li>
 <li><a href="https://developers.google.com/web/tools/chrome-devtools">Chrome DevTools</a>: measures a single page</li>
 <li><a href="https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en">Web Vitals Chrome Extension</a>: measures</li>
 </ul>
-<p>The problem with these tools are that they can&rsquo;t be used continuously: We can&rsquo;t rely on lab data because it&rsquo;s basically local test data. And we can&rsquo;t use field data because <strong>it only aggregates the value over a rolling 28-day window</strong>. The latter means that we only get the average over the last 28 days (—so it takes a lot of days to see any change at all.</p>
 <hr>
-<h1 id="rolling-28-day-window-explained">Rolling 28-day window explained</h1>
+<h2 id="rolling-28-day-window-explained">Rolling 28-day window explained</h2>
 <p><em>I dedicate a paragraph to this in particular because the <em>rolling 28-day window</em> appears many times in CWV measurement—especially in how the field data is measured.</em></p>
 <p>Imagine you had <strong>27 days</strong> of awful Cumulative Layout Shift (CLS) of 1.0 and on <strong>day 28</strong> you magically fix it to 0.</p>
 <p>At <strong>day 28</strong> your average CLS would be 0.96—which would be rounded up to 1.0 again:</p>
@@ -128,18 +137,7 @@ Average   | 1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0
 Daily CLS | 0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0 
 Average   | 0.9  0.8  0.8  0.8  0.8  0.8  0.7  0.7  0.6  0.6  0.6  0.5  0.5  0.5  0.4  0.4  0.4  0.3  0.3  0.3  0.2  0.2  0.1  0.1  0.1  0.0  0.0  0.0
 </code></pre><hr>
-<h1 id="create-your-report">Create your report</h1>
-<p>For this we need three things:</p>
-<ul>
-<li><a href="https://github.com/GoogleChrome/web-vitals">web-vitals</a>: to measure CWV metrics in the frontend</li>
-<li><a href="https://github.com/GoogleChrome/web-vitals#using-analyticsjs">CWV GA tracking snippet</a>: to send these captured metrics over to GA</li>
-<li><a href="https://web-vitals-report.web.app/">Web Vitals Report</a>: to create your CWV report by connecting your GA with this external reporting tool</li>
-</ul>
-<p>Unfortunately <strong>Google Analytics can&rsquo;t display the correct CWV data</strong>, even though the data lies inside of it. You see averaged and delta values that show you the wrong results. The tracked CWV metrics still needs aggregation per user and per URL, which is not availabe in any view or reporting tool inside of GA.</p>
-<p>That&rsquo;s why Google created the Web Vitals Report. You can connect with your GA account to it and it will extract the data. If you followed the default naming inside of the CWV GA tracking snippet, everything will work out of the box. You&rsquo;ll be rewarded with shiny graphs and an accurate* report.</p>
-<p>*) GA <a href="https://github.com/GoogleChromeLabs/web-vitals-report#1-million-row-limit">imposes a limit</a> in each report which can lead to sampling and an inaccurate report.</p>
-<hr>
-<h1 id="more-resources">More resources</h1>
+<h2 id="more-resources">More resources</h2>
 <ul>
 <li><a href="https://www.smashingmagazine.com/2021/04/complete-guide-measure-core-web-vitals/">An In-Depth Guide To Measuring Core Web Vitals</a></li>
 <li><a href="https://groups.google.com/a/chromium.org/g/chrome-ux-report/c/PRGtZJvmGkw/m/rzQV99-kCAAJ">Google Forum: Explanation different data points in different tools</a></li>
