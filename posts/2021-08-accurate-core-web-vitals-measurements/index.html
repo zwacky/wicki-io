@@ -84,10 +84,29 @@
         
       </div>
 
-      <p>Have you ever optimised your website for the Core Web Vitals (CWV)? Did you want to check your changes the next day—but Google&rsquo;s various tools don&rsquo;t give you current daily CWV metrics due to the rolling 28-day window?</p>
-<p>In this post I&rsquo;ll review Google&rsquo;s toolset for measuring CWV and explain an with Google Analytics (GA) to see if your changes had any effect on CWV by the day.</p>
+      <p>Have you ever optimised your website for the Core Web Vitals (CWV)? Did you want to check your changes the next day—but Google&rsquo;s various tools don&rsquo;t give you current daily CWV metrics due to the <em>rolling 28-day window</em>?</p>
+<p>In this post I&rsquo;ll review Google&rsquo;s toolset for measuring CWV and explain how to see if your changes had any effect on CWV day by day with Google Analytics (GA).</p>
 <hr>
 <h2 id="accurate-daily-cwv-measurements-create-your-report">Accurate daily CWV measurements: Create your report</h2>
+<figure>
+    <img src="/posts/2021-08-accurate-core-web-vitals-measurements/daily-cwv-measurements-workflow-cut.png"
+         alt="3-step workflow to get your daily accurate CWV report."/> <figcaption>
+            <p>3-step workflow to get your daily accurate CWV report.</p>
+        </figcaption>
+</figure>
+
+<p>There isn&rsquo;t a prebuilt view for daily accurate reports in any analytics service out of the box. That&rsquo;s why we need to create our own report in three steps:</p>
+<ul>
+<li><a href="https://github.com/GoogleChrome/web-vitals">web-vitals</a>: to measure CWV metrics in the frontend</li>
+<li><a href="https://github.com/GoogleChrome/web-vitals#using-analyticsjs">CWV GA tracking snippet</a>: to send these captured metrics over to GA</li>
+<li><a href="https://web-vitals-report.web.app/">Web Vitals Report</a>: to create your CWV report by connecting your GA with this external reporting tool</li>
+</ul>
+<p>The web-vitals library lets us grab all CWV metrics of each visitor of the site. These metrics are then sent off to Google Analytics. The external Web Vitals Report tool can then extract these tracking events from your GA account and create a daily accurate report.</p>
+<p><strong>Don&rsquo;t be fooled</strong>: GA can display your CLS, LCP and other CWV metrics when you search for these events. But they&rsquo;re inaccurate in the GA events view. For instance it&rsquo;s possible that multiple CLS events are sent, each with their own <em>delta</em> value that accumulates to the total CLS. You&rsquo;d need to group by that day <strong>and</strong> url <strong>and</strong> user to get an accurate reporting. This grouping isn&rsquo;t supported out of the box.</p>
+<p>That&rsquo;s why Google created the external tool <strong>Web Vitals Report</strong>. You can connect your GA account with it and it will extract the data. If you followed the default naming inside of the CWV GA tracking snippet, everything will work out of the box. You&rsquo;ll be rewarded with shiny graphs and an accurate* report overall.</p>
+<p>*) GA <a href="https://github.com/GoogleChromeLabs/web-vitals-report#1-million-row-limit">imposes a limit</a> in each report which can lead to sampling and an inaccurate report.
+<br>
+<br></p>
 <figure>
     <img src="/posts/2021-08-accurate-core-web-vitals-measurements/report-all.png"
          alt="Core Web Vitals reports are a great way to group metric by day and overall break downs."/> <figcaption>
@@ -95,16 +114,7 @@
         </figcaption>
 </figure>
 
-<p>We need to create a report because there isn&rsquo;t an accurate prebuilt view for it in any analytics service.</p>
-<p>For this we need three things:</p>
-<ul>
-<li><a href="https://github.com/GoogleChrome/web-vitals">web-vitals</a>: to measure CWV metrics in the frontend</li>
-<li><a href="https://github.com/GoogleChrome/web-vitals#using-analyticsjs">CWV GA tracking snippet</a>: to send these captured metrics over to GA</li>
-<li><a href="https://web-vitals-report.web.app/">Web Vitals Report</a>: to create your CWV report by connecting your GA with this external reporting tool</li>
-</ul>
-<p>Yes, GA stores the tracking data. But unfortunately <strong>GA can&rsquo;t display the correct CWV data</strong>: You see averaged and delta values that show you the wrong results. The tracked CWV metrics still need aggregation per user and per URL.</p>
-<p>That&rsquo;s why Google created the external tool &lsquo;Web Vitals Report&rsquo;. You can connect your GA account with it and it will extract the data. If you followed the default naming inside of the CWV GA tracking snippet, everything will work out of the box. You&rsquo;ll be rewarded with shiny graphs and an accurate* report overall.</p>
-<p>*) GA <a href="https://github.com/GoogleChromeLabs/web-vitals-report#1-million-row-limit">imposes a limit</a> in each report which can lead to sampling and an inaccurate report.</p>
+<p>The screenshot above is an excerpt of the <strong>Web Vitals Report</strong> with daily accurate Core Web Vital metrics.</p>
 <hr>
 <h2 id="inaccurate-daily-cwv-measurements-googles-tools">Inaccurate daily CWV measurements: Google&rsquo;s tools</h2>
 <p>For daily CWV measurements we can&rsquo;t rely on Google&rsquo;s tools because they either aggregate over a long 28-day period or only measure single pages with synthetic, non Real-User Metrics (RUM). So it takes a lot of days to see any change within that period.</p>
@@ -136,8 +146,7 @@ Average   | 1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0  1.0
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Daily CLS | 0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0 
 Average   | 0.9  0.8  0.8  0.8  0.8  0.8  0.7  0.7  0.6  0.6  0.6  0.5  0.5  0.5  0.4  0.4  0.4  0.3  0.3  0.3  0.2  0.2  0.1  0.1  0.1  0.0  0.0  0.0
-</code></pre><hr>
-<h2 id="more-resources">More resources</h2>
+</code></pre><h2 id="more-resources">More resources</h2>
 <ul>
 <li><a href="https://www.smashingmagazine.com/2021/04/complete-guide-measure-core-web-vitals/">An In-Depth Guide To Measuring Core Web Vitals</a></li>
 <li><a href="https://groups.google.com/a/chromium.org/g/chrome-ux-report/c/PRGtZJvmGkw/m/rzQV99-kCAAJ">Google Forum: Explanation different data points in different tools</a></li>
