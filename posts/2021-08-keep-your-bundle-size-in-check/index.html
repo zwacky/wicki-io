@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Keep Your Javascript Bundle Size in Check</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-300.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/playfair-display-v21-latin-regular.woff2" crossorigin />
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2021-08-keep-your-bundle-size-in-check/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[webperf, javascript, webpack, bundle size]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="Keep Your Javascript Bundle Size in Check" name="title" />
+  <meta property="og:description" content="Check out these tools to have an overview of your Javascript bundle size." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2021-08-keep-your-bundle-size-in-check/" />
+  <meta property="og:image" content="https://wicki.io/posts/2021-08-keep-your-bundle-size-in-check/bundle-weight.png" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="Keep Your Javascript Bundle Size in Check"/>
+  <meta name="twitter:description" content="Check out these tools to have an overview of your Javascript bundle size."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      
+        <a href="/" class="nav--brand" style="overflow: hidden;">
+          <img src="images/logo.png" alt="W" width="38" />
+        </a>
+        
+      <div>
+        
+        
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Keep Your Javascript Bundle Size in Check</h1>
+      <div style="margin-bottom: 20px;">
+        
+          August 16, 2021
+        
+      </div>
+
+      <p>Are you a developer who is concerned about the size of newly added libraries? Or do you want to find a culprit in a rather big Javascript bundle?</p>
+<p>If you&rsquo;re like me, then you answered yes to both questions.</p>
+<p>In this post I&rsquo;ll cover a few tools that come in handy for a <strong>quick</strong> analysis of bundle sizes <strong>without changing or ejecting your build architecture</strong>.</p>
+<hr>
+<h2 id="vs-code-extension-import-cost">VS Code extension: Import Cost</h2>
+<figure>
+    <img src="/posts/2021-08-keep-your-bundle-size-in-check/import-cost.gif"
+         alt="Immediately see the weight of what you import in VS Code."/> <figcaption>
+            <p>Immediately see the weight of what you import in VS Code.</p>
+        </figcaption>
+</figure>
+
+<p>This extension will display inline in the editor the size of the imported package. The extension utilizes webpack in order to detect the imported size.</p>
+<p>👉 <a href="https://github.com/wix/import-cost">https://github.com/wix/import-cost</a></p>
+<hr>
+<h2 id="website-bundlephobia">Website: Bundlephobia</h2>
+<figure>
+    <img src="/posts/2021-08-keep-your-bundle-size-in-check/bundlephobia-moment.png"
+         alt="Analysing the size of Moment.js with Bundlephobia."/> 
+</figure>
+
+<p>This excellent tool give gives you the size of a library without the need to install it via npm. It shows the sizes of each version and even shows suggestions of alternatives to the library in question—talking about a new framework every week.</p>
+<p>You can also drop your package.json file and order by size to see your biggest libraries. Personally I find this quite fun, but usually I use this tool to check bundle sizes of not-yet-installed libraries.</p>
+<p>👉 <a href="https://bundlephobia.com/">https://bundlephobia.com/</a></p>
+<hr>
+<h2 id="source-map-explorer">source-map-explorer</h2>
+<figure>
+    <img src="/posts/2021-08-keep-your-bundle-size-in-check/source-map-explorer-example.png"
+         alt="Visualise your imported packages in an interactive top down view."/> 
+</figure>
+
+<p>Extremely useful tool that visualises the size of your imported packages in relation to their size. By clicking on the packages, you can further imspect their sizes and children.</p>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p>Like the name suggests you need to build source maps. With modern framework CLIs it&rsquo;s enabled by default in prod builds.</p>
+</div>
+<p>With this you may spot mistakes like these:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// imports the WHOLE 289.7kb minified library
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">moment</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;moment&#39;</span>;
+<span style="color:#a6e22e">moment</span>.<span style="color:#a6e22e">now</span>();
+
+<span style="color:#75715e">// only imports 0.082 kb for that function
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">now</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;moment&#39;</span>;
+<span style="color:#a6e22e">now</span>();
+</code></pre></div><p>👉 <code>npx source-map-explorer ./dist *.js</code>
+<br>
+👉 <a href="https://github.com/danvk/source-map-explorer">https://github.com/danvk/source-map-explorer</a></p>
+<hr>
+<h2 id="pagespeed-insight--lighthouse">PageSpeed Insight / Lighthouse</h2>
+<p>If your site is already public you can use Google&rsquo;s PageSpeed Insight to detect big Javascript bundles.</p>
+<p><strong>Bonus</strong>: It also includes Javascript files, that will be downloaded from your ad networks, Google Tag Manager or other external tool.</p>
+<p>👉 <a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a></p>
+<p>Check out this tweet to see the treemap in action:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The Lighthouse Treemap lets you see what&#39;s in the JavaScript you ship and find where you can trim based on module size and execution coverage.<br><br>With Lighthouse 8 it&#39;s now in PSI, Canary DevTools, and the CLI if it can see your source maps 🌳🗺️<br><br>Try it out: <a href="https://t.co/TkkzvxHAbY">https://t.co/TkkzvxHAbY</a> <a href="https://t.co/VbMErHuLW8">pic.twitter.com/VbMErHuLW8</a></p>&mdash; Lighthouse (@____lighthouse) <a href="https://twitter.com/____lighthouse/status/1400529906577162243?ref_src=twsrc%5Etfw">June 3, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend, web perf & non-fiction books
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2021-08-keep-your-bundle-size-in-check\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+            opacity: 1;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>
