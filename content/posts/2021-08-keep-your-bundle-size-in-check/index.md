@@ -18,7 +18,21 @@ In this post I'll cover a few tools that come in handy for a **quick** analysis 
 
 {{< figure src="/posts/2021-08-keep-your-bundle-size-in-check/import-cost.gif" caption="Immediately see the weight of what you import in VS Code." >}}
 
-This extension will display inline in the editor the size of the imported package. The extension utilizes webpack in order to detect the imported size.
+Understand the cost of an import early.
+
+This extension will display inline in the editor the size of the imported package. It supports tree shaking, so the size should be displayed correctly for a few exported functions.
+
+With this you may spot mistakes like these:
+
+```javascript
+import moment from 'moment'; // 289.7KB
+moment.now();
+
+import { now } from 'moment'; // 0.082KB
+now();
+```
+
+It's also available for **JetBrains IDE**, **Atom** and **Vim**.
 
 👉 https://github.com/wix/import-cost
 
@@ -28,35 +42,23 @@ This extension will display inline in the editor the size of the imported packag
 
 {{< figure src="/posts/2021-08-keep-your-bundle-size-in-check/bundlephobia-moment.png" alt="Analysing the size of Moment.js with Bundlephobia." >}}
 
-This excellent tool give gives you the size of a library without the need to install it via npm. It shows the sizes of each version and even shows suggestions of alternatives to the library in question—talking about a new framework every week.
+This website lets you search for libraries and display their sizes without the need to install. It shows the size of each version and even suggests alternatives to similar libraries that might be lighter—talking about a new framework or library every week.
 
-You can also drop your package.json file and order by size to see your biggest libraries. Personally I find this quite fun, but usually I use this tool to check bundle sizes of not-yet-installed libraries.
+You could also drop your package.json file and order it by size to see your biggest libraries. Personally I find this quite fun, but usually I use this tool to check bundle sizes of not-yet-installed libraries.
 
 👉 https://bundlephobia.com/
 
 ---
 
-## source-map-explorer
+## NPM: source-map-explorer
 
 {{< figure src="/posts/2021-08-keep-your-bundle-size-in-check/source-map-explorer-example.png" alt="Visualise your imported packages in an interactive top down view." >}}
-
-Extremely useful tool that visualises the size of your imported packages in relation to their size. By clicking on the packages, you can further imspect their sizes and children.
 
 {{% stress %}}
 Like the name suggests you need to build source maps. With modern framework CLIs it's enabled by default in prod builds.
 {{% /stress %}}
 
-With this you may spot mistakes like these:
-
-```javascript
-// imports the WHOLE 289.7kb minified library
-import moment from 'moment';
-moment.now();
-
-// only imports 0.082 kb for that function
-import { now } from 'moment';
-now();
-```
+Useful tool for imported package visualisation in relation to their size. By clicking on the packages, you can further imspect their sizes and children.
 
 👉 `npx source-map-explorer ./dist *.js`
 <br>
@@ -64,11 +66,11 @@ now();
 
 ---
 
-## PageSpeed Insight / Lighthouse
+## Website: PageSpeed Insight / Lighthouse
 
 If your site is already public you can use Google's PageSpeed Insight to detect big Javascript bundles. 
 
-**Bonus**: It also includes Javascript files, that will be downloaded from your ad networks, Google Tag Manager or other external tool.
+**Bonus**: It also includes Javascript files, that are downloaded on runtime from your ad networks, Google Tag Manager and other tools.
 
 👉 https://developers.google.com/speed/pagespeed/insights/
 
