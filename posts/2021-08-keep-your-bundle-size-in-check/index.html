@@ -96,7 +96,15 @@
         </figcaption>
 </figure>
 
-<p>This extension will display inline in the editor the size of the imported package. The extension utilizes webpack in order to detect the imported size.</p>
+<p>Understand the cost of an import early.</p>
+<p>This extension will display inline in the editor the size of the imported package. It supports tree shaking, so the size should be displayed correctly for a few exported functions.</p>
+<p>With this you may spot mistakes like these:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">moment</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;moment&#39;</span>; <span style="color:#75715e">// 289.7KB
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">moment</span>.<span style="color:#a6e22e">now</span>();
+
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">now</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;moment&#39;</span>; <span style="color:#75715e">// 0.082KB
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">now</span>();
+</code></pre></div><p>It&rsquo;s also available for <strong>JetBrains IDE</strong>, <strong>Atom</strong> and <strong>Vim</strong>.</p>
 <p>👉 <a href="https://github.com/wix/import-cost">https://github.com/wix/import-cost</a></p>
 <hr>
 <h2 id="website-bundlephobia">Website: Bundlephobia</h2>
@@ -105,35 +113,27 @@
          alt="Analysing the size of Moment.js with Bundlephobia."/> 
 </figure>
 
-<p>This excellent tool give gives you the size of a library without the need to install it via npm. It shows the sizes of each version and even shows suggestions of alternatives to the library in question—talking about a new framework every week.</p>
-<p>You can also drop your package.json file and order by size to see your biggest libraries. Personally I find this quite fun, but usually I use this tool to check bundle sizes of not-yet-installed libraries.</p>
+<p>This website lets you search for libraries and display their sizes without the need to install. It shows the size of each version and even suggests alternatives to similar libraries that might be lighter—talking about a new framework or library every week.</p>
+<p>You could also drop your package.json file and order it by size to see your biggest libraries. Personally I find this quite fun, but usually I use this tool to check bundle sizes of not-yet-installed libraries.</p>
 <p>👉 <a href="https://bundlephobia.com/">https://bundlephobia.com/</a></p>
 <hr>
-<h2 id="source-map-explorer">source-map-explorer</h2>
+<h2 id="npm-source-map-explorer">NPM: source-map-explorer</h2>
 <figure>
     <img src="/posts/2021-08-keep-your-bundle-size-in-check/source-map-explorer-example.png"
          alt="Visualise your imported packages in an interactive top down view."/> 
 </figure>
 
-<p>Extremely useful tool that visualises the size of your imported packages in relation to their size. By clicking on the packages, you can further imspect their sizes and children.</p>
 <div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
 <p>Like the name suggests you need to build source maps. With modern framework CLIs it&rsquo;s enabled by default in prod builds.</p>
 </div>
-<p>With this you may spot mistakes like these:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// imports the WHOLE 289.7kb minified library
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">moment</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;moment&#39;</span>;
-<span style="color:#a6e22e">moment</span>.<span style="color:#a6e22e">now</span>();
-
-<span style="color:#75715e">// only imports 0.082 kb for that function
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">now</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;moment&#39;</span>;
-<span style="color:#a6e22e">now</span>();
-</code></pre></div><p>👉 <code>npx source-map-explorer ./dist *.js</code>
+<p>Useful tool for imported package visualisation in relation to their size. By clicking on the packages, you can further imspect their sizes and children.</p>
+<p>👉 <code>npx source-map-explorer ./dist *.js</code>
 <br>
 👉 <a href="https://github.com/danvk/source-map-explorer">https://github.com/danvk/source-map-explorer</a></p>
 <hr>
-<h2 id="pagespeed-insight--lighthouse">PageSpeed Insight / Lighthouse</h2>
+<h2 id="website-pagespeed-insight--lighthouse">Website: PageSpeed Insight / Lighthouse</h2>
 <p>If your site is already public you can use Google&rsquo;s PageSpeed Insight to detect big Javascript bundles.</p>
-<p><strong>Bonus</strong>: It also includes Javascript files, that will be downloaded from your ad networks, Google Tag Manager or other external tool.</p>
+<p><strong>Bonus</strong>: It also includes Javascript files, that are downloaded on runtime from your ad networks, Google Tag Manager and other tools.</p>
 <p>👉 <a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a></p>
 <p>Check out this tweet to see the treemap in action:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The Lighthouse Treemap lets you see what&#39;s in the JavaScript you ship and find where you can trim based on module size and execution coverage.<br><br>With Lighthouse 8 it&#39;s now in PSI, Canary DevTools, and the CLI if it can see your source maps 🌳🗺️<br><br>Try it out: <a href="https://t.co/TkkzvxHAbY">https://t.co/TkkzvxHAbY</a> <a href="https://t.co/VbMErHuLW8">pic.twitter.com/VbMErHuLW8</a></p>&mdash; Lighthouse (@____lighthouse) <a href="https://twitter.com/____lighthouse/status/1400529906577162243?ref_src=twsrc%5Etfw">June 3, 2021</a></blockquote>
