@@ -58,7 +58,7 @@ You could also drop your package.json file and order it by size to see your bigg
 Like the name suggests you need to build source maps. With modern framework CLIs it's enabled by default in prod builds.
 {{% /stress %}}
 
-Useful tool for imported package visualisation in relation to their size. By clicking on the packages, you can further imspect their sizes and children.
+Useful tool for imported package visualisation in relation to their size. By clicking on the packages, you can further inspect their sizes and children.
 
 👉 `npx source-map-explorer ./dist *.js`
 <br>
