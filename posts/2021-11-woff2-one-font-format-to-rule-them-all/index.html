@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html><head>
+  <title>One Font Format to Rule Them All: WOFF2</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-300.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/playfair-display-v21-latin-regular.woff2" crossorigin />
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[woff2, woff, font format]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="One Font Format to Rule Them All: WOFF2" name="title" />
+  <meta property="og:description" content="Learn why WOFF2, and WOFF as a fallback, is the only font format you need." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/" />
+  <meta property="og:image" content="https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/woff2.png" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="One Font Format to Rule Them All: WOFF2"/>
+  <meta name="twitter:description" content="Learn why WOFF2, and WOFF as a fallback, is the only font format you need."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      
+        <a href="/" class="nav--brand" style="overflow: hidden;">
+          <img src="images/logo.png" alt="W" width="38" />
+        </a>
+        
+      <div>
+        
+        
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="content">
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>One Font Format to Rule Them All: WOFF2</h1>
+      <div style="margin-bottom: 20px;">
+        
+          November 10, 2021
+        
+      </div>
+
+      <figure>
+    <img src="/posts/2021-11-woff2-one-font-format-to-rule-them-all/woff2.png"
+         alt="One Font Format to Rule Them All: WOFF2"/> 
+</figure>
+
+<p>Learn why WOFF2, and WOFF as a fallback, is the only font format you need.</p>
+<p>If you&rsquo;ve been around as a web developer for some time, chances are you encountered the various font formats for the web: EOT, OTF, TTF, WOFF, WOFF2 and SVG. More or less blindly we made sure all font formats were there and the CSS font-face pointed to them in our web projects.</p>
+<p>In this post I try to give some historical perspective and a font format comparison on the web.</p>
+<hr>
+<h2 id="timeline">Timeline</h2>
+<figure>
+    <img src="/posts/2021-11-woff2-one-font-format-to-rule-them-all/font-formats-timeline.png"
+         alt="Historical releases of nowadays still used font format"/> <figcaption>
+            <p>Historical releases of nowadays still used font format</p>
+        </figcaption>
+</figure>
+
+<p>It took time and iterations to have what we&rsquo;ve ended up with.</p>
+<p>With more efficient font formats, thanks to compression, browsers were able to support them.</p>
+<p>Have a look at Pedro Amado&rsquo;s elaborate <a href="https://typeforge.files.wordpress.com/2011/11/timeline_formatos_software_fontes_v10-01.jpg">Font Format Timeline</a>. This shows, that there are in fact many more facets to font formats than we think.</p>
+<hr>
+<h2 id="comparisons">Comparisons</h2>
+<p>I&rsquo;ll go ahead and use the following criteria for my score to compare font formats:</p>
+<ol>
+<li>Browser support as of November 2021</li>
+<li>File size (aka format efficiency)</li>
+</ol>
+<p>For the file size I used <a href="http://comicneue.com/">Comic Sans Neue</a> and the browser support I gathered from <a href="https://caniuse.com">caniuse.com</a>.
+Here&rsquo;s the let&rsquo;s have a look at the following table ordered historically with these criterias:</p>
+<table>
+<thead>
+<tr>
+<th>Font Format</th>
+<th>Release year</th>
+<th>Browser support</th>
+<th>File size</th>
+<th><strong>Score</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OTF/TTF</td>
+<td>1985</td>
+<td>98.6%</td>
+<td>57 kb</td>
+<td><strong>69/100</strong></td>
+</tr>
+<tr>
+<td>SVG</td>
+<td>2001</td>
+<td>19.4%</td>
+<td>113 kb</td>
+<td><strong>20/100</strong></td>
+</tr>
+<tr>
+<td>EOT</td>
+<td>2007</td>
+<td>0.87%</td>
+<td>27 kb</td>
+<td><strong>43/100</strong></td>
+</tr>
+<tr>
+<td>WOFF</td>
+<td>2009</td>
+<td>98.6%</td>
+<td>30 kb</td>
+<td><strong>88/100</strong></td>
+</tr>
+<tr>
+<td>WOFF2</td>
+<td>2017</td>
+<td>96.8%</td>
+<td>23 kb</td>
+<td><strong>98/100</strong></td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>Let me explain why WOFF2 scored higher than WOFF in this comparison: It all comes down to the 7 kb in file size. Generally if your site shows the user content more quickly, your conversion will increase—even if the gain is only in the hundred milisecond range.</p>
+<p>Your fonts could be:</p>
+<ul>
+<li>blocking content from appearing (invisible text)</li>
+<li>cause layout shifts</li>
+<li>delay further assets from downloading on flaky mobile networks</li>
+<li>sending bad signals to Google (LCP &amp; CLS from Core Web Vitals)</li>
+</ul>
+<hr>
+<h2 id="how-to-convert">How to convert</h2>
+<p>It&rsquo;s a very good idea to self host your fonts for performance reasons. I described one case in my <a href="https://wicki.io/posts/2020-11-goodbye-google-fonts/">Time to Say Goodbye to Google Fonts</a>
+post.</p>
+<p>How to best convert a font type to WOFF2 and WOFF depends where you got your font type from:</p>
+<ul>
+<li><strong>Google Fonts:</strong> Download the used font types on Google Fonts and use <a href="http://google-webfonts-helper.herokuapp.com/fonts">google-webfonts-helper</a> to download the other font formats.</li>
+<li><strong>everything else:</strong> Use <a href="https://www.fontsquirrel.com/tools/webfont-generator">Font Squirrels&rsquo;s Webfont Generator</a>. Its &lsquo;optimal&rsquo; setting even only spits out WOFF2 and WOFF files.</li>
+</ul>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>WOFF2, and WOFF as fallback, is enough nowadays*.</p>
+<p>*) <em>if</em> your site doesn&rsquo;t need support for antiquated browseres like IE8.</p>
+
+
+      
+      <hr /><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend, web perf & non-fiction books
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2021-11-woff2-one-font-format-to-rule-them-all\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+            opacity: 1;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>
