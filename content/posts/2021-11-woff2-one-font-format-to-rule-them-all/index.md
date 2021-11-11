@@ -10,9 +10,26 @@ image: "woff2.png"
 
 Learn why WOFF2, and WOFF as a fallback, is the only font format you need.
 
-If you've been around as a web developer for some time, chances are you encountered the various font formats for the web: EOT, OTF, TTF, WOFF, WOFF2 and SVG. More or less blindly we made sure all font formats were there and the CSS font-face pointed to them in our web projects.
+If you've been around as a web developer for some time, you've seen these font formats in your CSS. Here's an example for a self-hosted Raleway font:
 
-In this post I try to give some historical perspective and a font format comparison on the web.
+```css
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/raleway-v22-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/raleway-v22-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/raleway-v22-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/raleway-v22-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/raleway-v22-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/raleway-v22-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+}
+```
+
+Do we still need to support all 5 (!) of them? Where did they come from? How do they compare to each other?
+
+These questions I'd like to answer in this post.
 
 ---
 
