@@ -28,14 +28,14 @@ Have a look at Pedro Amado's elaborate [Font Format Timeline](https://typeforge.
 
 ---
 
-## Comparisons
+## Comparison
 
 I'll go ahead and use the following criteria for my score to compare font formats:
-1) Browser support as of November 2021
-2) File size (aka format efficiency)
+- Browser support as of November 2021
+- File size (aka format efficiency)
 
 For the file size I used [Comic Sans Neue](http://comicneue.com/) and the browser support I gathered from [caniuse.com](https://caniuse.com).
-Here's the let's have a look at the following table ordered historically with these criterias:
+Here's the let's have a look at the following table ordered historically with these criteria:
 
 | Font Format | Release year | Browser support | File size | **Score**  |
 |-------------|--------------|-----------------|-----------|------------|
