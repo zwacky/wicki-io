@@ -24,7 +24,7 @@ It took time and iterations to have what we've ended up with.
 
 With more efficient font formats, thanks to compression, browsers were able to support them.
 
-Have a look at Pedro Amado's elaborate [Font Format Timeline](https://typeforge.files.wordpress.com/2011/11/timeline_formatos_software_fontes_v10-01.jpg). This shows, that there are in fact many more facets to font formats than we think.
+Have a look at the elaborate [Font Format Timeline](https://typeforge.files.wordpress.com/2011/11/timeline_formatos_software_fontes_v10-01.jpg) by Pedro Amado. This shows, that there are in fact many more facets to font formats than we think.
 
 ---
 
@@ -47,7 +47,7 @@ Here's the let's have a look at the following table ordered historically with th
 
 <br>
 
-Let me explain why WOFF2 scored higher than WOFF in this comparison: It all comes down to the 7 kb in file size. Generally if your site shows the user content more quickly, your conversion will increase—even if the gain is only in the hundred milisecond range.
+Let me explain why WOFF2 scored higher than WOFF in this comparison: It all comes down to the 7 kb in file size. Generally if your site shows the user content more quickly, your conversion will increase—even if the gain is only in the hundred millisecond range.
 
 Your fonts could be:
 - blocking content from appearing (invisible text)
@@ -65,12 +65,12 @@ post.
 How to best convert a font type to WOFF2 and WOFF depends where you got your font type from:
 
 * **Google Fonts:** Download the used font types on Google Fonts and use [google-webfonts-helper](http://google-webfonts-helper.herokuapp.com/fonts) to download the other font formats.
-* **everything else:** Use [Font Squirrels's Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator). Its 'optimal' setting even only spits out WOFF2 and WOFF files.
+* **everything else:** Use [Font Squirrels's Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator). The 'optimal' setting even only spits out WOFF2 and WOFF files.
 
 ---
 
 ## Conclusion
 
-WOFF2, and WOFF as fallback, is enough nowadays*.
+WOFF2, and WOFF as fallback, is enough nowadays¹.
 
-*) *if* your site doesn't need support for antiquated browseres like IE8.
+¹) *if* your site doesn't need support for antiquated browsers like IE8.
