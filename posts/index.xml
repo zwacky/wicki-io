@@ -14,8 +14,8 @@
       
       <guid>https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/</guid>
       <description>Learn why WOFF2, and WOFF as a fallback, is the only font format you need.
-If you&amp;rsquo;ve been around as a web developer for some time, chances are you encountered the various font formats for the web: EOT, OTF, TTF, WOFF, WOFF2 and SVG. More or less blindly we made sure all font formats were there and the CSS font-face pointed to them in our web projects.
-In this post I try to give some historical perspective and a font format comparison on the web.</description>
+If you&amp;rsquo;ve been around as a web developer for some time, you&amp;rsquo;ve seen these font formats in your CSS. Here&amp;rsquo;s an example for a self-hosted Raleway font:
+@font-face { font-family: &amp;#39;Raleway&amp;#39;; font-style: normal; font-weight: 400; src: url(&amp;#39;../fonts/raleway-v22-latin-regular.eot&amp;#39;); /* IE9 Compat Modes */ src: local(&amp;#39;&amp;#39;), url(&amp;#39;../fonts/raleway-v22-latin-regular.eot?#iefix&amp;#39;) format(&amp;#39;embedded-opentype&amp;#39;), /* IE6-IE8 */ url(&amp;#39;../fonts/raleway-v22-latin-regular.woff2&amp;#39;) format(&amp;#39;woff2&amp;#39;), /* Super Modern Browsers */ url(&amp;#39;.</description>
     </item>
     
     <item>

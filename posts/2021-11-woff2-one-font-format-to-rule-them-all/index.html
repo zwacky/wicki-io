@@ -90,8 +90,21 @@
 </figure>
 
 <p>Learn why WOFF2, and WOFF as a fallback, is the only font format you need.</p>
-<p>If you&rsquo;ve been around as a web developer for some time, chances are you encountered the various font formats for the web: EOT, OTF, TTF, WOFF, WOFF2 and SVG. More or less blindly we made sure all font formats were there and the CSS font-face pointed to them in our web projects.</p>
-<p>In this post I try to give some historical perspective and a font format comparison on the web.</p>
+<p>If you&rsquo;ve been around as a web developer for some time, you&rsquo;ve seen these font formats in your CSS. Here&rsquo;s an example for a self-hosted Raleway font:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">font-face</span> {
+  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Raleway&#39;</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">font-style</span><span style="color:#f92672">:</span> <span style="color:#f92672">normal</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">font-weight</span><span style="color:#f92672">:</span> <span style="color:#f92672">400</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;../fonts/raleway-v22-latin-regular.eot&#39;</span><span style="color:#f92672">);</span> <span style="color:#75715e">/* IE9 Compat Modes */</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">local</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">),</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;../fonts/raleway-v22-latin-regular.eot?#iefix&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;embedded-opentype&#39;</span><span style="color:#f92672">),</span> <span style="color:#75715e">/* IE6-IE8 */</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;../fonts/raleway-v22-latin-regular.woff2&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff2&#39;</span><span style="color:#f92672">),</span> <span style="color:#75715e">/* Super Modern Browsers */</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;../fonts/raleway-v22-latin-regular.woff&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff&#39;</span><span style="color:#f92672">),</span> <span style="color:#75715e">/* Modern Browsers */</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;../fonts/raleway-v22-latin-regular.ttf&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;truetype&#39;</span><span style="color:#f92672">),</span> <span style="color:#75715e">/* Safari, Android, iOS */</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;../fonts/raleway-v22-latin-regular.svg#Raleway&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;svg&#39;</span><span style="color:#f92672">);</span> <span style="color:#75715e">/* Legacy iOS */</span>
+}
+</code></pre></div><p>Do we still need to support all 5 (!) of them? Where did they come from? How do they compare to each other?</p>
+<p>These questions I&rsquo;d like to answer in this post.</p>
 <hr>
 <h2 id="timeline">Timeline</h2>
 <figure>
