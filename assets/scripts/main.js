@@ -1,4 +1,4 @@
-const Shuffle = require("shufflejs").default;
+const Shuffle = require("shufflejs");
 
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.pathname !== "/") {
