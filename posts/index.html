@@ -10,9 +10,6 @@
   <link rel="canonical" href="https://wicki.io/posts/" />
   <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
   
-  <link rel="alternate" href="/posts/index.xml" type="application/rss+xml" title="Simon Wicki — Frontend Engineer from Berlin">
-  <link rel="feed" href="/posts/index.xml" type="application/rss+xml" title="Simon Wicki — Frontend Engineer from Berlin">
-  
   <meta charset="utf-8" />
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
   <meta name="keywords" content="Frontend, Berlin, Ionic, VueJS, Angular, Capacitor, Cordova" />
@@ -38,13 +35,12 @@
   <div class="container">
     <div class="nav__list">
       
-      
+      <div style="display: flex; align-items: center;">
         <a href="/" class="nav--brand" style="overflow: hidden;">
           <img src="images/logo.png" alt="W" width="38" />
         </a>
-        
+      </div>
       <div>
-        
         
         
         <a
@@ -71,11 +67,38 @@
             style="height: 18px; position: relative; top: -2px;"
           />
         </a>
+        
+        <a href id="search_search" class="nav__list__item">
+          <img
+            src="/images/svg/search.svg"
+            alt="Search"
+            class="searchbar__icon"
+            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
+          />
+        </a>
+        
+        <div class="searchbar">
+          <input id="search_input" type="text" name="q" placeholder="Search…" autocomplete="off">
+          <a href id="search_close">
+            <img
+              src="/images/svg/close.svg"
+              alt="close"
+              class="searchbar__icon"
+              style="height: 30px;"
+            />
+          </a>
+        </div>
       </div>
     </div>
   </div>
+  <div class="search-results" id="search_results">
+    <div class="container"></div>
+  </div>
 </nav>
 <div id="content">
+
+
+<script type="text/javascript" src="/search.js" defer></script>
 
 <div class="container" style="padding-top: 175px">
   <div class="row">

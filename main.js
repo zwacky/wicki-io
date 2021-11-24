@@ -1302,7 +1302,7 @@
   });
 
   // scripts/main.js
-  var Shuffle = require_shuffle().default;
+  var Shuffle = require_shuffle();
   document.addEventListener("DOMContentLoaded", function() {
     if (window.location.pathname !== "/") {
       return;

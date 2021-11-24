@@ -35,13 +35,12 @@
   <div class="container">
     <div class="nav__list">
       
-      
+      <div style="display: flex; align-items: center;">
         <a href="/" class="nav--brand" style="overflow: hidden;">
           <img src="images/logo.png" alt="W" width="38" />
         </a>
-        
+      </div>
       <div>
-        
         
         
         <a
@@ -68,53 +67,52 @@
             style="height: 18px; position: relative; top: -2px;"
           />
         </a>
+        
+        <a href id="search_search" class="nav__list__item">
+          <img
+            src="/images/svg/search.svg"
+            alt="Search"
+            class="searchbar__icon"
+            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
+          />
+        </a>
+        
+        <div class="searchbar">
+          <input id="search_input" type="text" name="q" placeholder="Search…" autocomplete="off">
+          <a href id="search_close">
+            <img
+              src="/images/svg/close.svg"
+              alt="close"
+              class="searchbar__icon"
+              style="height: 30px;"
+            />
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="search-results" id="search_results">
+    <div class="container"></div>
   </div>
 </nav>
 <div id="content">
 
 
+<script type="text/javascript" src="/search.js" defer></script>
 
- 
-<script
-	type="text/javascript"
-	src="/build/bundle.c101f5bb37b995650079db06e7cb1382c0b3a9814a3aca5ad6afe62e544853a9.js"
-	integrity="sha256-wQH1uze5lWUAedsG58sTgsCzqYFKOspa1q/mLlRIU6k="
-	defer
-></script>
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Convert Google Fonts to Self-Hosted fonts</h1>
+      <div style="margin-bottom: 20px;">
+        
+      </div>
 
+      
 
-
-
-<link rel="stylesheet" href="/build/bundle.ba9eeaa710526bd7c05b50a67fde2cd42279ea9e850840b4e381801db720e4da.css" />
-
-<div class="container" style="padding-top: 175px">
-	<div class="row">
-		<div class="col-md-8 offset-md-2">
-			<h1>Self-host Google Fonts</h1>
-			<p>
-				Check for used Google Fonts on any website and download to easily self-host them.<br />Based on the
-				great google-webfonts-helper project.
-			</p>
-		</div>
-	</div>
-
-	<div id="fonts-converter-app"></div>
-
-	<section class="row" id="info" style="margin-top: 180px">
-		<div class="col-md-8 offset-md-2">
-			<div class="title">Additional Resources</div>
-			<ul>
-				<li><a href="https://google-webfonts-helper.herokuapp.com/fonts">Google Webfonts Helper</a></li>
-				<li>
-					<a href="https://wicki.io/posts/2020-11-goodbye-google-fonts/"
-						>Time to Say Goodbye to Google Fonts</a
-					>
-				</li>
-			</ul>
-		</div>
-	</section>
+      
+    </div>
+  </div>
 </div>
 
 
