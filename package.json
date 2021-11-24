@@ -17,6 +17,7 @@
   "homepage": "https://github.com/zwacky/wicki-io#readme",
   "dependencies": {
     "bootstrap": "^4.5.2",
+    "flexsearch": "^0.7.21",
     "normalize.css": "^8.0.1",
     "shufflejs": "^5.2.3"
   }

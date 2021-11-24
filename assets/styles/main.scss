@@ -147,6 +147,10 @@ body {
   font-family: "Source Sans Pro", "Open Sans", sans-serif;
   font-size: 1.2rem;
   color: change-color($dark, $alpha: 0.6);
+
+  &.in-search {
+    overflow: hidden;
+  }
 }
 
 .footer {
@@ -189,6 +193,10 @@ body {
         margin-left: 16px;
       }
 
+      .in-search & {
+        display: none !important;
+      }
+
       &--icon {
         position: relative;
         bottom: 1px;
@@ -212,6 +220,88 @@ body {
 
     &:hover {
       color: white;
+    }
+  }
+}
+
+.searchbar {
+  display: none;
+  margin-left: 20px;
+
+  .in-search & {
+    display: block;
+  }
+
+  &__icon {
+    height: 18px;
+    position: relative;
+    top: -2px;
+    opacity: 0.6;
+  }
+
+  input {
+    color: $dark;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #666666;
+    outline: none;
+    width: calc(100% - 40px);
+
+    @include media-breakpoint-up(lg) {
+      width: 420px !important;
+    }
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+  }
+}
+
+.search-results {
+  display: none;
+  width: 100%;
+  position: absolute;
+  overflow-y: auto;
+  top: 0;
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  padding-top: 25px;
+  
+  background-color: rgba(255, 255, 255, 0.95);
+
+  .in-search & {
+    display: block;
+  }
+
+  &__item {
+    display: flex;
+    overflow: hidden;
+    margin-top: 20px;
+
+    &__text {
+      margin-left: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    img, &__image {
+      height: 75px;
+      width: 133px;
+      min-width: 133px;
+      background-color: #e4e4f0;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    p {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
@@ -575,6 +665,19 @@ body {
       a {
         border: none;
       }
+    }
+  }
+}
+
+
+table {
+  width: 100%;
+
+  thead {
+    background-color: $light;
+
+    th {
+      padding: 3px;
     }
   }
 }

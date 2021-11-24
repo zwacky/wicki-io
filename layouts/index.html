@@ -1,7 +1,9 @@
 {{ define "main" }}
 
-{{ $script := resources.Get "scripts/main.js" | js.Build "main.js" }}
-<script type="text/javascript" src="{{ $script.RelPermalink }}" defer></script>
+{{ $scriptMain := resources.Get "scripts/main.js" | js.Build "main.js" }}
+<script type="text/javascript" src="{{ $scriptMain.RelPermalink }}" defer></script>
+{{ $scriptSearch := resources.Get "scripts/search.js" | js.Build "search.js" }}
+<script type="text/javascript" src="{{ $scriptSearch.RelPermalink }}" defer></script>
 
 <!-- HERO -->
 <section class="hero">

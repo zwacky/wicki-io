@@ -1,5 +1,8 @@
 {{ define "main" }}
 
+{{ $scriptSearch := resources.Get "scripts/search.js" | js.Build "search.js" }}
+<script type="text/javascript" src="{{ $scriptSearch.RelPermalink }}" defer></script>
+
 <div class="container" style="padding-top: 180px;">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">

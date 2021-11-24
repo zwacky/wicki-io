@@ -2,24 +2,20 @@
   <div class="container">
     <div class="nav__list">
       <!-- <a href class="nav--brand">W</a> -->
-      <a href="/" class="nav--brand" style="overflow: hidden;">
-        <img src="images/logo.png" alt="W" width="38" />
-      </a>
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="nav--brand" style="overflow: hidden;">
+          <img src="images/logo.png" alt="W" width="38" />
+        </a>
+      </div>
       <div>
-        <!-- <a href="/#work" class="nav__list__item d-none d-md-inline">Work</a> -->
-        <!-- <a
-          href="/google-fonts-converter"
-          class="nav__list__item {{ if hasPrefix .RelPermalink "/google-fonts-converter/" }}active{{ end }}"
-          >
-          <span class="d-none d-md-inline">Google Fonts Converter</span>
-          <span class="d-md-none">Converter</span>
-        </a> -->
         {{ $currentPage := . }}
+        <!-- BLOG -->
         <a
           href="/posts"
           class="nav__list__item {{ if hasPrefix .RelPermalink "/posts/" }}active{{ end }}"
           >Blog</a
         >
+        <!-- CONTACT -->
         <a
           class="d-none d-sm-inline nav__list__item nav__list__item--mail"
           href="mailto:simon@wicki.io"
@@ -38,7 +34,31 @@
             style="height: 18px; position: relative; top: -2px;"
           />
         </a>
+        <!-- SEARCH -->
+        <a href id="search_search" class="nav__list__item">
+          <img
+            src="/images/svg/search.svg"
+            alt="Search"
+            class="searchbar__icon"
+            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
+          />
+        </a>
+        <!-- SEARCH INPUT -->
+        <div class="searchbar">
+          <input id="search_input" type="text" name="q" placeholder="Search…" autocomplete="off">
+          <a href id="search_close">
+            <img
+              src="/images/svg/close.svg"
+              alt="close"
+              class="searchbar__icon"
+              style="height: 30px;"
+            />
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="search-results" id="search_results">
+    <div class="container"></div>
   </div>
 </nav>
