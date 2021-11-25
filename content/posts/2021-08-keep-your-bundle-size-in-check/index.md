@@ -74,6 +74,10 @@ If your site is already public you can use Google's PageSpeed Insight to detect 
 
 👉 https://developers.google.com/speed/pagespeed/insights/
 
-Check out this tweet to see the treemap in action:
+Check out [this tweet](https://twitter.com/____lighthouse/status/1400529906577162243) to see the treemap in action.
 
-{{< tweet 1400529906577162243 >}}
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1427893215982718978 >}}

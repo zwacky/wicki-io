@@ -14,7 +14,7 @@ Maybe one or two of my recommendations will pique your interest. Make sure to [h
 
 ## Mindset
 
-{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-mindset.png" alt="Mindset Book" >}}
+{{< figure src="/posts/2020-09-my-top-5-book-recommendations/cover-mindset.png" alt="Mindset Book" >}}
 
 This book easily left the biggest impact on me. Let me ask you this question: Do you think a professional pianists play well because they are just born with talent and stuck with it? Or do you think it's because they invest hours of effort in trying to become better and improve themselves?
 
@@ -24,7 +24,7 @@ If you plan only to read a single book this year, I would recommend this one.
 
 ## Bad Blood
 
-{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-bad-blood.png" alt="Bad Blood Book" >}}
+{{< figure src="/posts/2020-09-my-top-5-book-recommendations/cover-bad-blood.png" alt="Bad Blood Book" >}}
 
 This book reads itself like a Hollywood Deception Drama—except that it is real! Prepare yourself for an amazing investigative work by John Carreyrou telling you the story of how a Silicon Valley Startup got to the point of an $9 billion evaluation. The only catch? Their product did not work at all.
 
@@ -32,7 +32,7 @@ You may have heard of Theranos, the company led by turtle-neck-lover Elizabeth H
 
 ## Nonviolent Communication
 
-{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-nonviolent-communication.png" alt="Nonviolent Communication Book" >}}
+{{< figure src="/posts/2020-09-my-top-5-book-recommendations/cover-nonviolent-communication.png" alt="Nonviolent Communication Book" >}}
 
 This book opened my eyes to something I always knew existed, but I had never explicitly reflected on at length: Empathy. Marshall B. Rosenberg was a psychologist, worked world wide as a peacemaker and started developing Nonviolent Communication in his thirties already.
 
@@ -42,7 +42,7 @@ I must admit that I'm not 100% on board with how he approaches _all and every_ c
 
 ## Atomic Habits
 
-{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-atomic-habits.png" alt="Atomic Habits Book" >}}
+{{< figure src="/posts/2020-09-my-top-5-book-recommendations/cover-atomic-habits.png" alt="Atomic Habits Book" >}}
 
 There exists a plethora of self-help books about productivity and habits, and more are still being written. James Clear is one of the few productivity authors that made it big with this great framework of building good habits and breaking bad ones. It's even so well known that it's also the one book my friends and I have most often both read.
 
@@ -50,7 +50,7 @@ The two key takeaways are making small changes that will have a big impact over 
 
 ## Why We Sleep
 
-{{< figure src="/posts/2020-09-my-top-5-books-in-2019/cover-why-we-sleep.png" alt="Why We Sleep Book" >}}
+{{< figure src="/posts/2020-09-my-top-5-book-recommendations/cover-why-we-sleep.png" alt="Why We Sleep Book" >}}
 
 This book figuratively gave me a wake-up call. I used to sleep only as much as I thought I could get through the day without my body showing signals of sleep deprivation.
 
@@ -59,3 +59,9 @@ Matthew Walker, the director of UC Berkley's Center for Human Sleep Science, wri
 ## Final words
 
 I hope you enjoyed my short list of recommendations of books that I read in 2019. Have you read a book in common? Do you plan on picking one up? Or do you think there is a great follow up book to the ones mentioned here? I'm super interested to know what you think. Don't hesitate to tweet about your experience and mention me [@zwacky](https://twitter.com/zwacky)!
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1381121169080848384 >}}

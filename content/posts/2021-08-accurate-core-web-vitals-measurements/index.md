@@ -86,3 +86,9 @@ Average   | 0.9  0.8  0.8  0.8  0.8  0.8  0.7  0.7  0.6  0.6  0.6  0.5  0.5  0.5
 - [An In-Depth Guide To Measuring Core Web Vitals](https://www.smashingmagazine.com/2021/04/complete-guide-measure-core-web-vitals/)
 - [Google Forum: Explanation different data points in different tools](https://groups.google.com/a/chromium.org/g/chrome-ux-report/c/PRGtZJvmGkw/m/rzQV99-kCAAJ)
 - [Tracking Changes in Search Console's Ore Web Vitals Report](https://tamethebots.com/blog-n-bits/monitoring-search-console-core-web-vitals)
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1425363280206434304 >}}

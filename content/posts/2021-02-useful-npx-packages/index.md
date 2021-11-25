@@ -65,3 +65,9 @@ This package helped me to plan quickly setting up meetings with others of differ
 I used this package to death! Sadly its API, that came from getdango's [Emoji & Deep Learning](https://getdango.com/emoji-and-deep-learning/), is not maintained anymore. Thus the emoji results are not ground breaking anymore.
 
 As a replacement I suggest using `ctrl + cmd + space` (macOS), that will help you a bit on the way of finding the right emoji.
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1362380781809762312 >}}

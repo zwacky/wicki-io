@@ -50,3 +50,9 @@ In the past people only knew one reason why Hybrid Apps were built: Money needed
 * Desired iteration speed across one or multiple platforms
 * Your existing team structure, knowledge and hiring
 * And again: Money
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1197177867576205312 >}}

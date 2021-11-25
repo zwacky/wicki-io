@@ -130,3 +130,9 @@ For instance if you host your PWA over [Firebase Hosting](https://firebase.googl
 ## #5 Summary
 
 Service Workers aren’t as scary as they seem at first. With the appropriate safety mechanisms in place (never cache more than 24 hours) you can create a great experience for your users without having to change your domain name.
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 874976958748270592 >}}

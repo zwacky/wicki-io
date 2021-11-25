@@ -76,3 +76,9 @@ You need to tell your .eslintrc.json config, that you’re now playing with the 
   "rules": {}
 }
 ```
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 879335421947392000 >}}

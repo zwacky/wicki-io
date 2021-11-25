@@ -91,3 +91,9 @@ How to best convert a font type to WOFF2 and WOFF depends where you got your fon
 WOFF2, and WOFF as fallback, is enough nowadays¹.
 
 ¹) *if* your site doesn't need support for antiquated browsers like IE8.
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+
+{{< tweet 1463833102615293954 >}}

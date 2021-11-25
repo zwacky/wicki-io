@@ -61,3 +61,9 @@ Safari really cares about privacy. It circumvented this very cross-site tracking
 Google Fonts resources will be redownloaded for every website, regardless it being cached on the CDN. Self-host your fonts for better performance. The old performance argument is not valid anymore.
 
 Thanks for checking this post out!
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1333758777343041539 >}}

@@ -99,3 +99,9 @@ Alternatively you could also wait until the scheduler picks up on the `"0 * * * 
 ### #4 Done 🎉
 
 Hope you find this workflow useful! Please reach out via [GitHub issues](https://github.com/zwacky/goodreads-profile-workflow/issues) or [Twitter](https://twitter.com/zwacky). Excited to hear from all the different reading lists and how your profile looks. Please consider leaving a GitHub star.
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1377259234170142726 >}}

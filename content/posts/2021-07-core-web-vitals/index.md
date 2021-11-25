@@ -85,3 +85,9 @@ Causes of CLS:
 - images without size attributes
 - requests finish later that will inject content above existing content
 - lazy loaded components
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1417741636340158464 >}}

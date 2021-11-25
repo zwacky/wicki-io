@@ -42,3 +42,9 @@ Google's calculation of CLS [has been changed before](https://web.dev/evolving-c
 We'd have to make sure, that the DOM elements get re-created everytime a list gets updated or filtered. I wouldn't advise to completely drop the unique key (`:key`). Rather think of a key for each list item that is tied to the request itself, e.g. `:key="item.id + "-" + requestQuery"`. The filtering itself will have a brief flash due to recreating the DOM node, but considering the Green URLs that Google will give you it's worth it. 
 
 With this you can continue with infinite scroll and page navigation without perf loss.
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1420640015877607424 >}}
