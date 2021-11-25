@@ -143,10 +143,16 @@
 <p>Google&rsquo;s calculation of CLS <a href="https://web.dev/evolving-cls/">has been changed before</a>, so I would love to see this here too. Until then it&rsquo;s on us to not get penalised.</p>
 <p>We&rsquo;d have to make sure, that the DOM elements get re-created everytime a list gets updated or filtered. I wouldn&rsquo;t advise to completely drop the unique key (<code>:key</code>). Rather think of a key for each list item that is tied to the request itself, e.g. <code>:key=&quot;item.id + &quot;-&quot; + requestQuery&quot;</code>. The filtering itself will have a brief flash due to recreating the DOM node, but considering the Green URLs that Google will give you it&rsquo;s worth it.</p>
 <p>With this you can continue with infinite scroll and page navigation without perf loss.</p>
+<hr>
+<p>If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters <a href="https://twitter.com/zwacky">on Twitter</a>.
+<br /><br />
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">How can Cumulative Layout Shift (CLS) happen with a simple list rendering? 🧮<br><br>See it in action in the gif:<br>A whopping 0.51 CLS was produced with a mobile viewport and mid-tier connection.<br><br>Read on to understand what it is and how you can make Google&#39;s Core Web Vitals happy. 👇 <a href="https://t.co/nfC8nB7FQW">pic.twitter.com/nfC8nB7FQW</a></p>&mdash; Simon Wicki (@zwacky) <a href="https://twitter.com/zwacky/status/1420640015877607424?ref_src=twsrc%5Etfw">July 29, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
 
 
       
-      <hr /><div class="about__bio">
+      <div style="border-top: 1px solid #e4e4f0; margin-top: 86px; margin-bottom: 50px;"></div><div class="about__bio">
   <div class="about__bio__profile">
     
     
