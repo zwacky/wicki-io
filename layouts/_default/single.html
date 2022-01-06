@@ -9,7 +9,7 @@
       <h1>{{ .Page.Title }}</h1>
       <div style="margin-bottom: 20px;">
         {{ with .Page.PublishDate }}
-          {{ .Format "January 2, 2006" }}
+          <time datetime="{{ . }}">{{ .Format "January 2, 2006" }}</time>
         {{ end }}
       </div>
 

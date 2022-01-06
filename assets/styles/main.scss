@@ -677,7 +677,16 @@ table {
     background-color: $light;
 
     th {
-      padding: 3px;
+      padding: 3px 6px;
     }
+
   }
+
+  tr > td {
+    padding: 1px 6px;
+  }
+}
+
+time {
+  opacity: 0.7;
 }
