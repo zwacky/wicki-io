@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html><head>
-  <title>Laravel Redirect::to() vs Redirect::away()</title>
+  <title>Blog posts</title>
   <base href="/" />
   <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-300.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-regular.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/playfair-display-v21-latin-regular.woff2" crossorigin />
   
   <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
-  <link rel="canonical" href="https://wicki.io/posts/2014-09-laravel-redirect-to-vs-redirect-away/" />
+  <link rel="canonical" href="https://wicki.io/posts/" />
   <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
   
   <meta charset="utf-8" />
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
-  <meta name="keywords" content="[laravel]" />
+  <meta name="keywords" content="Frontend, Berlin, Ionic, VueJS, Angular, Capacitor, Cordova" />
 
   <meta property="og:site_name" content="Wicki.io" />
-  <meta property="og:title" content="Laravel Redirect::to() vs Redirect::away()" name="title" />
-  <meta property="og:description" content="The difference between Laravel&#39;s URL::to and URL::asset." name="description" />
-  <meta property="og:url" content="https://wicki.io/posts/2014-09-laravel-redirect-to-vs-redirect-away/" />
+  <meta property="og:title" content="Blog posts" name="title" />
+  <meta property="og:description" content="Blog posts about Tech, Books and in between by Simon Wicki." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/" />
   <meta property="og:image" content="https://wicki.io/images/logo.png" />
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="website" />
 
   <meta name="author" content="Simon Wicki" />
   <meta name="twitter:site" content="@zwacky" />
   <meta name="twitter:creator" content="@zwacky" />
-  <meta name="twitter:title" content="Laravel Redirect::to() vs Redirect::away()"/>
-  <meta name="twitter:description" content="The difference between Laravel&#39;s URL::to and URL::asset."/>
+  <meta name="twitter:title" content="Blog posts"/>
+  <meta name="twitter:description" content="Blog posts about Tech, Books and in between by Simon Wicki."/>
 
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -100,101 +100,131 @@
 
 <script type="text/javascript" src="/search.js" defer></script>
 
-<div class="container" style="padding-top: 180px;">
+<div class="container" style="padding-top: 175px">
   <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h1>Laravel Redirect::to() vs Redirect::away()</h1>
-      <div style="margin-bottom: 20px;">
-        
-          <time datetime="2014-09-16 00:00:00 &#43;0000 UTC">September 16, 2014</time>
-        
-      </div>
-
-      <p>For external redirection</p>
-<p>The use case here is to redirect the user to another domain. I haven’t come across Redirect::away() before, even though it’s been added in Laravel 4.0.8.</p>
-<h2 id="redirectto">Redirect::to()</h2>
-<figure>
-    <img src="/posts/2014-09-laravel-redirect-to-vs-redirect-away/laravel-redirect-to.png"
-         alt="Laravel Redirect::to()"/> 
-</figure>
-
-<h2 id="redirectaway">Redirect::away()</h2>
-<figure>
-    <img src="/posts/2014-09-laravel-redirect-to-vs-redirect-away/laravel-redirect-away.png"
-         alt="Laravel Redirect::away()"/> 
-</figure>
-
-<h2 id="difference">Difference</h2>
-<p>Redirect::to() does additional URL checks and generations. Those additional steps are done in <strong>Illuminate\Routing\UrlGenerator</strong> and do the following, if the passed URL is not a fully valid URL (even with protocol):</p>
-<ul>
-<li>Determines if URL is secure</li>
-<li>rawurlencode() the URL</li>
-<li>trim() URL</li>
-</ul>
-
-
-      
-      <div style="border-top: 1px solid #e4e4f0; margin-top: 86px; margin-bottom: 50px;"></div><div class="about__bio">
-  <div class="about__bio__profile">
-    
-    
-    <img
-      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
-      alt="Simon Wicki"
-      class="about__bio__profile--image"
-    />
-    
+    <div class="col-md-8 offset-md-2">
+      <h1>Blog posts</h1>
+    </div>
   </div>
+  <div class="row">
+    
+     
 
-  <div>
-    <div
-      style="
-        font-weight: 400;
-        color: inherit;
-        font-size: inherit;
-        margin-top: 0;
-        margin-bottom: 1rem;
-      "
-    >
-      <p>
-        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
-				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
-				Tech, frontend, web perf & non-fiction books
-      </p>
-      <p>
-        <a
-          href="https://twitter.com/zwacky"
-          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2014-09-laravel-redirect-to-vs-redirect-away\/')"
-          target="_blank"
-          style="
-            border-radius: 4px;
-            padding: 4px 13px 4px 13px;
-            background-color: #1b95e0;
-            color: white;
-            display: inline-block;
-            border: 0;
-            opacity: 1;
-          "
+    
+    <div class="col-12">
+      <div class="row">
+        <div
+          class="col-md-2 d-none d-md-block"
+          style="text-align: right; padding-top: 3rem"
         >
-          <img
-            src="images/svg/twitter.svg"
-            alt="Twitter"
-            title="Twitter"
-            style="
-              filter: brightness(10);
-              margin-right: 4px;
-              position: relative;
-              bottom: 2px;
-            "
-          />
-          Follow @zwacky
-        </a>
-      </p>
+          <time datetime="2013-12-04 00:00:00 &#43;0000 UTC"
+            >Dec 4, 2013</time
+          >
+        </div>
+        <div class="col-md-10 col-xl-9">
+          <div style="display: flex">
+            
+            <div style="flex-grow: 1">
+              <h3>
+                <a href="/posts/2013-12-design-a-beautiful-rest-api/">Design a beautiful REST API</a>
+              </h3>
+              <div>
+                <p class="d-sm-block d-md-none">
+                  <time datetime="2013-12-04 00:00:00 &#43;0000 UTC"
+                    >Dec 4, 2013</time
+                  >
+                </p>
+              </div>
+              <div>
+                <p
+                  style="
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  Every dev at some point has made decisions how his backend API should look like. If you’re coming from the web, then mostly for ajax calls. But what if that API should also address calls from other sources and clients.
+To fill that gap i was watching an informative talk by Les Hazlewood about beautiful RESTful. I’ll cut this in several sections. This is merely an overview, the full coverage you can get from the youtube talk or the slides.
+                </p>
+              </div>
+            </div>
+            
+            <div
+              class="d-none d-sm-block"
+              style="margin-left: 20px; margin-top: 3rem; position: relative"
+            >
+              <div style="width: 250px;"><a href="/posts/2013-12-design-a-beautiful-rest-api/" style="padding-top: 56.25%;">
+	 
+	<div
+	style="
+		width: 100%;
+		padding-top: 56.25%;
+		background-color: #e4e4f0;
+	"
+></div>
+	
+</a></div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+    
+    
 
-    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-12">
+
+
+
+
+  <ul class="pagination">
+    
+    
+    <li class="pagination__item pagination__item--previous ">
+			<a 
+				href="/posts/page/2/"
+				class="pagination__link pagination__link--previous">
+        ←
+      </a>
+    </li>
+  
+    
+    
+    <li class="pagination__item">
+      <a href="/posts/" class="pagination__link">
+        1
+      </a>
+    </li>
+    
+    <li class="pagination__item">
+      <a href="/posts/page/2/" class="pagination__link">
+        2
+      </a>
+    </li>
+    
+    <li class="pagination__item pagination__item--current">
+      <a href="/posts/page/3/" class="pagination__link">
+        3
+      </a>
+    </li>
+    
+
+    
+    <li class="pagination__item pagination__item--next  pagination__item--inactive ">
+      <a href="" class="pagination__link pagination__link--next">
+        →
+      </a>
+    </li>
+
+  </ul>
+</div>
+    
   </div>
 </div>
 

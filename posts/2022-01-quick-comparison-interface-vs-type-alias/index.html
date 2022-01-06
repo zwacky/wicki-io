@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Interface vs Type Alias in TypeScript—Quick Comparison</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-300.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/playfair-display-v21-latin-regular.woff2" crossorigin />
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2022-01-quick-comparison-interface-vs-type-alias/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[typescript, interface, type alias, interface vs type]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="Interface vs Type Alias in TypeScript—Quick Comparison" name="title" />
+  <meta property="og:description" content="Learn what Typescript feature is possible to implement as Type Alias or Interface and how do they compare." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2022-01-quick-comparison-interface-vs-type-alias/" />
+  <meta property="og:image" content="https://wicki.io/posts/2022-01-quick-comparison-interface-vs-type-alias/quick-comparison.jpg" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="Interface vs Type Alias in TypeScript—Quick Comparison"/>
+  <meta name="twitter:description" content="Learn what Typescript feature is possible to implement as Type Alias or Interface and how do they compare."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="nav--brand" style="overflow: hidden;">
+          <img src="images/logo.png" alt="W" width="38" />
+        </a>
+      </div>
+      <div>
+        
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        
+        <a
+          class="d-none d-sm-inline nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+          class="nav__list__item nav__list__item--mail"
+        >
+          Contact
+        </a>
+        <a
+          class="d-inline d-sm-none nav__list__item nav__list__item--mail"
+          href="mailto:simon@wicki.io"
+        >
+          <img
+            src="/images/svg/envelope.svg"
+            alt="Contact"
+            title="Contact"
+            style="height: 18px; position: relative; top: -2px;"
+          />
+        </a>
+        
+        <a href id="search_search" class="nav__list__item">
+          <img
+            src="/images/svg/search.svg"
+            alt="Search"
+            class="searchbar__icon"
+            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
+          />
+        </a>
+        
+        <div class="searchbar">
+          <input id="search_input" type="text" name="q" placeholder="Search…" autocomplete="off">
+          <a href id="search_close">
+            <img
+              src="/images/svg/close.svg"
+              alt="close"
+              class="searchbar__icon"
+              style="height: 30px;"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-results" id="search_results">
+    <div class="container"></div>
+  </div>
+</nav>
+<div id="content">
+
+
+<script type="text/javascript" src="/search.js" defer></script>
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>Interface vs Type Alias in TypeScript—Quick Comparison</h1>
+      <div style="margin-bottom: 20px;">
+        
+          <time datetime="2022-01-06 00:00:00 &#43;0000 UTC">January 6, 2022</time>
+        
+      </div>
+
+      <figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/quick-comparison.jpg"
+         alt="Quick Comparison: Interface vs Type Alias"/> 
+</figure>
+
+<p>This can be confusing for anyone working with TypeScript—beginner or seasoned programmer. Both ways can cover similar needs.</p>
+<p>In this post you&rsquo;ll quickly see what Typescript feature is possible to implement as Type Alias or Interface. I stayed brief and spicy to give the post an overview character.</p>
+<br>
+<p>👉 <strong>TLDR:</strong> You don&rsquo;t care about each difference? What should you use?</p>
+<blockquote>
+<p>Use <code>interface</code> until you need <code>type</code></p>
+<p>—<a href="https://twitter.com/orta/status/1356129195835973632">orta</a></p>
+</blockquote>
+<h1 id="overview-interface-i-vs-type-alias-t">Overview: Interface (I) vs Type Alias (T)</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>I</th>
+<th>T</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primitives</td>
+<td>❌</td>
+<td>✅</td>
+<td><code>type UUID = string</code></td>
+</tr>
+<tr>
+<td>Extend / Intersect</td>
+<td>✅</td>
+<td>✅</td>
+<td><code>Response &amp; ErrorHandling</code></td>
+</tr>
+<tr>
+<td>Unions</td>
+<td>❌</td>
+<td>✅</td>
+<td><code>string | number</code></td>
+</tr>
+<tr>
+<td>Mapped object types</td>
+<td>❌</td>
+<td>✅</td>
+<td><code>['apple' | 'orange']: number</code></td>
+</tr>
+<tr>
+<td>Augment existing types</td>
+<td>✅</td>
+<td>❌</td>
+<td><code>declare global { interface Window { … } }</code></td>
+</tr>
+<tr>
+<td>Declare type with typeof</td>
+<td>❌</td>
+<td>✅</td>
+<td><code>Response = typeof ReturnType&lt;fetch&gt;</code></td>
+</tr>
+<tr>
+<td>Tuples</td>
+<td>✅</td>
+<td>✅</td>
+<td><code>[string, number]</code></td>
+</tr>
+<tr>
+<td>Functions</td>
+<td>✅</td>
+<td>✅</td>
+<td><code>(x: number, y: number): void</code></td>
+</tr>
+<tr>
+<td>Recursion</td>
+<td>✅</td>
+<td>✅</td>
+<td><code>Nested { children?: Nested[] }</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="primitives">Primitives</h2>
+<p>❌: Interface<br>
+✅: Type Alias</p>
+<p><code>string</code>, <code>number</code> and <code>boolean</code> make up the Primitives in Typescript.</p>
+<figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/primitives.png"
+         alt="Primitive type declaration comparison in TypeScript"/> 
+</figure>
+
+<h2 id="extend--intersect">Extend / Intersect</h2>
+<p>✅: Interface<br>
+✅: Type Alias</p>
+<p>Although intersect and extend are not 100% the same for interface and type alias, I put them together in this example. The differences arise when type keys appear in both types that you want to extend or intersect from.</p>
+<p>So if the extended or intersected key is not the same type:</p>
+<ul>
+<li>Type Alias lets you do it but changes that type to <code>never</code></li>
+<li>Interface spits an error that the types are not compatible</li>
+</ul>
+<figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/intersect-extend.png"
+         alt="Extend &amp; intersect comparison in TypeScript"/> 
+</figure>
+
+<h2 id="mapped-object-types">Mapped object types</h2>
+<p>❌: Interface<br>
+✅: Type Alias</p>
+<p>Use this to keep your object keys in order.</p>
+<p>You can force an object to have only <code>number</code> keys. Or you can go fancy with template literal types and force all keys, as seen in getters, start with <code>get...</code> with an advanced <code>[key in keyof T as `get${Capitalize&lt;string &amp; key&gt;}`]</code>.</p>
+<figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/mapped-object-types.png"
+         alt="Mapped object types comparison in TypeScript"/> 
+</figure>
+
+<h2 id="unions">Unions</h2>
+<p>❌: Interface<br>
+✅: Type Alias</p>
+<p>Typescript&rsquo;s equivalent to <code>OR</code>: The type is either <code>x</code> or <code>y</code> or <code>z</code> or as many as you want.</p>
+<figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/unions.png"
+         alt="Unions comparison in TypeScript"/> 
+</figure>
+
+<h2 id="augment-existing-types">Augment existing types</h2>
+<p>✅: Interface<br>
+❌: Type Alias</p>
+<p>You can add fields to already existing types. It&rsquo;s useful when you add a new field (e.g. <code>jQuery</code> library for auto completion) onto an existing type (e.g. <code>window</code>).</p>
+<figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/augment-existing-types.png"
+         alt="Augment existing types comparison in TypeScript"/> 
+</figure>
+
+<h2 id="tuples">Tuples</h2>
+<p>✅: Interface<br>
+✅: Type Alias</p>
+<p>If you&rsquo;ve used hooks in react, then you know the usefulness of tuples.</p>
+<p>A single function call can return an array of values and functions, that are destructured and can be used as fully typed variables: <code>const [name, setName] = useState('')</code></p>
+<figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/tuples.png"
+         alt="Tuples comparison in TypeScript"/> 
+</figure>
+
+<h2 id="functions">Functions</h2>
+<p>✅: Interface<br>
+✅: Type Alias</p>
+<p>Functions can be annotated with Parameter Types and Return Types.</p>
+<figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/functions.png"
+         alt="Functions comparison in TypeScript"/> 
+</figure>
+
+<h2 id="recursion">Recursion</h2>
+<p>✅: Interface<br>
+✅: Type Alias</p>
+<p>Recursion are simple to use. Make sure you add the optional <code>?</code> to the recursive property. Otherwise the TS compiler spits out an error upon searching an endless recursion.</p>
+<figure>
+    <img src="/posts/2022-01-quick-comparison-interface-vs-type-alias/recursion.png"
+         alt="Recursion comparison in TypeScript"/> 
+</figure>
+
+<hr>
+<h2 id="more-resources">More resources</h2>
+<ul>
+<li><a href="https://github.com/typescript-cheatsheets/react#types-or-interfaces">Types or Interfaces in react</a></li>
+<li><a href="https://stackoverflow.com/a/65948871/825444">Interfaces vs Types in TypeScript</a> by Mark</li>
+<li><a href="https://blog.logrocket.com/types-vs-interfaces-in-typescript/">Types vs. interfaces in TypeScript</a> by Leonardo Maldonado</li>
+<li><a href="https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c">Interface vs Type alias in TypeScript 2.7</a> by Martin Hochel</li>
+</ul>
+
+
+      
+      <div style="border-top: 1px solid #e4e4f0; margin-top: 86px; margin-bottom: 50px;"></div><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Frontend Developer in
+				Berlin. Passionate and fluent in Vue, Angular, React and Ionic. Interested in 
+				Tech, frontend, web perf & non-fiction books
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2022-01-quick-comparison-interface-vs-type-alias\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+            opacity: 1;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>
