@@ -63,9 +63,12 @@ So if the extended or intersected key is not the same type:
 ❌: Interface<br>
 ✅: Type Alias
 
-Use this to keep your object keys in order. 
+Type the keys in your objects with this.
 
-You can force an object to have only `number` keys. Or you can go fancy with template literal types and force all keys, as seen in getters, start with `get...` with an advanced ``[key in keyof T as `get${Capitalize<string & key>}`]``.
+Here are a few useful applications of this:
+- `[key: string]`: only strings as key allowed
+- `[key: number]`: only numbers as key allowed
+- ``[key in keyof T as `get${Capitalize<string & key>}`]``: only allow keys that start with `get...`, e.g. as seen in a Getter object
 
 {{< figure src="/posts/2022-01-quick-comparison-interface-vs-type-alias/mapped-object-types.png" alt="Mapped object types comparison in TypeScript">}}
 
@@ -120,6 +123,7 @@ Recursion are simple to use. Make sure you add the optional `?` to the recursive
 
 ## More resources
 
+- [Typescript Playground](https://www.typescriptlang.org/play)
 - [Types or Interfaces in react](https://github.com/typescript-cheatsheets/react#types-or-interfaces)
 - [Interfaces vs Types in TypeScript](https://stackoverflow.com/a/65948871/825444) by Mark
 - [Types vs. interfaces in TypeScript](https://blog.logrocket.com/types-vs-interfaces-in-typescript/) by Leonardo Maldonado
