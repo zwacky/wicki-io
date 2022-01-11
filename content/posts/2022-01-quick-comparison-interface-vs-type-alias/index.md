@@ -128,3 +128,9 @@ Recursion are simple to use. Make sure you add the optional `?` to the recursive
 - [Interfaces vs Types in TypeScript](https://stackoverflow.com/a/65948871/825444) by Mark
 - [Types vs. interfaces in TypeScript](https://blog.logrocket.com/types-vs-interfaces-in-typescript/) by Leonardo Maldonado
 - [Interface vs Type alias in TypeScript 2.7](https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c) by Martin Hochel
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+
+{{< tweet 1480863714454687746 >}}
