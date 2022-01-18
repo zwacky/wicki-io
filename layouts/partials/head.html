@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="{{ $stylesMain.Permalink | relURL}}" integrity="{{ $stylesMain.Data.Integrity }}" media="screen" />
   <link rel="canonical" href="{{ .Permalink }}" />
   <link rel="icon" type="image/x-icon" href="{{ `/images/favicon.png` | absURL }}" />
-  {{ with .OutputFormats.Get "RSS" }}
+  
+  {{ with .OutputFormats.Get "rss" -}}
   <link rel="alternate" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ site.Title }}">
-  <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ site.Title }}">
-  {{ end }}
+  {{- end }}
+  <link rel="feed" href="/posts/index.xml" type="application/rss+xml" title="Blog posts on {{ site.Title }}">
+
   <meta charset="utf-8" />
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
   <meta name="keywords" content="{{ .Keywords | default .Site.Params.keywords }}" />
