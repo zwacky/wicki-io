@@ -6,7 +6,23 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An Ode to AngularJS</title>
+      <link>https://wicki.io/posts/2022-01-an-ode-to-angularjs/</link>
+      <pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2022-01-an-ode-to-angularjs/</guid>
+      <description>In remembrance of my first love.
+Your LTS came finally to an end. You retired on 31st December 2021. You will always have a special place in my heart.  You arrived with great anticipation,
+Put the web dev world upside down;
+Model, View and Controller were in separation,
+Even Javascript beginners didn&amp;rsquo;t frown.
+Be it JavaScript, CoffeeScript or SCSS;
+You handled them all in a snap,
+Grunt helped you to transpile and compress</description>
+    </item>
+    
     <item>
       <title>Interface vs Type Alias in TypeScript—Quick Comparison</title>
       <link>https://wicki.io/posts/2022-01-quick-comparison-interface-vs-type-alias/</link>
