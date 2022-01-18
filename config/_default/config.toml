@@ -4,6 +4,8 @@ title = "Simon Wicki — Frontend Engineer from Berlin"
 enableEmoji = true
 googleAnalytics = "UA-176737760-1"
 
+disableKinds = ["taxonomy", "taxonomyTerm", "category"]
+
 [markup.goldmark.renderer]
 unsafe = true
 
