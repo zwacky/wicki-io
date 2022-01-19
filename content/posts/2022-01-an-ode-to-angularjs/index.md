@@ -18,10 +18,10 @@ Your LTS came finally to an end. You retired on 31st December 2021. You will alw
 > Model, View and Controller were in separation,<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;Even Javascript beginners didn't frown.<br>
 > 
-> Be it JavaScript, CoffeeScript or SCSS;<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;You handled them all in a snap,<br>
-> Grunt helped you to transpile and compress<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;The only thing needed was an `ng-app`<br>
+> Be it JavaScript, CoffeeScript or SCSS,<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;You handled them all in a snap;<br>
+> Grunt helped you to transpile and compress,<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;The only thing needed was an `ng-app`.<br>
 > 
 > You were patient with faulty code,<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;Throwing errors with the where and why;<br>
