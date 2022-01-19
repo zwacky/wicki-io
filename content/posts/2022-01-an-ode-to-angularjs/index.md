@@ -36,3 +36,9 @@ Your LTS came finally to an end. You retired on 31st December 2021. You will alw
 > &nbsp;&nbsp;&nbsp;&nbsp;Yet, you advanced and left doubters behind;<br>
 > Daily flame wars you fought against react,<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;Until the day `window.angular` became `undefined`.<br>
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #nonfiction books, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+
+{{< tweet 1483745787632828423 >}}

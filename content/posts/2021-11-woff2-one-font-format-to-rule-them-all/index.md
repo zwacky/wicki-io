@@ -94,6 +94,6 @@ WOFF2, and WOFF as fallback, is enough nowadays¹.
 
 ---
 
-If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #nonfiction books, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
 
 {{< tweet 1463833102615293954 >}}
