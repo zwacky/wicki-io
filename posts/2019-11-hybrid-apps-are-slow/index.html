@@ -57,7 +57,7 @@
             src="/images/svg/search.svg"
             alt="Search"
             class="searchbar__icon"
-            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
+            onclick="gtag('event', 'toggle', { event_category: 'search', event_label: 'on' })"
           />
         </a>
         
@@ -162,7 +162,7 @@
       <p>
         <a
           href="https://twitter.com/zwacky"
-          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2019-11-hybrid-apps-are-slow\/')"
+          onclick="gtag('event', 'bottom_cta', { event_category: 'clickout', event_label: '\/posts\/2019-11-hybrid-apps-are-slow\/' })"
           target="_blank"
           style="
             border-radius: 4px;
@@ -216,20 +216,22 @@
 		</div>
 	</div>
 </footer>
-<script type="application/javascript">
-  window.ga =
-    window.ga ||
-    function () {
-      (ga.q = ga.q || []).push(arguments);
-    };
-  ga.l = +new Date();
-  ga("create", "UA-176737760-1", "auto");
-  ga("set", "anonymizeIp", true);
-  ga("set", "allowAdFeatures", false);
-  ga("set", "allowAdPersonalizationSignals", false);
-  ga("send", "pageview");
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176737760-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('consent', 'default', {
+		ad_storage: 'denied',
+		analytics_storage: 'denied',
+	});
+  gtag('allow_ad_personalization_signals', false);
+  gtag('allow_ad_features', false);
+  gtag('anonymize_ip', true);
+	gtag('js', new Date());
+	gtag('config', 'UA-176737760-1');
 </script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
     </body>
