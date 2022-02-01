@@ -928,7 +928,7 @@
         clearTimeout(timerTracking);
         timerTracking = setTimeout(() => {
           const value = evt.target.value;
-          gtag("event", "change", {event_category: "search", value});
+          ga("send", "event", "search", "change", value);
         }, 1e3);
       }
     });
@@ -963,7 +963,7 @@
 				<div class="search-results__item">
 					${image}
 					<div class="search-results__item__text">
-						<h3><a href="${match.link}" onclick="gtag('event', 'click', { event_category: 'search', event_label: '${match.link}' })">${match.title}</a></h3>
+						<h3><a href="${match.link}" onclick="ga('send', 'event', 'search', 'click', '${match.link}')">${match.title}</a></h3>
 						<p>${match.description}</p>
 					</div>
 				</div>

@@ -58,7 +58,7 @@
             src="/images/svg/search.svg"
             alt="Search"
             class="searchbar__icon"
-            onclick="gtag('event', 'toggle', { event_category: 'search', event_label: 'on' })"
+            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
           />
         </a>
         
@@ -571,23 +571,20 @@ If you&rsquo;ve been around as a web developer for some time, you&rsquo;ve seen 
 		</div>
 	</div>
 </footer>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176737760-1"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag() {
-		dataLayer.push(arguments);
-	}
-	gtag('consent', 'default', {
-		ad_storage: 'denied',
-		analytics_storage: 'denied',
-	});
-	gtag('allow_ad_personalization_signals', false);
-	gtag('allow_ad_features', false);
-	gtag('anonymize_ip', true);
-	gtag('js', new Date());
-	gtag('config', 'UA-176737760-1');
-	gtag('config', 'G-2NNLDD2YGP');
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
 </script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
     </body>
