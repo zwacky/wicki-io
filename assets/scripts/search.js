@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			clearTimeout(timerTracking);
 			timerTracking = setTimeout(() => {
 				// track searches
-				const value = evt.target.value;
-				gtag('event', 'search_change', { event_category: 'search', value });
+				const label = evt.target.value;
+				gtag('event', 'search_change', { event_category: 'search', event_label: label });
 			}, 1000);
 		}
 	});
