@@ -927,8 +927,8 @@
         }, 300);
         clearTimeout(timerTracking);
         timerTracking = setTimeout(() => {
-          const value = evt.target.value;
-          gtag("event", "search_change", {event_category: "search", value});
+          const label = evt.target.value;
+          gtag("event", "search_change", {event_category: "search", event_label: label});
         }, 1e3);
       }
     });
