@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			timerTracking = setTimeout(() => {
 				// track searches
 				const value = evt.target.value;
-				gtag('event', 'change', { event_category: 'search', value });
+				gtag('event', 'search_change', { event_category: 'search', value });
 			}, 1000);
 		}
 	});
@@ -86,7 +86,7 @@ function buildResults(matches) {
 				<div class="search-results__item">
 					${image}
 					<div class="search-results__item__text">
-						<h3><a href="${match.link}" onclick="gtag('event', 'click', { event_category: 'search', event_label: '${match.link}' })">${match.title}</a></h3>
+						<h3><a href="${match.link}" onclick="gtag('event', 'search_click', { event_category: 'search', event_label: '${match.link}' })">${match.title}</a></h3>
 						<p>${match.description}</p>
 					</div>
 				</div>
