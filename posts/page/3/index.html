@@ -309,10 +309,9 @@ To fill that gap i was watching an informative talk by Les Hazlewood about beaut
 		dataLayer.push(arguments);
 	}
 	gtag('js', new Date());
-	
-	
-	
-	
+	gtag('consent', 'default', {
+		analytics_storage: 'denied',
+	});
 	const config = {
 		allow_ad_personalization_signals: false,
 		allow_ad_features: false,

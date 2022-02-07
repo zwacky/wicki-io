@@ -880,10 +880,9 @@ This convenience has its price: Performance. Many have already pointed out the c
 		dataLayer.push(arguments);
 	}
 	gtag('js', new Date());
-	
-	
-	
-	
+	gtag('consent', 'default', {
+		analytics_storage: 'denied',
+	});
 	const config = {
 		allow_ad_personalization_signals: false,
 		allow_ad_features: false,

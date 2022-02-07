@@ -277,10 +277,9 @@ It measures the quality of a site by these three metrics: <strong>LCP</strong>, 
 		dataLayer.push(arguments);
 	}
 	gtag('js', new Date());
-	
-	
-	
-	
+	gtag('consent', 'default', {
+		analytics_storage: 'denied',
+	});
 	const config = {
 		allow_ad_personalization_signals: false,
 		allow_ad_features: false,
