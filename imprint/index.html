@@ -202,6 +202,7 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
 	gtag('js', new Date());
 	const config = {
 		client_storage: 'none',
+		client_id: Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5),
 		allow_ad_personalization_signals: false,
 		allow_ad_features: false,
 		anonymize_ip: true,
