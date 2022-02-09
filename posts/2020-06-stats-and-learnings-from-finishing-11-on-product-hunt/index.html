@@ -234,10 +234,16 @@
 		a.src = g;
 		m.parentNode.insertBefore(a, m);
 	})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
 	ga('create', 'UA-176737760-Y', {
-		storage: 'none'
+		storage: 'none',
+		clientId: Math.random()
+			.toString(36)
+			.replace(/[^a-z]+/g, '')
+			.substr(0, 5),
 	});
+	ga('set', 'anonymizeIp', true);
+	ga('set', 'allowAdFeatures', false);
+	ga('set', 'allowAdPersonalizationSignals', false);
 	ga('send', 'pageview');
 </script>
 
