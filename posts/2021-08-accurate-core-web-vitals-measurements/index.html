@@ -262,10 +262,8 @@ Average   | 0.9  0.8  0.8  0.8  0.8  0.8  0.7  0.7  0.6  0.6  0.6  0.5  0.5  0.5
 		dataLayer.push(arguments);
 	}
 	gtag('js', new Date());
-	gtag('consent', 'default', {
-		analytics_storage: 'denied',
-	});
 	const config = {
+		cookie_expires: 0,
 		allow_ad_personalization_signals: false,
 		allow_ad_features: false,
 		anonymize_ip: true,

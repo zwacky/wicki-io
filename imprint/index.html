@@ -200,10 +200,8 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
 		dataLayer.push(arguments);
 	}
 	gtag('js', new Date());
-	gtag('consent', 'default', {
-		analytics_storage: 'denied',
-	});
 	const config = {
+		cookie_expires: 0,
 		allow_ad_personalization_signals: false,
 		allow_ad_features: false,
 		anonymize_ip: true,
