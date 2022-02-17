@@ -58,7 +58,7 @@
             src="/images/svg/search.svg"
             alt="Search"
             class="searchbar__icon"
-            onclick="gtag('event', 'search_toggle', { event_category: 'search', event_label: 'on' })"
+            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
           />
         </a>
         
@@ -106,6 +106,41 @@
 			<div class="section__title" style="text-align: left; margin-bottom: 10px;">Latest blog posts</div>
 			
 			<div class="row">
+				<div class="col-lg-4">
+					<div class="">
+						<div style="filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));"><a href="/posts/2022-02-goodbye-google-fonts-2/" style="padding-top: 56.25%;">
+	 
+	
+	<div
+		style="
+			background-image: url(/posts/2022-02-goodbye-google-fonts-2/goodbye-google-fonts_hu9f6f446b08b079d4080bc5c020defac0_10669_500x0_resize_q75_box.jpg);
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+			padding-top: 56.25%;
+			background-color: #e4e4f0;
+		"
+	></div>
+	
+</a></div>
+						<div style="margin-bottom: 4rem;">
+							<h3 style="margin-top: 15px;">
+								<a href="/posts/2022-02-goodbye-google-fonts-2/">Time to Say Goodbye to Google Fonts: Data Privacy and GDPR</a>
+							</h3>
+							<p style="
+								overflow: hidden;
+								text-overflow: ellipsis;
+								display: -webkit-box;
+								-webkit-line-clamp: 4;
+								-webkit-box-orient: vertical;
+							">
+								The German court has ruled last month that Google Fonts is not in compliance with GDPR.
+ The integration of dynamic web content such as Google Fonts from US web services is illegal without the consent of the visitor.
+ A website operator received a fine of 100€. The Munich court clearly wanted to make an example with this. They even mentioned the next fine will be 250.000€ for the website operator if they don&rsquo;t comply.
+							</p>
+						</div>
+					</div>
+				</div>
 				<div class="col-lg-4">
 					<div class="">
 						<div style="filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));"><a href="/posts/2022-01-an-ode-to-angularjs/" style="padding-top: 56.25%;">
@@ -179,41 +214,6 @@ In this post you&rsquo;ll quickly see what Typescript feature is possible to imp
 👉 TLDR: You don&rsquo;t care about each difference? What should you use?
  Use interface until you need type
 —orta
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="">
-						<div style="filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));"><a href="/posts/2021-11-woff2-one-font-format-to-rule-them-all/" style="padding-top: 56.25%;">
-	 
-	
-	<div
-		style="
-			background-image: url(/posts/2021-11-woff2-one-font-format-to-rule-them-all/woff2_hu922201bc95acb591488d6520a197f9c6_135832_500x0_resize_box_2.png);
-			background-size: cover;
-			background-position: center;
-			width: 100%;
-			padding-top: 56.25%;
-			background-color: #e4e4f0;
-		"
-	></div>
-	
-</a></div>
-						<div style="margin-bottom: 4rem;">
-							<h3 style="margin-top: 15px;">
-								<a href="/posts/2021-11-woff2-one-font-format-to-rule-them-all/">One Font Format to Rule Them All: WOFF2</a>
-							</h3>
-							<p style="
-								overflow: hidden;
-								text-overflow: ellipsis;
-								display: -webkit-box;
-								-webkit-line-clamp: 4;
-								-webkit-box-orient: vertical;
-							">
-								Learn why WOFF2, and WOFF as a fallback, is the only font format you need.
-If you&rsquo;ve been around as a web developer for some time, you&rsquo;ve seen these font formats in your CSS. Here&rsquo;s an example for a self-hosted Raleway font:
-@font-face { font-family: &#39;Raleway&#39;; font-style: normal; font-weight: 400; src: url(&#39;../fonts/raleway-v22-latin-regular.eot&#39;); /* IE9 Compat Modes */ src: local(&#39;&#39;), url(&#39;../fonts/raleway-v22-latin-regular.eot?#iefix&#39;) format(&#39;embedded-opentype&#39;), /* IE6-IE8 */ url(&#39;../fonts/raleway-v22-latin-regular.woff2&#39;) format(&#39;woff2&#39;), /* Super Modern Browsers */ url(&#39;.
 							</p>
 						</div>
 					</div>
@@ -571,33 +571,20 @@ If you&rsquo;ve been around as a web developer for some time, you&rsquo;ve seen 
 		</div>
 	</div>
 </footer>
-<script>
-	(function (i, s, o, g, r, a, m) {
-		i['GoogleAnalyticsObject'] = r;
-		(i[r] =
-			i[r] ||
-			function () {
-				(i[r].q = i[r].q || []).push(arguments);
-			}),
-			(i[r].l = 1 * new Date());
-		(a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-		a.async = 1;
-		a.src = g;
-		m.parentNode.insertBefore(a, m);
-	})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-	ga('create', 'UA-176737760-1', {
-		storage: 'none',
-		clientId: Math.random()
-			.toString(36)
-			.replace(/[^a-z]+/g, '')
-			.substr(0, 5),
-	});
-	ga('set', 'anonymizeIp', true);
-	ga('set', 'allowAdFeatures', false);
-	ga('set', 'allowAdPersonalizationSignals', false);
-	ga('send', 'pageview');
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
 </script>
-
+<script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
     </body>

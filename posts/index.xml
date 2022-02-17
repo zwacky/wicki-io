@@ -6,7 +6,18 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Time to Say Goodbye to Google Fonts: Data Privacy and GDPR</title>
+      <link>https://wicki.io/posts/2022-02-goodbye-google-fonts-2/</link>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2022-02-goodbye-google-fonts-2/</guid>
+      <description>The German court has ruled last month that Google Fonts is not in compliance with GDPR.
+ The integration of dynamic web content such as Google Fonts from US web services is illegal without the consent of the visitor.
+ A website operator received a fine of 100€. The Munich court clearly wanted to make an example with this. They even mentioned the next fine will be 250.000€ for the website operator if they don&amp;rsquo;t comply.</description>
+    </item>
+    
     <item>
       <title>An Ode to AngularJS</title>
       <link>https://wicki.io/posts/2022-01-an-ode-to-angularjs/</link>

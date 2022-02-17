@@ -57,7 +57,7 @@
             src="/images/svg/search.svg"
             alt="Search"
             class="searchbar__icon"
-            onclick="gtag('event', 'search_toggle', { event_category: 'search', event_label: 'on' })"
+            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
           />
         </a>
         
@@ -91,6 +91,76 @@
     </div>
   </div>
   <div class="row">
+    
+     
+
+    
+    <div class="col-12">
+      <div class="row">
+        <div
+          class="col-md-2 d-none d-md-block"
+          style="text-align: right; padding-top: 3rem"
+        >
+          <time datetime="2022-02-17 00:00:00 &#43;0000 UTC"
+            >Feb 17, 2022</time
+          >
+        </div>
+        <div class="col-md-10 col-xl-9">
+          <div style="display: flex">
+            
+            <div style="flex-grow: 1">
+              <h3>
+                <a href="/posts/2022-02-goodbye-google-fonts-2/">Time to Say Goodbye to Google Fonts: Data Privacy and GDPR</a>
+              </h3>
+              <div>
+                <p class="d-sm-block d-md-none">
+                  <time datetime="2022-02-17 00:00:00 &#43;0000 UTC"
+                    >Feb 17, 2022</time
+                  >
+                </p>
+              </div>
+              <div>
+                <p
+                  style="
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  The German court has ruled last month that Google Fonts is not in compliance with GDPR.
+ The integration of dynamic web content such as Google Fonts from US web services is illegal without the consent of the visitor.
+ A website operator received a fine of 100€. The Munich court clearly wanted to make an example with this. They even mentioned the next fine will be 250.000€ for the website operator if they don&rsquo;t comply.
+                </p>
+              </div>
+            </div>
+            
+            <div
+              class="d-none d-sm-block"
+              style="margin-left: 20px; margin-top: 3rem; position: relative"
+            >
+              <div style="width: 250px;"><a href="/posts/2022-02-goodbye-google-fonts-2/" style="padding-top: 56.25%;">
+	 
+	
+	<div
+		style="
+			background-image: url(/posts/2022-02-goodbye-google-fonts-2/goodbye-google-fonts_hu9f6f446b08b079d4080bc5c020defac0_10669_500x0_resize_q75_box.jpg);
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+			padding-top: 56.25%;
+			background-color: #e4e4f0;
+		"
+	></div>
+	
+</a></div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
     
      
 
@@ -729,75 +799,6 @@ I focus on packages that have helped me through my daily life as a developer.
       </div>
     </div>
     
-     
-
-    
-    <div class="col-12">
-      <div class="row">
-        <div
-          class="col-md-2 d-none d-md-block"
-          style="text-align: right; padding-top: 3rem"
-        >
-          <time datetime="2020-11-30 00:00:00 &#43;0000 UTC"
-            >Nov 30, 2020</time
-          >
-        </div>
-        <div class="col-md-10 col-xl-9">
-          <div style="display: flex">
-            
-            <div style="flex-grow: 1">
-              <h3>
-                <a href="/posts/2020-11-goodbye-google-fonts/">Time to Say Goodbye to Google Fonts</a>
-              </h3>
-              <div>
-                <p class="d-sm-block d-md-none">
-                  <time datetime="2020-11-30 00:00:00 &#43;0000 UTC"
-                    >Nov 30, 2020</time
-                  >
-                </p>
-              </div>
-              <div>
-                <p
-                  style="
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                  "
-                >
-                  I&rsquo;ve used Google Fonts in prototypes and in 10M+ MAU products. It&rsquo;s incredibly easy to get started with and provides an amazing font discovery. That&rsquo;s also why it&rsquo;s currently still used on over 42M websites!
-This convenience has its price: Performance. Many have already pointed out the cost of multiple requests. If you want the remaining speed boost, then you&rsquo;re best off downloading your used Google Fonts and self-host them.
-                </p>
-              </div>
-            </div>
-            
-            <div
-              class="d-none d-sm-block"
-              style="margin-left: 20px; margin-top: 3rem; position: relative"
-            >
-              <div style="width: 250px;"><a href="/posts/2020-11-goodbye-google-fonts/" style="padding-top: 56.25%;">
-	 
-	
-	<div
-		style="
-			background-image: url(/posts/2020-11-goodbye-google-fonts/goodbye-google-fonts_hufbcc15f26611197ac1f8d3a8c0b0403c_23668_500x0_resize_q75_box.jpg);
-			background-size: cover;
-			background-position: center;
-			width: 100%;
-			padding-top: 56.25%;
-			background-color: #e4e4f0;
-		"
-	></div>
-	
-</a></div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    
     
 
   </div>
@@ -873,33 +874,20 @@ This convenience has its price: Performance. Many have already pointed out the c
 		</div>
 	</div>
 </footer>
-<script>
-	(function (i, s, o, g, r, a, m) {
-		i['GoogleAnalyticsObject'] = r;
-		(i[r] =
-			i[r] ||
-			function () {
-				(i[r].q = i[r].q || []).push(arguments);
-			}),
-			(i[r].l = 1 * new Date());
-		(a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-		a.async = 1;
-		a.src = g;
-		m.parentNode.insertBefore(a, m);
-	})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-	ga('create', 'UA-176737760-1', {
-		storage: 'none',
-		clientId: Math.random()
-			.toString(36)
-			.replace(/[^a-z]+/g, '')
-			.substr(0, 5),
-	});
-	ga('set', 'anonymizeIp', true);
-	ga('set', 'allowAdFeatures', false);
-	ga('set', 'allowAdPersonalizationSignals', false);
-	ga('send', 'pageview');
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
 </script>
-
+<script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
     </body>
