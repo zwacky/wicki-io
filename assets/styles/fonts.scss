@@ -26,17 +26,14 @@
 			 url('../fonts/source-sans-pro-v14-latin-regular.svg#SourceSansPro') format('svg'); /* Legacy iOS */
 	font-display: block;
 }
-/* playfair-display-regular - latin */
+/* playfair-display-fegular - latin - subset "Hello, I'm Simon" */
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/playfair-display-v21-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('../fonts/playfair-display-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/playfair-display-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/playfair-display-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/playfair-display-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-			 url('../fonts/playfair-display-v21-latin-regular.svg#PlayfairDisplay') format('svg'); /* Legacy iOS */
 	font-display: block;
+	font-family: 'Playfair Display';
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/playfair-display-400-eef7b5853f.woff2') format('woff2'),
+		url('../fonts/playfair-display-400-e4fdfecfe6.woff') format('woff');
+	unicode-range: U+a, U+20, U+27, U+2c, U+48-49, U+53, U+65, U+69, U+6c-6f;
 }

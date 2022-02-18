@@ -3,7 +3,7 @@
   <base href="/" />
   <link rel="preload" as="font" type="font/woff2" href="{{ `/fonts/source-sans-pro-v14-latin-300.woff2` | absURL }}" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="{{ `/fonts/source-sans-pro-v14-latin-regular.woff2` | absURL }}" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="{{ `/fonts/playfair-display-v21-latin-regular.woff2` | absURL }}" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="{{ `/fonts/playfair-display-400-eef7b5853f.woff2` | absURL }}" crossorigin />
   {{ $stylesMain := resources.Get "styles/main.scss" | resources.ToCSS | minify }}
   <link rel="stylesheet" href="{{ $stylesMain.Permalink | relURL}}" integrity="{{ $stylesMain.Data.Integrity }}" media="screen" />
   <link rel="canonical" href="{{ .Permalink }}" />
