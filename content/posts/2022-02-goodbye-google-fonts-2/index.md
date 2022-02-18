@@ -12,7 +12,7 @@ The German court [has ruled](https://rewis.io/urteile/urteil/lhm-20-01-2022-3-o-
 
 > The integration of dynamic web content such as Google Fonts from US web services is illegal without the consent of the visitor.
 
-A website operator received a fine of 100€. The Munich court clearly wanted to make an example with this. They even mentioned the next fine will be 250.000€ for the website operator if they don't comply.
+A website operator received a fine of 100€. The Munich court clearly wanted to set an example. They even mentioned the next fine will be 250.000€ for the website operator if they don't comply.
 
 Data protection authorities (DPA) in other EU countries became all ears. It's likely to see more rulings and enforcements of this in the name of GDPR.
 
