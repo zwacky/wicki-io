@@ -1,0 +1,8 @@
+$primary-color: #f17b7b;
+$secondary-color: #645ed8;
+$dark: #201e45;
+$medium: #404268;
+$light: #e4e4f0;
+
+$text-color: change-color($dark, $alpha: 0.6);
+$primary-border-color: change-color($primary-color, $alpha: 0.6);

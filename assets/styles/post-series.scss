@@ -1,0 +1,58 @@
+@import '../styles/variables.scss';
+
+.post-series {
+	border: 1px solid #ededed;
+	border-radius: 5px;
+	margin-top: 75px;
+
+	@media (min-width: 768px) {
+		margin-left: 100px;
+		margin-right: 100px;
+	}
+
+	&__box {
+		border-bottom: 1px solid #ededed;
+		padding: 10px 10px;
+		color: #f17b7b;
+		font-weight: 700;
+
+		&__item {
+			border-bottom: 1px solid #ededed;
+			display: flex;
+			align-items: center;
+
+			a {
+				border: 0;
+				height: 100%;
+				width: 100%;
+				padding: 10px 10px;
+				font-weight: 400;
+				color: $text-color;
+
+				&.active {
+					font-weight: 700;
+					opacity: 1;
+					color: $dark;
+				}
+			}
+
+			&__index {
+				margin-right: 15px;
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				color: #201e45;
+				background-color: #ededf0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 15px;
+
+				.active & {
+					background-color: #f17b7b;
+					color: white;
+				}
+			}
+		}
+	}
+}

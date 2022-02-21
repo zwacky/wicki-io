@@ -17,3 +17,7 @@ keywords = "Frontend, Berlin, Ionic, VueJS, Angular, Capacitor, Cordova"
 [outputs]
 home = [ "HTML" ]
 posts = [ "HTML", "RSS" ]
+
+[taxonomies]
+series = "series"
+tag = "tags"

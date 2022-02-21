@@ -1,3 +1,4 @@
+@import "./variables.scss";
 @import "./fonts";
 // Load CSS Reset from NPM
 @import "node_modules/normalize.css/normalize";
@@ -9,23 +10,13 @@
 @import "node_modules/bootstrap/scss/utilities/text";
 @import "node_modules/bootstrap/scss/utilities/display";
 
-$primary-color: #f17b7b;
-$secondary-color: #645ed8;
-$dark: #201e45;
-$medium: #404268;
-$light: #e4e4f0;
-
 a {
-  $link-color: change-color($primary-color, $alpha: 0.6);
-  // color: $dark;
-  // color: change-color($dark, $alpha: 0.75);
   color: $dark;
   opacity: 0.75;
-  border-bottom: 4px solid $link-color;
+  border-bottom: 4px solid $primary-border-color;
   transition: opacity 0.2s ease;
 
   &:hover {
-    color: change-color($dark, $alpha: 1);
     color: $dark;
     opacity: 1;
     text-decoration: none;
@@ -85,31 +76,6 @@ code {
   background-color: #ededed;
 }
 
-// anchor link on headings
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-// 	// make it bigger so the anchor is clickable
-// 	margin-left: -15px;
-// 	padding-left: 15px;
-
-//   & > .anchor {
-// 		display: none;
-//     position: absolute;
-// 		left: -5px;
-// 		border: none;
-// 	}
-
-// 	&:hover {
-// 		& > .anchor {
-// 			display: block;
-// 		}
-// 	}
-// }
-
 blockquote {
   margin-left: -15px;
   padding-left: 12px;
@@ -146,7 +112,7 @@ strong {
 body {
   font-family: "Source Sans Pro", "Open Sans", sans-serif;
   font-size: 1.2rem;
-  color: change-color($dark, $alpha: 0.6);
+  color: $text-color;
 
   &.in-search {
     overflow: hidden;
