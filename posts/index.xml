@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Time to Say Goodbye to Google Fonts: Data Privacy and GDPR</title>
-      <link>https://wicki.io/posts/2022-02-goodbye-google-fonts-2/</link>
+      <link>https://wicki.io/posts/2022-02-goodbye-google-fonts-data-privacy-gdpr/</link>
       <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://wicki.io/posts/2022-02-goodbye-google-fonts-2/</guid>
+      <guid>https://wicki.io/posts/2022-02-goodbye-google-fonts-data-privacy-gdpr/</guid>
       <description>The German court has ruled last month that Google Fonts is not in compliance with GDPR.
  The integration of dynamic web content such as Google Fonts from US web services is illegal without the consent of the visitor.
  A website operator received a fine of 100€. The Munich court clearly wanted to set an example. They even mentioned the next fine will be 250.000€ for the website operator if they don&amp;rsquo;t comply.</description>
