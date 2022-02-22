@@ -29,7 +29,7 @@ When a user wants to load a font via Google Fonts, it uses 2 types of requests:
 
 {{< figure src="/posts/2022-02-goodbye-google-fonts-data-privacy-gdpr/waterfall-requests.png" alt="Requests needed for Google Fonts" caption="Requests needed for Google Fonts" >}}
 
-The dynamic request is the reason of the German court's ruling: The user's IP address is _shared_ with Google Fonts. This is object to personally identifyable information (PII).
+The dynamic request is the reason of the German court's ruling: The user's IP address is _shared_ with Google Fonts. This is object to personally identifiable information (PII).
 
 From the Google Fonts [FAQ](https://developers.google.com/fonts/faq#what_does_using_the_google_fonts_api_mean_for_the_privacy_of_my_users) we get a fuzzy idea of what is going on:
 
