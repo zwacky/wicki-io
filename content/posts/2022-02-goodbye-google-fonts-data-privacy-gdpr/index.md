@@ -7,7 +7,7 @@ image: "goodbye-google-fonts.jpg"
 series: "Time to Say Goodbye to Google Fonts"
 ---
 
-{{< figure src="/posts/2022-02-goodbye-google-fonts-2/goodbye-google-fonts.jpg" alt="Google Fonts" >}}
+{{< figure src="/posts/2022-02-goodbye-google-fonts-data-privacy-gdpr/goodbye-google-fonts.jpg" alt="Google Fonts" >}}
 
 The German court [has ruled](https://rewis.io/urteile/urteil/lhm-20-01-2022-3-o-1749320/) last month that Google Fonts is not in compliance with GDPR.
 
@@ -27,7 +27,7 @@ When a user wants to load a font via Google Fonts, it uses 2 types of requests:
 1. **Dynamic request**: `fonts.googleapis.com/css2?family={font}`
 2. **Asset request(s)**: `fonts.gstatic.com/s/{font}/...`
 
-{{< figure src="/posts/2022-02-goodbye-google-fonts-2/waterfall-requests.png" alt="Requests needed for Google Fonts" caption="Requests needed for Google Fonts" >}}
+{{< figure src="/posts/2022-02-goodbye-google-fonts-data-privacy-gdpr/waterfall-requests.png" alt="Requests needed for Google Fonts" caption="Requests needed for Google Fonts" >}}
 
 The dynamic request is the reason of the German court's ruling: The user's IP address is _shared_ with Google Fonts. This is object to personally identifyable information (PII).
 
@@ -45,7 +45,9 @@ What we know is that they collect and store end-user data to be able to—what t
 From a GDPR point of view you have 2 options:
 
 1. **Host the fonts locally**: You can already download them from the Google Fonts website directly.
-2. **Ask your users for consent**: Implement a Consent Banner where Google Fonts is stated as one of the Data Processing Services (DPS). On top, you need to await your user's consent before requesting the Google Font service. Postponing font files is inherently not ideal.
+2. **Keep using it and ask your users for consent**: Because of the data transfer to Google you're required to ask your users for their consent. Implement a Consent Banner where Google Fonts is stated as one of the Data Processing Services (DPS). On top, you need to await your user's consent before requesting the Google Font service. Postponing font files is inherently not ideal.
+
+Just ask yourself if the additional value of Google Fonts' convenience is worth it to pay the price for data privacy.
 
 ## Why you should care
 
