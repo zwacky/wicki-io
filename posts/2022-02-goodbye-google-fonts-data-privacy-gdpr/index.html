@@ -95,7 +95,7 @@
       </div>
 
       <figure>
-    <img src="/posts/2022-02-goodbye-google-fonts-2/goodbye-google-fonts.jpg"
+    <img src="/posts/2022-02-goodbye-google-fonts-data-privacy-gdpr/goodbye-google-fonts.jpg"
          alt="Google Fonts"/> 
 </figure>
 
@@ -114,7 +114,7 @@
 <li><strong>Asset request(s)</strong>: <code>fonts.gstatic.com/s/{font}/...</code></li>
 </ol>
 <figure>
-    <img src="/posts/2022-02-goodbye-google-fonts-2/waterfall-requests.png"
+    <img src="/posts/2022-02-goodbye-google-fonts-data-privacy-gdpr/waterfall-requests.png"
          alt="Requests needed for Google Fonts"/> <figcaption>
             <p>Requests needed for Google Fonts</p>
         </figcaption>
@@ -134,8 +134,9 @@
 <p>From a GDPR point of view you have 2 options:</p>
 <ol>
 <li><strong>Host the fonts locally</strong>: You can already download them from the Google Fonts website directly.</li>
-<li><strong>Ask your users for consent</strong>: Implement a Consent Banner where Google Fonts is stated as one of the Data Processing Services (DPS). On top, you need to await your user&rsquo;s consent before requesting the Google Font service. Postponing font files is inherently not ideal.</li>
+<li><strong>Keep using it and ask your users for consent</strong>: Because of the data transfer to Google you&rsquo;re required to ask your users for their consent. Implement a Consent Banner where Google Fonts is stated as one of the Data Processing Services (DPS). On top, you need to await your user&rsquo;s consent before requesting the Google Font service. Postponing font files is inherently not ideal.</li>
 </ol>
+<p>Just ask yourself if the additional value of Google Fonts' convenience is worth it to pay the price for data privacy.</p>
 <h2 id="why-you-should-care">Why you should care</h2>
 <p>When tech companies get enough data points to connect the dots they get a pretty good picture of what you do on the internet. This data is usually used for personalised advertisement. I could live with this if it was the user&rsquo;s only drawback of personal data collection.</p>
 <p>Google Fonts is one of these data points that helps connecting further puzzle pieces together.</p>
