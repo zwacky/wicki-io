@@ -4,6 +4,7 @@ publishDate: "2021-07-20"
 description: "The 3 new performance metrics that Google will rank against in its June 2021 update."
 keywords: "core web vitals, LCP, FID, CLS, google udpate, seo"
 image: "core-web-vitals.png"
+series: "Core Web Vitals"
 ---
 
 {{< figure src="/posts/2021-07-core-web-vitals/core-web-vitals-green-urls.png" caption="Passing your Core Web Vitals and google will reward you with visibility." >}}

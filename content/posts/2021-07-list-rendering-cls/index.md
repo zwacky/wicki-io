@@ -5,6 +5,7 @@ description: "This post explains a hidden caveat of list rendering in JavaScript
 summary: "JS frameworks like Vue can give elements a unique key. In a list rendering they might be able to reuse these keyed list items, when the list is changing. The already created DOM nodes don't need to be recreated. This is a great performance gain. But when a list changes and the nodes merely switch their position, the keyed items can be considered as a shift in the DOM (CLS) by Core Web Vitals on slow connection devices."
 keywords: "Core Web Vitals, SEO, webperf, Javascript"
 image: "cls-slow-connection-devices.png"
+series: "Core Web Vitals"
 ---
 
 Do you...
