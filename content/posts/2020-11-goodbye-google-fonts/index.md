@@ -1,9 +1,10 @@
 ---
-title: "Time to Say Goodbye to Google Fonts"
+title: "Time to Say Goodbye to Google Fonts: Cache Performance"
 publishDate: "2020-11-30"
 description: "This browser caching change kills the utility of cross-site resource CDNs like Google Fonts."
 keywords: "Google Fonts, CDN, browser partitioned cache"
 image: "goodbye-google-fonts.jpg"
+series: "Time to Say Goodbye to Google Fonts"
 ---
 
 {{< figure src="/posts/2020-11-goodbye-google-fonts/goodbye-google-fonts.jpg" alt="Google Fonts" >}}
