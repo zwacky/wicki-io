@@ -1,22 +1,24 @@
 <!-- post series block -->
-{{ $styles := resources.Get "styles/post-series.scss" | resources.ToCSS | minify }}
-<link rel="stylesheet" href="{{ $styles.Permalink | relURL}}" integrity="{{ $styles.Data.Integrity }}" media="screen" />
+{{ if .Params.series }}
+	{{ $styles := resources.Get "styles/post-series.scss" | resources.ToCSS | minify }}
+	<link rel="stylesheet" href="{{ $styles.Permalink | relURL}}" integrity="{{ $styles.Data.Integrity }}" media="screen" />
 
-{{ $postRelPermalink := .RelPermalink }}
-{{ $related := sort (where .Site.RegularPages ".Params.series" "eq" .Params.series) "Date" }}
-{{ $series := .Params.series }}
+	{{ $postRelPermalink := .RelPermalink }}
+	{{ $related := sort (where .Site.RegularPages ".Params.series" "eq" .Params.series) "Date" }}
+	{{ $series := .Params.series }}
 
-<div class="post-series">
-	<div class="post-series__box">{{ $series }} ({{ len $related}} part series)</div>
-	{{ range $index, $value := $related }}
-		{{ $split := split .Title ": " }}
-		{{ $title := index $split (sub (len $split) 1) }}
-		<div class="post-series__box__item">
-			<a href="{{ .RelPermalink }}" class="post-series__box__item {{ if eq $postRelPermalink .RelPermalink -}} active {{- end }}">
-				<span class="post-series__box__item__index">{{ add $index 1 }}</span>
-				<span>{{ $title }}</span>
-			</a>
-		</span>
-		</div>
-	{{ end }}
-</div>
+	<div class="post-series">
+		<div class="post-series__box">{{ $series }} ({{ len $related}} part series)</div>
+		{{ range $index, $value := $related }}
+			{{ $split := split .Title ": " }}
+			{{ $title := index $split (sub (len $split) 1) }}
+			<div class="post-series__box__item">
+				<a href="{{ .RelPermalink }}" class="post-series__box__item {{ if eq $postRelPermalink .RelPermalink -}} active {{- end }}">
+					<span class="post-series__box__item__index">{{ add $index 1 }}</span>
+					<span>{{ $title }}</span>
+				</a>
+			</span>
+			</div>
+		{{ end }}
+	</div>
+{{ end }}
