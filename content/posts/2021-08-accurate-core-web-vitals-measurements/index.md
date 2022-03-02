@@ -4,7 +4,7 @@ publishDate: "2021-08-04"
 description: "Create accurate Core Web Vitals reports of current daily measurements, not only averaged over a rolling 28-day window."
 keywords: "webperf, Core Web Vitals, SEO, Google Analytics"
 image: "angular-ruler.png"
-series: "Core Web Vitals"
+series: "Optimising for Core Web Vitals"
 ---
 
 Have you ever optimised your website for the Core Web Vitals (CWV)? Did you want to check your changes the next day—but Google's various tools don't give you current daily CWV metrics due to the _rolling 28-day window_?
