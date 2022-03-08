@@ -1,5 +1,5 @@
 ---
-title: "Time to Say Goodbye to Google Fonts: Data Privacy and GDPR"
+title: "Sued by Using Google Fonts: Data Privacy and GDPR"
 publishDate: "2022-02-17"
 description: "Google Fonts is a data privacy concern. Learn why you should care."
 keywords: "GDPR, Google Fonts, data privacy"
