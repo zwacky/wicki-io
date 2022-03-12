@@ -51,8 +51,8 @@ Safari really cares about privacy. It circumvented this very cross-site tracking
 
 - ✅ **Chrome**: since v86 (October 2020)
 - ✅ **Safari**: since 2013
-- 🚫 **Firefox**: planning to implement
-- 🚫 **Edge**: most likely soon
+- ✅ **Firefox**: since v85 (January 2021)
+- ✅ **Edge**: since v1.34 (December 2021)
 - 🚫 **Opera**: most likely soon
 - 🚫 **Brave**: most likely soon
 - 🚫 **Vivaldi**: most likely soon
