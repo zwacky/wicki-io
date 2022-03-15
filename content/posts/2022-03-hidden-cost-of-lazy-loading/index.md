@@ -1,6 +1,6 @@
 ---
 title: "CLS: The Hidden Cost of Lazy Loading Components"
-publishDate: "2022-03-08"
+publishDate: "2022-03-15"
 description: "Lazy loadable components let you ship less JS, but make sure you don't pay the cost of CLS."
 keywords: "CLS, Cumulative Layout Shift, Core Web Vitals, lazy loading, async components"
 image: "cls-hidden-cost.png"
