@@ -6,7 +6,18 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CLS: The Hidden Cost of Lazy Loading Components</title>
+      <link>https://wicki.io/posts/2022-03-hidden-cost-of-lazy-loading/</link>
+      <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wicki.io/posts/2022-03-hidden-cost-of-lazy-loading/</guid>
+      <description>When you optimise your web app, your goal is to make the experience better for the user: Usually that means &amp;lsquo;faster&amp;rsquo; by transfering less data. But for lazy-loading components you could shoot yourself in the foot.
+In this post I want to show you the pitfalls of lazy loading components so you don&amp;rsquo;t have to pay the hidden cost with Cumulative Layout Shift (CLS).
+If you&amp;rsquo;d like a refresher about Core Web Vitals, I explained them with GIFs in this post.</description>
+    </item>
+    
     <item>
       <title>Sued by Using Google Fonts: Data Privacy and GDPR</title>
       <link>https://wicki.io/posts/2022-02-goodbye-google-fonts-data-privacy-gdpr/</link>
