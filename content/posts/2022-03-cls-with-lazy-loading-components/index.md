@@ -7,6 +7,8 @@ image: "duality-of-CLS.png"
 series: "Optimising for Core Web Vitals"
 ---
 
+{{< figure src="/posts/2022-03-cls-with-lazy-loading-components/duality-of-CLS.png" alt="The Duality of CLS with Lazy Loading Components" >}}
+
 When you optimise your web app, your goal is to make the experience better for the user: That means usually 'faster' by transferring and parsing less data. But caution: The same web app can cause Cumulative Layout Shift (CLS) on slower connections but runs without CLS on faster connection.
 
 If you'd like a refresher about Core Web Vitals, I explained them with GIFs in [this post](https://wicki.io/posts/2021-07-core-web-vitals/).
@@ -19,7 +21,7 @@ Either don't lazy load the component at all or await for the js file to be loade
 
 ## The Duality
 
-{{< figure src="/posts/2022-03-hidden-cost-of-lazy-loading/CLS-slow-vs-fast-connection.gif" caption="Slow vs fast connection: Same web app with different CLS." >}}
+{{< figure src="/posts/2022-03-cls-with-lazy-loading-components/CLS-slow-vs-fast-connection.gif" caption="Slow vs fast connection: Same web app with different CLS." >}}
 
 We assume that a web app loads the same on slower connections, just _slower_. Unfortunately that's not always the case with lazy loadable components.
 
