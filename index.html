@@ -108,12 +108,12 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="">
-						<div style="filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));"><a href="/posts/2022-03-hidden-cost-of-lazy-loading/" style="padding-top: 56.25%;">
+						<div style="filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));"><a href="/posts/2022-03-cls-with-lazy-loading-components/" style="padding-top: 56.25%;">
 	 
 	
 	<div
 		style="
-			background-image: url(/posts/2022-03-hidden-cost-of-lazy-loading/cls-hidden-cost_hu4e045c1529110aa3399aafa1fe26c404_28406_500x0_resize_box_2.png);
+			background-image: url(/posts/2022-03-cls-with-lazy-loading-components/duality-of-CLS_hu8cf9915aac5a5c0e4184cc08320ad24a_74570_500x0_resize_box_2.png);
 			background-size: cover;
 			background-position: center;
 			width: 100%;
@@ -125,7 +125,7 @@
 </a></div>
 						<div style="margin-bottom: 4rem;">
 							<h3 style="margin-top: 15px;">
-								<a href="/posts/2022-03-hidden-cost-of-lazy-loading/">CLS: The Hidden Cost of Lazy Loading Components</a>
+								<a href="/posts/2022-03-cls-with-lazy-loading-components/">The Duality of CLS with Lazy Loading Components</a>
 							</h3>
 							<p style="
 								overflow: hidden;
@@ -134,9 +134,9 @@
 								-webkit-line-clamp: 4;
 								-webkit-box-orient: vertical;
 							">
-								When you optimise your web app, your goal is to make the experience better for the user: Usually that means &lsquo;faster&rsquo; by transfering less data. But for lazy-loading components you could shoot yourself in the foot.
-In this post I want to show you the pitfalls of lazy loading components so you don&rsquo;t have to pay the hidden cost with Cumulative Layout Shift (CLS).
+								When you optimise your web app, your goal is to make the experience better for the user: That means usually &lsquo;faster&rsquo; by transferring and parsing less data. But caution: The same web app can cause Cumulative Layout Shift (CLS) on slower connections but runs without CLS on faster connection.
 If you&rsquo;d like a refresher about Core Web Vitals, I explained them with GIFs in this post.
+TL;DR: slower connections can result in CLS when lazy loading components that you wouldn&rsquo;t see on wifi connections.
 							</p>
 						</div>
 					</div>

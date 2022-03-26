@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html><head>
+  <title>The Duality of CLS with Lazy Loading Components</title>
+  <base href="/" />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-300.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/source-sans-pro-v14-latin-regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://wicki.io/fonts/playfair-display-400-eef7b5853f.woff2" crossorigin />
+  
+  <link rel="stylesheet" href="/styles/main.min.css" integrity="" media="screen" />
+  <link rel="canonical" href="https://wicki.io/posts/2022-03-cls-with-lazy-loading-components/" />
+  <link rel="icon" type="image/x-icon" href="https://wicki.io/images/favicon.png" />
+  
+  
+  <link rel="feed" href="/posts/index.xml" type="application/rss+xml" title="Blog posts on Simon Wicki — Frontend Engineer from Berlin">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <meta name="keywords" content="[CLS, Cumulative Layout Shift, Core Web Vitals, lazy loading, async components]" />
+
+  <meta property="og:site_name" content="Wicki.io" />
+  <meta property="og:title" content="The Duality of CLS with Lazy Loading Components" name="title" />
+  <meta property="og:description" content="Why lazy loadable components can cause CLS on slower connections and how to prevent it." name="description" />
+  <meta property="og:url" content="https://wicki.io/posts/2022-03-cls-with-lazy-loading-components/" />
+  <meta property="og:image" content="https://wicki.io/posts/2022-03-cls-with-lazy-loading-components/duality-of-CLS.png" />
+  <meta property="og:type" content="article" />
+
+  <meta name="author" content="Simon Wicki" />
+  <meta name="twitter:site" content="@zwacky" />
+  <meta name="twitter:creator" content="@zwacky" />
+  <meta name="twitter:title" content="The Duality of CLS with Lazy Loading Components"/>
+  <meta name="twitter:description" content="Why lazy loadable components can cause CLS on slower connections and how to prevent it."/>
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fff" />
+</head>
+<body><nav class="nav">
+  <div class="container">
+    <div class="nav__list">
+      
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="nav--brand" style="overflow: hidden;">
+          <img src="images/logo.png" alt="W" width="38" />
+        </a>
+      </div>
+      <div>
+        
+        
+        <a
+          href="/posts"
+          class="nav__list__item active"
+          >Blog</a
+        >
+        
+        <a href id="search_search" class="nav__list__item">
+          <img
+            src="/images/svg/search.svg"
+            alt="Search"
+            class="searchbar__icon"
+            onclick="ga('send', 'event', 'search', 'toggle', 'on')"
+          />
+        </a>
+        
+        <div class="searchbar">
+          <input id="search_input" type="text" name="q" placeholder="Search…" autocomplete="off">
+          <a href id="search_close">
+            <img
+              src="/images/svg/close.svg"
+              alt="close"
+              class="searchbar__icon"
+              style="height: 30px;"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-results" id="search_results">
+    <div class="container"></div>
+  </div>
+</nav>
+<div id="content">
+
+
+<script type="text/javascript" src="/search.js" defer></script>
+
+<div class="container" style="padding-top: 180px;">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>The Duality of CLS with Lazy Loading Components</h1>
+      <div style="margin-bottom: 20px;">
+        
+          <time datetime="2022-03-26 00:00:00 &#43;0000 UTC">March 26, 2022</time>
+        
+      </div>
+
+      <p>When you optimise your web app, your goal is to make the experience better for the user: That means usually &lsquo;faster&rsquo; by transferring and parsing less data. But caution: The same web app can cause Cumulative Layout Shift (CLS) on slower connections but runs without CLS on faster connection.</p>
+<p>If you&rsquo;d like a refresher about Core Web Vitals, I explained them with GIFs in <a href="https://wicki.io/posts/2021-07-core-web-vitals/">this post</a>.</p>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p><strong>TL;DR:</strong> slower connections <em>can</em> result in CLS when lazy loading components that you wouldn&rsquo;t see on wifi connections.</p>
+<p>Either don&rsquo;t lazy load the component at all or await for the js file to be loaded and mounted.</p>
+</div>
+<h2 id="the-duality">The Duality</h2>
+<figure>
+    <img src="/posts/2022-03-hidden-cost-of-lazy-loading/CLS-slow-vs-fast-connection.gif"
+         alt="Slow vs fast connection: Same web app with different CLS."/> <figcaption>
+            <p>Slow vs fast connection: Same web app with different CLS.</p>
+        </figcaption>
+</figure>
+
+<p>We assume that a web app loads the same on slower connections, just <em>slower</em>. Unfortunately that&rsquo;s not always the case with lazy loadable components.</p>
+<p>With lazy loadable components we deal with two <em>asyncnesses</em>:</p>
+<ol>
+<li>async API responses (JSON)</li>
+<li>async lazy loading components (JS)</li>
+</ol>
+<p>What if the API responses (1) are faster than the dynamically loaded JS (2)? What if you lazy load a component that sits in the middle of your web content? The answer to these questions you see in the screencapture above: Google will punish you with CLS.</p>
+<h2 id="cls-measurement">CLS measurement</h2>
+<p>I&rsquo;ve seen a lot of confusion about Core Web Vitals, especially CLS.</p>
+<p>Unlike other Core Web Vitals, CLS is continuously measured and <em>cumulatively</em> added to the score. For a classic SPA web app this means that Google will keep the CLS score on a per-route basis.</p>
+<p>CLS has the following characteristics:</p>
+<ul>
+<li>After each route change, the CLS resets to 0</li>
+<li>After any user interaction, you get a grace period of 500ms where CLS is <strong>not</strong> taken into account</li>
+</ul>
+<div style="padding: 17px 17px 1px 17px; margin-bottom: 1rem; background-color: #ededf0;">
+<p><strong>Measurements by real users</strong>: Chrome users send Core Web Vitals metrics to Google directly. It&rsquo;s not a Googlebot that captures these metrics while crawling the site.</p>
+<p>These real user measurements are collected as <a href="https://web.dev/lab-and-field-data-differences/#field-data">Field Data</a> and fow into Google&rsquo;s <a href="https://developers.google.com/web/tools/chrome-user-experience-report">CrUX report</a>.</p>
+</div>
+<p>That means you need to take the real world into account:</p>
+<ul>
+<li>If you have a lot of traffic from India, but your servers are on the other end of the world, that your LCP (Largest Contentful Paint) will probably suffer.</li>
+<li>If you have a lot of traffic from China, it&rsquo;s likely that some services are blocked by Chinese ISPs and won&rsquo;t load. This could cause unwanted CLS within your content.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<p>We need to be in full control of what to display to the user at what time. With duality in mind, we need to know the following:</p>
+<ul>
+<li>are API requests still loading?</li>
+<li>are async components components still loading?</li>
+</ul>
+<p>A skeleton loader is an ideal way to wait until both, API requests and async components, are ready.</p>
+<h3 id="solution-1-dont-lazy-load-components-at-all">Solution #1: Don&rsquo;t lazy load components at all</h3>
+<p>The quickest and least error prone solution would be to pass on lazy loading components. In most cases the saved kilobytes through lazy loading doesn&rsquo;t justify the CLS that it might cause. If your performance budget allows it, go with this solution.</p>
+<p>Let&rsquo;s assume we have a Vue web app with 10% logged-in users.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">render() {</span>
+	<span style="color:#75715e">// not all users require to download and render HugeComponent
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isLoggedIn</span>) {
+		<span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">HugeComponent</span> /&gt;;
+	}
+}
+</code></pre></div><p>Without code splitting we&rsquo;d send the JS of <code>&lt;HugeComponent&gt;</code> to 90% of the useres that don&rsquo;t need it. This can affect LCP and FID.</p>
+<p>With code splitting we&rsquo;d pack the JS of <code>&lt;HugeComponent&gt;</code> into the additional-comps.js chunk and only send it over the wire when it&rsquo;s needed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// without code splitting
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">HugeComponent</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@/components/HugeComponent&#39;</span>;
+
+<span style="color:#75715e">// with code splitting
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">HugeComponent</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> (<span style="color:#66d9ef">await</span> <span style="color:#66d9ef">import</span>(
+	<span style="color:#75715e">/* webpackChunkName: &#34;additional-comps&#34; */</span> 
+	<span style="color:#e6db74">&#39;@/components/HugeComponent&#39;</span>)
+).<span style="color:#66d9ef">default</span>;
+</code></pre></div><p>There are two criterias that help you decide if you should lazy load a component or not:</p>
+<ul>
+<li>size of <code>&lt;HugeComponent&gt;</code></li>
+<li>how often <code>&lt;HugeComponent&gt;</code> would be rendered for users</li>
+</ul>
+<p>If you come to the conclusion that your performance budget is tight and you need to lazy load the component, see solution #2.</p>
+<h3 id="solution-2-await-loading-and-mounting-of-component">Solution #2: Await loading and mounting of component</h3>
+<p>If your component isn&rsquo;t used for the majority of users and it would increase the bundle by a lot, have a look at this solution.</p>
+<p>Wait for async components to be lazily loaded and mounted can be tricky. You need to render the component but the mounting happens later. Here&rsquo;s a gist of how it could be done.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Parent</span>({ <span style="color:#a6e22e">isLoggedIn</span> }) {
+	<span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">isLoading</span>, <span style="color:#a6e22e">setLoading</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>);
+	<span style="color:#75715e">// important: only hide the children with display: none.
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// if we used if-else, we&#39;d never load the lazy loadable component;
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// and then we&#39;d never change isLoading with its callback.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">styles</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">display</span>: <span style="color:#66d9ef">isLoading</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;none&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;block&#39;</span> };
+	
+	<span style="color:#66d9ef">return</span> (
+		{<span style="color:#75715e">/* HugeComponent is lazy loaded, because not all users will need it */</span>}
+		(<span style="color:#a6e22e">isLoggedIn</span> <span style="color:#f92672">&amp;&amp;</span> &lt;<span style="color:#f92672">HugeComponent</span> 
+			<span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{ <span style="color:#a6e22e">styles</span> } 
+			<span style="color:#a6e22e">mounted</span><span style="color:#f92672">=</span>{() <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">setLoading</span>(<span style="color:#66d9ef">true</span>)}
+		/&gt;)
+
+		{<span style="color:#75715e">/* display skeleton element for time of loading */</span>}
+		(<span style="color:#a6e22e">isLoading</span> <span style="color:#f92672">&amp;&amp;</span> &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;skeleton-loader&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;)
+	);
+}
+
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">HugeComponent</span>(<span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">mounted</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">void</span> }) {
+	<span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">dataA</span>, <span style="color:#a6e22e">setData</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">null</span>);
+
+	<span style="color:#a6e22e">useEffect</span>(<span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+		<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">lib</span>.<span style="color:#a6e22e">request</span>();
+		<span style="color:#a6e22e">setData</span>(<span style="color:#a6e22e">result</span>);
+		<span style="color:#75715e">// tell the parent component that everything is ready to be fully rendered
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">mounted</span>();
+	}, []);
+
+	<span style="color:#66d9ef">return</span> (<span style="color:#75715e">/* ... */</span>);
+}
+</code></pre></td></tr></table>
+</div>
+</div><br>
+<p>If we didn&rsquo;t use <code>display: hidden</code> for the loading state on the <code>&lt;HugeComponent&gt;</code>, we&rsquo;d never trigger the loading of the async component. Thus, Line 28 would never be reached and the <code>isLoading</code> state would stay on <code>false</code> forever.</p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>When you lost green URLs in the <a href="https://search.google.com/search-console">Google Search Console</a> due to CLS and you can&rsquo;t reproduce it yourself, try debugging your web app with a slower connection.</p>
+<p>So if you&rsquo;re using lazy loadable components, chances are high that might be a victim of the duality of CLS.</p>
+
+
+	
+	<link rel="stylesheet" href="/styles/post-series.min.css" integrity="" media="screen" />
+
+	
+	
+	
+
+	<div class="post-series">
+		<div class="post-series__box">Optimising for Core Web Vitals (4 part series)</div>
+		
+			
+			
+			<div class="post-series__box__item">
+				<a href="/posts/2021-07-core-web-vitals/" class="post-series__box__item ">
+					<span class="post-series__box__item__index">1</span>
+					<span>Core Web Vitals explained with GIFs</span>
+				</a>
+			</span>
+			</div>
+		
+			
+			
+			<div class="post-series__box__item">
+				<a href="/posts/2021-07-list-rendering-cls/" class="post-series__box__item ">
+					<span class="post-series__box__item__index">2</span>
+					<span>How List Rendering Can Cause Huge Cumulative Layout Shift</span>
+				</a>
+			</span>
+			</div>
+		
+			
+			
+			<div class="post-series__box__item">
+				<a href="/posts/2021-08-accurate-core-web-vitals-measurements/" class="post-series__box__item ">
+					<span class="post-series__box__item__index">3</span>
+					<span>Accurate Daily Measurements of Core Web Vitals with Google Analytics</span>
+				</a>
+			</span>
+			</div>
+		
+			
+			
+			<div class="post-series__box__item">
+				<a href="/posts/2022-03-cls-with-lazy-loading-components/" class="post-series__box__item active">
+					<span class="post-series__box__item__index">4</span>
+					<span>The Duality of CLS with Lazy Loading Components</span>
+				</a>
+			</span>
+			</div>
+		
+	</div>
+
+      <div style="border-top: 1px solid #e4e4f0; margin-top: 86px; margin-bottom: 50px;"></div><div class="about__bio">
+  <div class="about__bio__profile">
+    
+    
+    <img
+      src="/images/me_huc890d15b6e9f2ce8978e9aa27127dd5e_67203_350x0_resize_q75_box.jpg"
+      alt="Simon Wicki"
+      class="about__bio__profile--image"
+    />
+    
+  </div>
+
+  <div>
+    <div
+      style="
+        font-weight: 400;
+        color: inherit;
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      "
+    >
+      <p>
+        <strong>Simon Wicki</strong> is a Freelance Developer in Berlin. Worked on Web and Mobile apps at
+				JustWatch. Fluent in Vue, Angular, React and Ionic. Passionate about Frontend, tech, web perf &
+				non-fiction books.
+      </p>
+      <p>
+        <a
+          href="https://twitter.com/zwacky"
+          onclick="ga('send', 'event', 'clickout', 'bottom_cta', '\/posts\/2022-03-cls-with-lazy-loading-components\/')"
+          target="_blank"
+          style="
+            border-radius: 4px;
+            padding: 4px 13px 4px 13px;
+            background-color: #1b95e0;
+            color: white;
+            display: inline-block;
+            border: 0;
+            opacity: 1;
+          "
+        >
+          <img
+            src="images/svg/twitter.svg"
+            alt="Twitter"
+            title="Twitter"
+            style="
+              filter: brightness(10);
+              margin-right: 4px;
+              position: relative;
+              bottom: 2px;
+            "
+          />
+          Follow @zwacky
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div><footer class="footer">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="footer__shoutout">
+				Made with Hugo and 
+				<span style="white-space: nowrap;">
+					
+					
+					<img src="/images/svg/heart.svg" alt="Love" style="opacity: 0.5; height: 16px;" />
+				</span>
+			</div>
+			<div class="footer__links">
+				<a href="mailto:simon@wicki.io">Contact</a>
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/imprint">Impressum</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="application/javascript">
+  window.ga =
+    window.ga ||
+    function () {
+      (ga.q = ga.q || []).push(arguments);
+    };
+  ga.l = +new Date();
+  ga("create", "UA-176737760-1", "auto");
+  ga("set", "anonymizeIp", true);
+  ga("set", "allowAdFeatures", false);
+  ga("set", "allowAdPersonalizationSignals", false);
+  ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    </body>
+</html>

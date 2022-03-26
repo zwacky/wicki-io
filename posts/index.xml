@@ -6,16 +6,16 @@
     <description>Recent content in Blog posts on Simon Wicki — Frontend Engineer from Berlin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wicki.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CLS: The Hidden Cost of Lazy Loading Components</title>
-      <link>https://wicki.io/posts/2022-03-hidden-cost-of-lazy-loading/</link>
-      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
+      <title>The Duality of CLS with Lazy Loading Components</title>
+      <link>https://wicki.io/posts/2022-03-cls-with-lazy-loading-components/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://wicki.io/posts/2022-03-hidden-cost-of-lazy-loading/</guid>
-      <description>When you optimise your web app, your goal is to make the experience better for the user: Usually that means &amp;lsquo;faster&amp;rsquo; by transfering less data. But for lazy-loading components you could shoot yourself in the foot.
-In this post I want to show you the pitfalls of lazy loading components so you don&amp;rsquo;t have to pay the hidden cost with Cumulative Layout Shift (CLS).
-If you&amp;rsquo;d like a refresher about Core Web Vitals, I explained them with GIFs in this post.</description>
+      <guid>https://wicki.io/posts/2022-03-cls-with-lazy-loading-components/</guid>
+      <description>When you optimise your web app, your goal is to make the experience better for the user: That means usually &amp;lsquo;faster&amp;rsquo; by transferring and parsing less data. But caution: The same web app can cause Cumulative Layout Shift (CLS) on slower connections but runs without CLS on faster connection.
+If you&amp;rsquo;d like a refresher about Core Web Vitals, I explained them with GIFs in this post.
+TL;DR: slower connections can result in CLS when lazy loading components that you wouldn&amp;rsquo;t see on wifi connections.</description>
     </item>
     
     <item>
