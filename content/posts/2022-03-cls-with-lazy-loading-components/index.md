@@ -1,31 +1,33 @@
 ---
-title: "CLS: The Hidden Cost of Lazy Loading Components"
-publishDate: "2022-03-15"
-description: "Lazy loadable components let you ship less JS, but make sure you don't pay the cost of CLS."
+title: "The Duality of CLS with Lazy Loading Components"
+publishDate: "2022-03-26"
+description: "Why lazy loadable components can cause CLS on slower connections and how to prevent it."
 keywords: "CLS, Cumulative Layout Shift, Core Web Vitals, lazy loading, async components"
-image: "cls-hidden-cost.png"
+image: "duality-of-CLS.png"
 series: "Optimising for Core Web Vitals"
 ---
 
-When you optimise your web app, your goal is to make the experience better for the user: Usually that means 'faster' by transfering less data. But for lazy-loading components you could shoot yourself in the foot.
-
-In this post I want to show you the pitfalls of lazy loading components so you don't have to pay the hidden cost with Cumulative Layout Shift (CLS).
+When you optimise your web app, your goal is to make the experience better for the user: That means usually 'faster' by transferring and parsing less data. But caution: The same web app can cause Cumulative Layout Shift (CLS) on slower connections but runs without CLS on faster connection.
 
 If you'd like a refresher about Core Web Vitals, I explained them with GIFs in [this post](https://wicki.io/posts/2021-07-core-web-vitals/).
 
 {{% stress %}}
-**TL;DR:** this can be caused by slow and unstable connections (mobile). either don't lazy load the component at all or await for the js file to be loaded, like you'd do with API requests, and mounted.
+**TL;DR:** slower connections _can_ result in CLS when lazy loading components that you wouldn't see on wifi connections.
+
+Either don't lazy load the component at all or await for the js file to be loaded and mounted.
 {{% /stress %}}
 
-## The problem with lazy loading components
+## The Duality
 
-{{< figure src="/posts/2022-03-hidden-cost-of-lazy-loading/CLS-caveat.gif" alt="CLS hidden cost: lazy loading components vs skeleton loading" caption="Wait for a lazy loaded component to be fully loaded before rendering: 0.144 CLS vs 0.0 CLS." >}}
+{{< figure src="/posts/2022-03-hidden-cost-of-lazy-loading/CLS-slow-vs-fast-connection.gif" caption="Slow vs fast connection: Same web app with different CLS." >}}
 
-You're right to think that cutting your web app up in smaller pieces will make it faster. But you can fall into a Core Web Vital trap if you don't know what you're doing.
+We assume that a web app loads the same on slower connections, just _slower_. Unfortunately that's not always the case with lazy loadable components.
 
-With lazy loading components you open the door to more asyncness. It's possible that you lazy load a component that sits in the middle of your web content. If that component gets loaded and rendered after the content underneath, then Google will punish you with CLS.
+With lazy loadable components we deal with two _asyncnesses_:
+1. async API responses (JSON)
+2. async lazy loading components (JS)
 
-**The evil thing**: The issue isn't always detectable. When you're using a stable connection or a desktop machine, it's very likely that JS files and components get loaded in one badge. That's why most CLS issues start appearing in the Mobile category of the Google Search Console.
+What if the API responses (1) are faster than the dynamically loaded JS (2)? What if you lazy load a component that sits in the middle of your web content? The answer to these questions you see in the screencapture above: Google will punish you with CLS.
 
 ## CLS measurement
 
@@ -50,11 +52,9 @@ That means you need to take the real world into account:
 
 ## Solutions
 
-We need to be in full control of what to display to the user at what time. That's why we need to know the following:
+We need to be in full control of what to display to the user at what time. With duality in mind, we need to know the following:
 * are API requests still loading?
-* are async components (aka lazy loadable) components still loading?
-
-If we check for these two things, we won't run into hidden CLS.
+* are async components components still loading?
 
 A skeleton loader is an ideal way to wait until both, API requests and async components, are ready.
 
@@ -98,11 +98,7 @@ If you come to the conclusion that your performance budget is tight and you need
 
 If your component isn't used for the majority of users and it would increase the bundle by a lot, have a look at this solution.
 
-Usually we wait for an API request to resolve, before we render anything. But when lazy loading components we face an additional async layer: The JS of the component. So overall we need to await for two things:
-1. async API requests to resolve
-2. async component JS files to load and mount
-
-The 2nd point from above can be tricky. You need to render the component but the mounting happens later.
+Wait for async components to be lazily loaded and mounted can be tricky. You need to render the component but the mounting happens later. Here's a gist of how it could be done.
 
 ```tsx {linenos=table}
 function Parent({ isLoggedIn }) {
@@ -141,12 +137,12 @@ function HugeComponent(props: { mounted: () => void }) {
 
 <br>
 
-If we didn't use `display: hidden` for the loading state on the `<HugeComponent>`, we'd never trigger the loading of the async loadable component. Thus Line 28 would never be reached and the `isLoading` state would stay on `false` forever. 
+If we didn't use `display: hidden` for the loading state on the `<HugeComponent>`, we'd never trigger the loading of the async component. Thus, Line 28 would never be reached and the `isLoading` state would stay on `false` forever. 
 
 ---
 
 ## Conclusion
 
-Some libraries evolve fast and others aren't there yet, e.g. incompatible with server side rendering. That's why the implementation details may differ, but the CLS caveats remain.
+When you lost green URLs in the [Google Search Console](https://search.google.com/search-console) due to CLS and you can't reproduce it yourself, try debugging your web app with a slower connection. 
 
-I hope I could give you a heads up how to not lose your green URLs on Google.
+So if you're using lazy loadable components, chances are high that might be a victim of the duality of CLS.
