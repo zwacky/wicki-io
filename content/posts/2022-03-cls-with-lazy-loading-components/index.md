@@ -45,7 +45,7 @@ CLS has the following characteristics:
 {{% stress %}}
 **Measurements by real users**: Chrome users send Core Web Vitals metrics to Google directly. It's not a Googlebot that captures these metrics while crawling the site.
 
-These real user measurements are collected as [Field Data](https://web.dev/lab-and-field-data-differences/#field-data) and fow into Google's [CrUX report](https://developers.google.com/web/tools/chrome-user-experience-report).
+These real user measurements are collected as [Field Data](https://web.dev/lab-and-field-data-differences/#field-data) and flow into Google's [CrUX report](https://developers.google.com/web/tools/chrome-user-experience-report).
 {{% /stress %}}
 
 That means you need to take the real world into account: 
@@ -64,7 +64,7 @@ A skeleton loader is an ideal way to wait until both, API requests and async com
 
 The quickest and least error prone solution would be to pass on lazy loading components. In most cases the saved kilobytes through lazy loading doesn't justify the CLS that it might cause. If your performance budget allows it, go with this solution.
 
-Let's assume we have a Vue web app with 10% logged-in users.
+Let's assume we have a web app with 10% logged-in users.
 
 ```tsx
 function render() {
@@ -75,7 +75,7 @@ function render() {
 }
 ```
 
-Without code splitting we'd send the JS of `<HugeComponent>` to 90% of the useres that don't need it. This can affect LCP and FID.
+Without code splitting we'd send the JS of `<HugeComponent>` to 90% of the users that don't need it. This can affect LCP and FID.
 
 With code splitting we'd pack the JS of `<HugeComponent>` into the additional-comps.js chunk and only send it over the wire when it's needed.
 
@@ -148,3 +148,9 @@ If we didn't use `display: hidden` for the loading state on the `<HugeComponent>
 When you lost green URLs in the [Google Search Console](https://search.google.com/search-console) due to CLS and you can't reproduce it yourself, try debugging your web app with a slower connection. 
 
 So if you're using lazy loadable components, chances are high that might be a victim of the duality of CLS.
+
+---
+
+If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
+<br /><br />
+{{< tweet 1508354371205185537 >}}
