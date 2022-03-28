@@ -149,8 +149,6 @@ When you lost green URLs in the [Google Search Console](https://search.google.co
 
 So if you're using lazy loadable components, chances are high that might be a victim of the duality of CLS.
 
----
-
 If you found this post interesting please leave a ❤️ on this tweet and consider following my 🎢 journey about #webperf, #buildinpublic and #frontend matters [on Twitter](https://twitter.com/zwacky).
 <br /><br />
 {{< tweet 1508354371205185537 >}}
